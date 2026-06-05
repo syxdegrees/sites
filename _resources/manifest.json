@@ -9,6 +9,14 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "wireframe",
+      "slug": "hero-split-text-left-dual-images",
+      "name": "Hero — Split: Text Left, Dual Images Right",
+      "path": "wireframes/hero-split-text-left-dual-images.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "mockup",
       "slug": "shinebox-ghostwriting-hero",
       "name": "ShineBox Ghostwriting Hero",
@@ -17,10 +25,26 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "mockup",
+      "slug": "big-little-voices-hero",
+      "name": "Big Little Voices Hero",
+      "path": "mockups/big-little-voices-hero.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "color-palette",
       "slug": "shinebox-brand-colors",
       "name": "ShineBox Brand Colors",
       "path": "color-palettes/shinebox-brand-colors.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "color-palette",
+      "slug": "big-little-voices-brand-colors",
+      "name": "Big Little Voices Brand Colors",
+      "path": "color-palettes/big-little-voices-brand-colors.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
@@ -34,6 +58,14 @@
     },
     {
       "type": "component",
+      "slug": "pill-cta-button-green",
+      "name": "Pill CTA Button (Green)",
+      "path": "components/pill-cta-button-green.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
       "slug": "stat-badge-circle",
       "name": "Stat Badge (Circle)",
       "path": "components/stat-badge-circle.md",
@@ -42,9 +74,25 @@
     },
     {
       "type": "component",
+      "slug": "stat-badge-rounded-rect",
+      "name": "Stat Badge (Rounded Rectangle)",
+      "path": "components/stat-badge-rounded-rect.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
       "slug": "results-bar-dark",
       "name": "Results Bar (Dark)",
       "path": "components/results-bar-dark.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "results-pills-row",
+      "name": "Results Pills Row",
+      "path": "components/results-pills-row.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
