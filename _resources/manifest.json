@@ -1,0 +1,44 @@
+{
+  "resources": [
+    {
+      "type": "brand",
+      "slug": "modern-minimal",
+      "name": "Modern Minimal",
+      "path": "brand/fallbacks/modern-minimal.md",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03"
+    },
+    {
+      "type": "brand",
+      "slug": "bold-vibrant",
+      "name": "Bold & Vibrant",
+      "path": "brand/fallbacks/bold-vibrant.md",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03"
+    },
+    {
+      "type": "brand",
+      "slug": "warm-editorial",
+      "name": "Warm Editorial",
+      "path": "brand/fallbacks/warm-editorial.md",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03"
+    },
+    {
+      "type": "brand",
+      "slug": "corporate-clean",
+      "name": "Corporate Clean",
+      "path": "brand/fallbacks/corporate-clean.md",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03"
+    },
+    {
+      "type": "brand",
+      "slug": "playful-fun",
+      "name": "Playful & Fun",
+      "path": "brand/fallbacks/playful-fun.md",
+      "created_at": "2026-06-03",
+      "updated_at": "2026-06-03"
+    }
+  ]
+}
