@@ -10,10 +10,10 @@
            font-size: 14px; background: #f4f4f5; color: #18181b; padding: 32px; }
     h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
     .subtitle { font-size: 13px; color: #71717a; margin-bottom: 36px; }
-    .section-header { font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
-                      text-transform: uppercase; color: #71717a; margin: 36px 0 12px;
-                      padding-bottom: 6px; border-bottom: 2px solid #e4e4e7; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, 420px); gap: 16px; }
+    .section-header { grid-column: 1 / -1; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+                      text-transform: uppercase; color: #71717a; margin-top: 24px;
+                      padding-bottom: 6px; border-bottom: 2px solid #e4e4e7; }
     .card { width: 420px; overflow: hidden; background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 20px; }
     .mockup-card { width: 420px; overflow: hidden; background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 0; }
     .card-title { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
@@ -55,11 +55,12 @@
 </head>
 <body>
   <h1>Site Resources</h1>
-  <div class="subtitle">21 components &nbsp;·&nbsp; Last updated 2026-06-05</div>
+  <div class="subtitle">27 components &nbsp;·&nbsp; Last updated 2026-06-05</div>
+
+  <div class="grid">
 
   <!-- WIREFRAMES -->
-  <div class="section-header">Wireframes &nbsp;(3)</div>
-  <div class="grid">
+  <div class="section-header">Wireframes &nbsp;(4)</div>
 
     <div class="card">
       <span class="type-badge wireframe">wireframe</span>
@@ -140,8 +141,6 @@
       </div>
     </div>
 
-  </div>
-
     <div class="card">
       <span class="type-badge wireframe">wireframe</span>
       <div class="card-title">Hero — Full Bleed Image with Overlay Bar</div>
@@ -178,11 +177,43 @@
       </div>
     </div>
 
-  </div>
+    <div class="card">
+      <span class="type-badge wireframe">wireframe</span>
+      <div class="card-title">Hero — Bento Split: Gradient Card Left, Image Right</div>
+      <div class="card-slug">hero-bento-split-gradient-image</div>
+      <div class="card-meta">Pages: homepage &nbsp;·&nbsp; Nav: static (full-width dark bar)</div>
+      <div class="wireframe-ascii">┌─────────────────────────────────────────────────┐
+│████ LOGO  link link link link  [CTA BTN →] ████│  ← dark nav
+├────────────────────────┬────────────────────────┤
+│ ╭──────────────────╮   │                        │
+│ │  HEADLINE LINE 1 │   │                        │
+│ │  HEADLINE LINE 2 │   │    HERO IMAGE          │
+│ │  HEADLINE LINE 3 │   │    (right half,        │
+│ │                  │   │     full height)       │
+│ │  subheadline     │   │                        │
+│ │  2–3 lines       │   ├────────────────────────┤
+│ │  [ CTA BTN → ]   │   │ ✓ Result ✓ Result ✓ R │
+│ ╰──────────────────╯   └────────────────────────┘
+├────────────────────────┤
+│ 😊😊😊 ★★★★★ 300+      │
+└────────────────────────┘</div>
+      <div class="section-block"><span class="section-order">1</span><span class="section-zone">nav</span><span class="section-notes">Full-width dark bar spanning both columns</span></div>
+      <div class="section-block"><span class="section-order">2</span><span class="section-zone">gradient-card</span><span class="section-notes">Rounded rect, brand gradient fill; headline + subheadline + CTA; left-aligned</span></div>
+      <div class="section-block"><span class="section-order">3</span><span class="section-zone">hero-image</span><span class="section-notes">Full-height photo, right half; portrait/square crop</span></div>
+      <div class="section-block"><span class="section-order">4</span><span class="section-zone">results-bar</span><span class="section-notes">Accent color bar anchored to image bottom; 3 outcomes</span></div>
+      <div class="section-block"><span class="section-order">5</span><span class="section-zone">social-proof-row</span><span class="section-notes">Light strip below gradient card; avatars + stars + count</span></div>
+      <hr class="divider">
+      <div style="font-size:12px;color:#52525b;">Max width: full viewport &nbsp;·&nbsp; Columns: 2 equal &nbsp;·&nbsp; Sidebar: no</div>
+      <div style="font-size:11px;color:#71717a;font-style:italic;margin-top:6px;">Mobile: gradient card full-width top, image below, social proof between</div>
+      <div style="margin-top:10px;">
+        <div class="warning-item">Gradient card is a CONTAINED rounded box — not full-bleed background</div>
+        <div class="warning-item">Left column = gradient card + social proof strip (two stacked zones)</div>
+        <div class="warning-item">Headline: short, punchy, heavy weight — impact style, not refined</div>
+      </div>
+    </div>
 
   <!-- MOCKUPS -->
-  <div class="section-header">Mockups &nbsp;(3)</div>
-  <div class="grid">
+  <div class="section-header">Mockups &nbsp;(4)</div>
 
     <div class="mockup-card">
       <div style="padding:16px 20px 12px;">
@@ -273,8 +304,6 @@
       </div>
     </div>
 
-  </div>
-
     <div class="mockup-card">
       <div style="padding:16px 20px 12px;">
         <span class="type-badge mockup">mockup</span>
@@ -324,11 +353,61 @@
       </div>
     </div>
 
-  </div>
+    <div class="mockup-card">
+      <div style="padding:16px 20px 12px;">
+        <span class="type-badge mockup">mockup</span>
+        <div class="card-title">Kneeler Fitness Hero</div>
+        <div class="card-slug">kneeler-fitness-hero</div>
+        <div class="card-meta">Based on: hero-bento-split-gradient-image &nbsp;·&nbsp; Source: screenshot</div>
+      </div>
+      <!-- Full dark nav -->
+      <div style="background:#0f0f0f; border-top:1px solid #222; padding:7px 16px; display:flex; align-items:center; justify-content:space-between;">
+        <div style="font-size:10px; font-weight:800; color:#fff;">⚡ Kneeler<br><span style="font-weight:400; font-size:8px;">Fitness</span></div>
+        <div style="font-size:8px; color:rgba(255,255,255,0.8);">About Us &nbsp; Success Stories &nbsp; Pricing &nbsp; FAQs</div>
+        <button style="background:#7c3aed;color:#fff;border:none;border-radius:9999px;padding:4px 10px;font-size:8px;cursor:default;font-family:inherit;">SCHEDULE YOUR FREE SESSION →</button>
+      </div>
+      <!-- Two-column hero -->
+      <div style="display:flex; background:#0f0f0f; padding:12px; gap:10px; border-bottom:1px solid #e4e4e7;">
+        <!-- Left: gradient card + social proof -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:8px; min-width:0;">
+          <!-- Gradient card -->
+          <div style="background:linear-gradient(135deg,#f97316,#c026d3,#7c3aed); border-radius:14px; padding:16px;">
+            <div style="font-size:13px; font-weight:900; color:#fff; line-height:1.15; margin-bottom:8px; letter-spacing:0.01em;">GET STRONG.<br>STAY SHARP.<br>OWN YOUR POWER.</div>
+            <div style="font-size:8px; color:rgba(255,255,255,0.9); line-height:1.5; margin-bottom:10px;"><strong>This is for the ones who want more than just a workout.</strong> You want to move better, feel unstoppable. <strong>Let's build a body that backs you up.</strong></div>
+            <button style="background:#0f0f0f;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:8px;cursor:default;font-family:inherit;font-weight:700;">SCHEDULE YOUR FREE SESSION →</button>
+          </div>
+          <!-- Social proof row -->
+          <div style="background:#fff; border-radius:10px; padding:8px 12px; display:flex; align-items:center; gap:8px;">
+            <div style="display:flex;">
+              <div style="width:22px;height:22px;border-radius:50%;background:#8a7a6a;border:2px solid #fff;margin-right:-6px;"></div>
+              <div style="width:22px;height:22px;border-radius:50%;background:#6a5a4a;border:2px solid #fff;margin-right:-6px;"></div>
+              <div style="width:22px;height:22px;border-radius:50%;background:#4a3a2a;border:2px solid #fff;"></div>
+            </div>
+            <div style="margin-left:4px;">
+              <div style="font-size:10px; color:#f59e0b;">★★★★½</div>
+              <div style="font-size:8px; color:#333;">Over <strong>300 Clients Strong</strong> — and Counting</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: image + results bar -->
+        <div style="flex:1; display:flex; flex-direction:column; min-width:0; border-radius:12px; overflow:hidden;">
+          <div style="flex:1; background:linear-gradient(180deg,#4a5a6a 0%,#2a3a4a 100%); display:flex; align-items:center; justify-content:center; min-height:120px;">
+            <div style="font-size:8px; color:rgba(255,255,255,0.4); font-style:italic;">gym — client in tank top</div>
+          </div>
+          <div style="background:#7c3aed; padding:7px 12px; display:flex; justify-content:space-around;">
+            <span style="color:#fff; font-size:7px; font-weight:600;">✓ Increased <strong>Strength</strong></span>
+            <span style="color:#fff; font-size:7px; font-weight:600;">✓ More <strong>Energy</strong></span>
+            <span style="color:#fff; font-size:7px; font-weight:600;">✓ Lasting <strong>Confidence</strong></span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:10px 20px; font-size:11px; color:#b45309; background:#fffbeb;">
+        All hex values approximate — confirm from source brand assets
+      </div>
+    </div>
 
   <!-- COLOR PALETTES -->
-  <div class="section-header">Color Palettes &nbsp;(3)</div>
-  <div class="grid">
+  <div class="section-header">Color Palettes &nbsp;(4)</div>
 
     <div class="card">
       <span class="type-badge color-palette">color-palette</span>
@@ -374,8 +453,6 @@
       </div>
     </div>
 
-  </div>
-
     <div class="card">
       <span class="type-badge color-palette">color-palette</span>
       <div class="card-title">Ramora Brand Colors</div>
@@ -400,11 +477,31 @@
       </div>
     </div>
 
-  </div>
+    <div class="card">
+      <span class="type-badge color-palette">color-palette</span>
+      <div class="card-title">Kneeler Fitness Brand Colors</div>
+      <div class="card-slug">kneeler-fitness-brand-colors</div>
+      <div class="card-meta">Source: screenshot</div>
+      <div class="swatches">
+        <div class="swatch-wrap"><div class="swatch" style="background:#0f0f0f;"></div><div class="swatch-label">bg/nav ~approx</div></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#f97316;"></div><div class="swatch-label">gradient start ~approx</div></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#7c3aed;"></div><div class="swatch-label">gradient end / CTA ~approx</div></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#ffffff; border:1px solid #e4e4e7;"></div><div class="swatch-label">text #ffffff</div></div>
+        <div class="swatch-wrap"><div class="swatch" style="background:#f59e0b;"></div><div class="swatch-label">stars ~approx</div></div>
+      </div>
+      <div style="font-size:11px;color:#b45309;background:#fffbeb;padding:6px 8px;border-radius:4px;margin-bottom:10px;">
+        All hex values approximate — confirm from source brand assets
+      </div>
+      <div style="font-size:12px;color:#52525b;line-height:1.7;">
+        Near-black = nav + page bg — unified dark frame<br>
+        Orange → purple gradient = left card fill<br>
+        Purple = reused in nav CTA + results bar<br>
+        Orange = logo bolt only + gradient start
+      </div>
+    </div>
 
   <!-- COMPONENTS -->
-  <div class="section-header">Components &nbsp;(9)</div>
-  <div class="grid">
+  <div class="section-header">Components &nbsp;(12)</div>
 
     <div class="card">
       <span class="type-badge component">component &nbsp;·&nbsp; button</span>
@@ -528,8 +625,6 @@
       </div>
     </div>
 
-  </div>
-
     <div class="card">
       <span class="type-badge component">component &nbsp;·&nbsp; button</span>
       <div class="card-title">Pill CTA Button (Pink/Magenta)</div>
@@ -605,9 +700,73 @@
       </div>
     </div>
 
+    <div class="card">
+      <span class="type-badge component">component &nbsp;·&nbsp; hero-element</span>
+      <div class="card-title">Gradient Card (Left Panel)</div>
+      <div class="card-slug">gradient-card-left-panel</div>
+      <div class="card-meta">Source: screenshot</div>
+      <div style="margin-bottom:14px;">
+        <div style="background:linear-gradient(135deg,#f97316,#c026d3,#7c3aed); border-radius:14px; padding:16px;">
+          <div style="font-size:14px; font-weight:900; color:#fff; line-height:1.2; margin-bottom:6px;">GET STRONG.<br>STAY SHARP.<br>OWN YOUR POWER.</div>
+          <div style="font-size:9px; color:rgba(255,255,255,0.9); line-height:1.5; margin-bottom:10px;">Short punchy subheadline with <strong>selective bold</strong> on key phrases.</div>
+          <button style="background:#0f0f0f;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:9px;cursor:default;font-family:inherit;">CTA BUTTON →</button>
+        </div>
+      </div>
+      <hr class="divider">
+      <div style="font-size:11px;color:#71717a;line-height:1.7;">
+        Contained rounded box — NOT full-bleed; visible gap from column edges<br>
+        Brand gradient fill; all content left-aligned inside<br>
+        Works for fitness, coaching, high-energy service brands
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="type-badge component">component &nbsp;·&nbsp; button</span>
+      <div class="card-title">CTA Button with Arrow (Dark)</div>
+      <div class="card-slug">cta-button-arrow-dark</div>
+      <div class="card-meta">Source: screenshot</div>
+      <div style="margin-bottom:14px;">
+        <button style="background:#0f0f0f;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:default;font-family:inherit;letter-spacing:0.03em;">SCHEDULE YOUR FREE SESSION →</button>
+      </div>
+      <div style="font-size:12px;color:#52525b;line-height:1.6;margin-bottom:10px;">
+        Rounded rectangle (not pill) &nbsp;·&nbsp; Dark fill &nbsp;·&nbsp; White text + → arrow
+      </div>
+      <hr class="divider">
+      <div style="font-size:11px;color:#71717a;line-height:1.7;">
+        Use on gradient/colored card backgrounds where light button disappears<br>
+        Arrow signals forward momentum — suits action-oriented brands<br>
+        More direct/serious than pill shape
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="type-badge component">component &nbsp;·&nbsp; social-proof</span>
+      <div class="card-title">Social Proof Row (Inline)</div>
+      <div class="card-slug">social-proof-row-inline</div>
+      <div class="card-meta">Source: screenshot</div>
+      <div style="margin-bottom:14px;">
+        <div style="background:#fff; border-radius:10px; border:1px solid #e4e4e7; padding:10px 14px; display:flex; align-items:center; gap:10px;">
+          <div style="display:flex;">
+            <div style="width:28px;height:28px;border-radius:50%;background:#8a7a6a;border:2px solid #fff;margin-right:-8px;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#6a5a4a;border:2px solid #fff;margin-right:-8px;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#4a3a2a;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+          </div>
+          <div style="margin-left:6px;">
+            <div style="font-size:12px; color:#f59e0b;">★★★★½</div>
+            <div style="font-size:11px; color:#333;">Over <strong>300 Clients Strong</strong> — and Counting</div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div style="font-size:11px;color:#71717a;line-height:1.7;">
+        Light background strip — sits below the gradient card, not inside a dark bar<br>
+        Social proof only (no outcomes) — contrast with bottom-bar-results-social-proof<br>
+        Works in bento-split and text-above-image column layouts
+      </div>
+    </div>
+
   <!-- CONTENT BLOCKS -->
   <div class="section-header">Content Blocks &nbsp;(1)</div>
-  <div class="grid">
 
     <div class="card">
       <span class="type-badge content-block">content-block &nbsp;·&nbsp; hero</span>
@@ -633,11 +792,8 @@
       </div>
     </div>
 
-  </div>
-
   <!-- IMAGE STYLE GUIDES -->
   <div class="section-header">Image Style Guides &nbsp;(1)</div>
-  <div class="grid">
 
     <div class="card">
       <span class="type-badge image-style-guide">image-style-guide</span>

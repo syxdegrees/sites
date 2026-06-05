@@ -27,9 +27,16 @@ source: screenshot
 - Examples: "✓ More Clients", "✓ Clear Authority", "✓ Bigger Opportunities"
 - Wrong usage: "✓ 10 Years Experience", "✓ Free Consultation", "✓ Fast Turnaround"
 
+## Color Variants
+The background color can be swapped to any dark or saturated brand color — the structure stays the same:
+- **Near-black** (ShineBox) — neutral, works with any brand
+- **Purple/Magenta** (Kneeler Fitness) — uses brand accent color for energy and consistency with CTA button
+- **Dark Forest Green** (Ramora) — used as bottom-bar-results-social-proof variant on that layout
+
 ## Color Values
 | Element | Color | Hex |
 |---------|-------|-----|
-| background | Near-black | # NEEDS CONFIRMATION |
+| background | Brand dark or accent color | # NEEDS CONFIRMATION per brand |
 | text | White | #ffffff |
+| checkmark/icon | White or gold | # NEEDS CONFIRMATION per brand |
 | border | None | — |

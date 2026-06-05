@@ -25,6 +25,14 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "wireframe",
+      "slug": "hero-bento-split-gradient-image",
+      "name": "Hero — Bento Split: Gradient Card Left, Image Right",
+      "path": "wireframes/hero-bento-split-gradient-image.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "mockup",
       "slug": "shinebox-ghostwriting-hero",
       "name": "ShineBox Ghostwriting Hero",
@@ -45,6 +53,14 @@
       "slug": "ramora-landscape-hero",
       "name": "Ramora Landscape Design Hero",
       "path": "mockups/ramora-landscape-hero.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "mockup",
+      "slug": "kneeler-fitness-hero",
+      "name": "Kneeler Fitness Hero",
+      "path": "mockups/kneeler-fitness-hero.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
@@ -73,6 +89,14 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "color-palette",
+      "slug": "kneeler-fitness-brand-colors",
+      "name": "Kneeler Fitness Brand Colors",
+      "path": "color-palettes/kneeler-fitness-brand-colors.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "component",
       "slug": "pill-cta-button-purple",
       "name": "Pill CTA Button (Purple)",
@@ -93,6 +117,14 @@
       "slug": "pill-cta-button-pink",
       "name": "Pill CTA Button (Pink/Magenta)",
       "path": "components/pill-cta-button-pink.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "cta-button-arrow-dark",
+      "name": "CTA Button with Arrow (Dark)",
+      "path": "components/cta-button-arrow-dark.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
@@ -141,6 +173,22 @@
       "slug": "avatar-stack-star-rating",
       "name": "Avatar Stack + Star Rating",
       "path": "components/avatar-stack-star-rating.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "gradient-card-left-panel",
+      "name": "Gradient Card (Left Panel)",
+      "path": "components/gradient-card-left-panel.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "social-proof-row-inline",
+      "name": "Social Proof Row (Inline)",
+      "path": "components/social-proof-row-inline.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
