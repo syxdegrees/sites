@@ -17,6 +17,14 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "wireframe",
+      "slug": "hero-full-bleed-overlay-box",
+      "name": "Hero — Full Bleed Image with Overlay Bar",
+      "path": "wireframes/hero-full-bleed-overlay-box.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "mockup",
       "slug": "shinebox-ghostwriting-hero",
       "name": "ShineBox Ghostwriting Hero",
@@ -29,6 +37,14 @@
       "slug": "big-little-voices-hero",
       "name": "Big Little Voices Hero",
       "path": "mockups/big-little-voices-hero.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "mockup",
+      "slug": "ramora-landscape-hero",
+      "name": "Ramora Landscape Design Hero",
+      "path": "mockups/ramora-landscape-hero.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
@@ -49,6 +65,14 @@
       "updated_at": "2026-06-05"
     },
     {
+      "type": "color-palette",
+      "slug": "ramora-brand-colors",
+      "name": "Ramora Brand Colors",
+      "path": "color-palettes/ramora-brand-colors.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
       "type": "component",
       "slug": "pill-cta-button-purple",
       "name": "Pill CTA Button (Purple)",
@@ -61,6 +85,14 @@
       "slug": "pill-cta-button-green",
       "name": "Pill CTA Button (Green)",
       "path": "components/pill-cta-button-green.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "pill-cta-button-pink",
+      "name": "Pill CTA Button (Pink/Magenta)",
+      "path": "components/pill-cta-button-pink.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },
@@ -93,6 +125,22 @@
       "slug": "results-pills-row",
       "name": "Results Pills Row",
       "path": "components/results-pills-row.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "bottom-bar-results-social-proof",
+      "name": "Bottom Bar — Results + Social Proof",
+      "path": "components/bottom-bar-results-social-proof.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "avatar-stack-star-rating",
+      "name": "Avatar Stack + Star Rating",
+      "path": "components/avatar-stack-star-rating.md",
       "created_at": "2026-06-05",
       "updated_at": "2026-06-05"
     },

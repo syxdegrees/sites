@@ -27,6 +27,15 @@ name: Service Business Hero Images
 - Both should use matching crop style (both oval, both square, etc.) for visual consistency
 - Mobile: show only the primary image; drop the secondary
 
+## Full-Bleed Image Layout Notes (hero-full-bleed-overlay-box)
+- Use physical spaces, not people — the space IS the product (landscaping, interior design, construction, event venues)
+- Image should be rich, detailed, and aspirational — the viewer should want to be there
+- Avoid images with a prominent person's face in the center — text will overlay it
+- Warm golden-hour lighting works exceptionally well — adds aspiration and warmth
+- Dark overlay (40–60% opacity) is non-negotiable — apply it even to already-dark images
+- Choose images with a natural dark zone (shadowed area, sky, foliage) where the headline sits
+- Full viewport width and height — do not crop or contain; let it bleed to all edges
+
 ## Do / Don't
 - Do: show the client outcome visually (book in hand, speaking on stage, finished project)
 - Do: use images with good tonal range so stat badge and results bar remain readable
