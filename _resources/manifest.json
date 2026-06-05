@@ -1,44 +1,68 @@
 {
   "resources": [
     {
-      "type": "brand",
-      "slug": "modern-minimal",
-      "name": "Modern Minimal",
-      "path": "brand/fallbacks/modern-minimal.md",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-06-03"
+      "type": "wireframe",
+      "slug": "hero-text-above-image",
+      "name": "Hero — Text Above Image",
+      "path": "wireframes/hero-text-above-image.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
     },
     {
-      "type": "brand",
-      "slug": "bold-vibrant",
-      "name": "Bold & Vibrant",
-      "path": "brand/fallbacks/bold-vibrant.md",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-06-03"
+      "type": "mockup",
+      "slug": "shinebox-ghostwriting-hero",
+      "name": "ShineBox Ghostwriting Hero",
+      "path": "mockups/shinebox-ghostwriting-hero.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
     },
     {
-      "type": "brand",
-      "slug": "warm-editorial",
-      "name": "Warm Editorial",
-      "path": "brand/fallbacks/warm-editorial.md",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-06-03"
+      "type": "color-palette",
+      "slug": "shinebox-brand-colors",
+      "name": "ShineBox Brand Colors",
+      "path": "color-palettes/shinebox-brand-colors.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
     },
     {
-      "type": "brand",
-      "slug": "corporate-clean",
-      "name": "Corporate Clean",
-      "path": "brand/fallbacks/corporate-clean.md",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-06-03"
+      "type": "component",
+      "slug": "pill-cta-button-purple",
+      "name": "Pill CTA Button (Purple)",
+      "path": "components/pill-cta-button-purple.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
     },
     {
-      "type": "brand",
-      "slug": "playful-fun",
-      "name": "Playful & Fun",
-      "path": "brand/fallbacks/playful-fun.md",
-      "created_at": "2026-06-03",
-      "updated_at": "2026-06-03"
+      "type": "component",
+      "slug": "stat-badge-circle",
+      "name": "Stat Badge (Circle)",
+      "path": "components/stat-badge-circle.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "component",
+      "slug": "results-bar-dark",
+      "name": "Results Bar (Dark)",
+      "path": "components/results-bar-dark.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "content-block",
+      "slug": "hero-headline-subheadline",
+      "name": "Hero Headline + Subheadline Pattern",
+      "path": "content-blocks/hero-headline-subheadline.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
+    },
+    {
+      "type": "image-style-guide",
+      "slug": "service-business-hero",
+      "name": "Service Business Hero Images",
+      "path": "image-style-guides/service-business-hero.md",
+      "created_at": "2026-06-05",
+      "updated_at": "2026-06-05"
     }
   ]
 }
