@@ -98,9 +98,36 @@ maps the two together.
 - The Home page's specific section stack — to be provided by the owner before the first
   wireframe is built.
 
+## First wireframe — `local-direct-response-control`
+
+Built as HTML (Figma blocked by the free-plan seat — see below), in
+`sites/local-direct-response-control/`:
+
+- `_temp/local-direct-response-control.html` — the wireframe (15 sections, structural
+  only), wireframe-left / numbered-notes-right.
+- `instructions.md` — per-section content instructions: what goes in each slot and how to
+  write/choose it. Hero's Journey framing primary, supplemented from the "perfect
+  homepage" Notion transcript.
+- `asset-list.md` — required-inputs checklist: typography roles, color tokens, logos,
+  images (with dimensions/AR/treatment), icons, embeds, content data.
+
+All three files cross-reference by **section slug**:
+`header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof ·
+speed-to-results · offer · faq · features · final-cta · footer`.
+
+The intended build flow: pick this template → external files (brand style guide, sitemap,
+content brief) reference `instructions.md` for what to produce and `asset-manifest.md` for
+the specs → assets get created → page is assembled to the wireframe structure.
+
+## Note on tooling
+
+Figma MCP write access (`use_figma`) requires a paid Figma plan; the current
+Syx Creative plan is free ("View" seat), so wireframes are authored as self-contained
+HTML in the repo instead. Revisit porting to Figma if the plan is upgraded.
+
 ## Open Items
 
-- [ ] Owner to provide the Home page section stack (top-to-bottom) for the first wireframe.
-- [ ] Decide canvas conventions once building starts: frame width for wireframes, spacing
-      between frame and its notes panel, marker placement corner, notes panel width.
-- [ ] Name the first wireframe style file.
+- [ ] Decide whether the wireframe stays in `_temp/` or moves to a permanent location in
+      the folder.
+- [ ] Additional page-type wireframes (interior, listing, detail, contact, blog) — build
+      per style as sitemaps require them.
