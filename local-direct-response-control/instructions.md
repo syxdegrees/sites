@@ -57,6 +57,44 @@ cleanly.
 - **Do real client research before writing** the Problem, Cost-of-DIY, Proof, and FAQ
   sections — name the *right* pain and the *real* objections, not assumed ones.
 
+## Buttons & CTAs
+
+Every button on the page is one of two kinds. Both follow the same visual rules; the text
+and behavior differ. Referenced from `header`, `hero`, `plan`, `offer`, `final-cta`, and
+`footer`.
+
+**All buttons**
+
+- **Prominent by default.** A button must read as the most clickable thing in its section:
+  large tap target (minimum 44px height on mobile), generous padding, not visually
+  competing with nearby text links.
+- **Contrasting color.** The primary CTA uses the highest-contrast pair on the page
+  (`--cta-primary-bg` / `--cta-primary-text`). The secondary CTA is visibly quieter
+  (outline / ghost) but still unmistakably a button. Don't rely on color alone — weight
+  and shape also signal "button."
+- **Button text is the CTA itself** — the specific next action. Never a generic label:
+  no "Submit", "Contact us", "Learn more", "Click here".
+
+**Kind 1 — Click-to-call / click-to-text** (phone-number buttons — mainly `header` and
+`footer`)
+
+- Mark up as `<a href="tel:5555555555">` for calling and/or `<a href="sms:5555555555">`
+  for texting — click-to-call / click-to-SMS enabled on every device, not just mobile.
+  Example: `<a href="tel:5555555555">Call or Text Us at 555-555-5555</a>`.
+- **Button text = a CTA + the phone number**, e.g. "Call or Text Us at (555) 555-5555".
+- Use the project's assigned **tracking / call-tracking number**, not the raw business
+  line, so calls are attributable. The visible number and the `href` digits must match
+  that tracking number.
+
+**Kind 2 — Link to a webform or another page** (`hero`, `plan`, `offer`, `final-cta`, and
+all secondary CTAs)
+
+- Standard `<a href="/path">` to the form page, booking page, or an on-page section
+  anchor.
+- **Button text = the CTA** — what happens when they land there: "Book Your Free
+  Consultation", "Get My Quote", "See How It Works". It should set the expectation for
+  the page on the other side.
+
 ---
 
 ## 1. `header` — Header / Nav
@@ -70,9 +108,11 @@ cleanly.
   needs, not by org chart. Typical: Services, About, Results/Proof, Contact. Pull the
   exact set from the project sitemap.
 - **Persistent primary CTA button** (far right) — the *same* wording as the hero's
-  primary CTA (e.g. "Book your free consultation"). Never "Contact us" / "Learn more".
+  primary CTA (e.g. "Book your free consultation"). Follows "Buttons & CTAs" above
+  (Kind 2).
 - **Phone number slot** (optional, beside the CTA) — include for local-service
-  businesses where a call is a real conversion path. Click-to-call on mobile.
+  businesses where a call is a real conversion path. Follows "Buttons & CTAs" above
+  (Kind 1) — click-to-call / click-to-text, tracking number, CTA + number as the text.
 - **Mobile:** logo + hamburger. The CTA (or the phone number) stays visible without
   opening the menu.
 
@@ -110,12 +150,12 @@ not load time. Message clarity is the priority over everything else in this sect
      installation in three weeks."
 
 4. **Primary CTA button** — specific about **what happens next**. "Book your free design
-   consultation", "Get my free quote", "Claim your spot". Never "Submit", "Contact us",
-   "Learn more".
+   consultation", "Get my free quote", "Claim your spot". Follows "Buttons & CTAs" above
+   (usually Kind 2; Kind 1 if the primary action is a call).
 
 5. **Secondary CTA button** — a lower-commitment path for visitors not ready for the
    primary action: "See how it works", "View past projects", "Watch the 2-min overview".
-   Visually quieter than the primary (outline / ghost).
+   Visually quieter than the primary (outline / ghost). Follows "Buttons & CTAs" above.
 
 6. **Social-proof row, directly below the CTAs** — before any scroll. Either:
    - a few customer photos with a line like "Join 500+ happy homeowners", or
@@ -356,7 +396,8 @@ risk. Strip the risk out so saying yes is easy.
   One line.
 - **Urgency slot** (optional) — only if genuine: a real deadline, a real capacity cap
   ("we take 6 clients per quarter — 2 spots left"). Never fake scarcity.
-- **One primary CTA button.** No secondary CTA here — a single action only.
+- **One primary CTA button.** No secondary CTA here — a single action only. Follows
+  "Buttons & CTAs" above.
 
 ---
 
@@ -409,9 +450,9 @@ This is the "tech specs" list — everything they concretely get.
 - **Restated headline** — a version of "Ready to get started?", made **specific to their
   dream outcome** ("Ready for the kitchen you've been putting off?").
 - **One supporting reassurance line** — echoes the offer's low-risk framing.
-- **Primary CTA** — identical wording to the hero's primary.
+- **Primary CTA** — identical wording to the hero's primary. Follows "Buttons & CTAs".
 - **Secondary CTA** (optional) — quieter; the same low-commitment path as the hero's
-  secondary.
+  secondary. Follows "Buttons & CTAs".
 
 ---
 
@@ -427,8 +468,10 @@ listed below.
 - **Company logo**, vertically aligned (logo stacked above the citation).
 - **NAP citation block** — business **N**ame, street **A**ddress, city/state/zip,
   **P**hone. This must match the Google Business Profile **exactly** — same formatting,
-  same suite number, same phone — for local-SEO citation consistency.
-- **Business email.**
+  same suite number, same phone — for local-SEO citation consistency. Render the phone as
+  a click-to-call / click-to-text link per "Buttons & CTAs" (Kind 1). The NAP phone is
+  the **real business number**, not a tracking number — citation consistency requires it.
+- **Business email** — as a `mailto:` link.
 - **Social media links** — only the platforms the business actually maintains. Don't link
   a dead profile.
 
@@ -446,11 +489,12 @@ listed below.
 - **Embedded live Google Map** centered on the business location.
 - **Office hours** beneath the map.
 - **"Visit Our Google Business Profile" button** beneath the hours — exact button text,
-  small style.
+  small style. Links to the public GBP URL (Kind 2).
 
 **Bottom bar** (single row; stacks on mobile)
 
 - **© copyright line** (left) — "© [year] [Business Name]. All rights reserved."
-- **Primary + secondary CTA** (center) — small; same wording as the hero.
+- **Primary + secondary CTA** (center) — small; same wording as the hero. Follow
+  "Buttons & CTAs".
 - **Legal menu** (right) — Privacy · Terms · Disclaimers, plus similar items as needed
   (Accessibility, Sitemap).

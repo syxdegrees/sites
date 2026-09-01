@@ -160,7 +160,8 @@ and an accordion chevron.
 | `footer` | Embedded Google Map | Google Maps **embed URL / place ID** for the business location. | `instructions.md` §`footer` |
 | `footer` | Google Business Profile | Public **GBP URL** for the "Visit Our Google Business Profile" button (exact button text, small style, sits below office hours). | `instructions.md` §`footer` |
 | `proof` | Review-site profiles *(optional)* | Public URLs for Google / Yelp / industry review profiles. | `instructions.md` §`proof` |
-| `header` / `footer` | Click-to-call | Business phone number in `tel:` format. | `instructions.md` §`header` |
+| `header`, `hero` | **Tracking / call-tracking number** | The attributable phone number for the click-to-call / click-to-text CTA buttons, in `tel:` (and `sms:` if click-to-text is offered) format. **Not** the raw business line. | `instructions.md` — "Buttons & CTAs" (Kind 1) |
+| `footer` | **Real business phone number** | The genuine business line for the NAP citation block, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — do **not** substitute the tracking number here. | `instructions.md` §`footer` |
 
 ---
 
@@ -176,8 +177,9 @@ and an accordion chevron.
 | `footer` | **Menu 1 links** | About · Team · Contact · Careers (or sitemap equivalents) — label + URL each. |
 | `footer` | **Menu 2 links** | Services · Locations · Estimate · FAQs (or sitemap equivalents) — label + URL each. |
 | `footer` | **Legal links** | Privacy · Terms · Disclaimers (+ Accessibility / Sitemap if applicable) — label + URL each. |
-| all CTAs | **Primary CTA — label + destination** | One string, reused verbatim in `header`, `hero`, `plan` step 1, `offer`, `final-cta`, `footer`. Must state what happens next; never "Contact us" / "Learn more". |
-| all CTAs | **Secondary CTA — label + destination** | One string, reused in `hero`, `final-cta`, `footer`. Lower-commitment path. |
+| all CTAs | **Primary CTA — label + destination** | One string, reused verbatim in `header`, `hero`, `plan` step 1, `offer`, `final-cta`, `footer`. Button text = the CTA (what happens next); never "Submit" / "Contact us" / "Learn more". Destination is a webform / booking page / anchor (Kind 2). See "Buttons & CTAs". |
+| all CTAs | **Secondary CTA — label + destination** | One string, reused in `hero`, `final-cta`, `footer`. Lower-commitment path. See "Buttons & CTAs". |
+| `header`, `hero` | **Click-to-call CTA label** | If a phone CTA is used: the button text combining a CTA verb + the tracking number, e.g. "Call or Text Us at (555) 555-5555" (Kind 1). |
 | `hero` | **Ideal-client avatar line** | The one-line audience call-out used in the eyebrow. |
 | `speed-to-results` | **Typical timeframe** | Honest "[result] within [timeframe]" figure — a range, not a best case. |
 | `proof` | **Headline case-study number** | One verifiable result stat + 2–3 lines of context (who, what you did, over what period). |
@@ -197,6 +199,7 @@ and an accordion chevron.
 - [ ] `promise` client / partner logos ×5+
 - [ ] Icon set covering all §5 groups + dedicated 5-star SVG + accordion chevron; `plan` icons follow the fixed action→process→outcome meaning
 - [ ] Google Map embed URL + Google Business Profile URL
+- [ ] Tracking number for click-to-call CTAs (`header` / `hero`); real business number for the footer NAP — kept distinct
 - [ ] NAP block, business email, office hours, social URLs
 - [ ] Nav links, both footer menus, legal links (from sitemap)
 - [ ] Primary + secondary CTA label/destination strings
