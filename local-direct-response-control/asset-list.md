@@ -70,8 +70,21 @@ meet **WCAG AA** contrast against its background.
 |---|---|---|---|
 | Primary logo | SVG + PNG | ~140×40 (header), ~110×32 (footer) | Full-color, for light backgrounds. |
 | Logo — reversed / mono | SVG + PNG | same | For dark or image backgrounds, if any section needs it. |
-| Logo mark only | SVG | 96×96 (footer column 1) | Square lockup; basis for the favicon. In `footer` it sits **above** the NAP citation, vertically aligned. |
-| Favicon | ICO + PNG | 32×32, 180×180 (apple-touch) | Derived from the mark. |
+| Logo mark only | SVG | 96×96 (footer column 1) | Square lockup; also the base artwork for the favicon set below. In `footer` it sits **above** the NAP citation, vertically aligned. |
+
+### Favicon set
+
+Derived from the logo mark, **redrawn to read at 16px** — usually just the icon /
+monogram, not the full lockup. **See:** `instructions.md` — "Site setup / `<head>`".
+
+| File | Format | Size | Notes |
+|---|---|---|---|
+| `favicon.svg` | SVG | scalable | Primary. Modern browsers use this. Keep it a single simple shape; if it needs to invert for dark UI, include a `<style>` with `prefers-color-scheme`. |
+| `favicon.ico` | ICO (multi-res) | 16, 32, 48 | Legacy fallback. Bundle all three sizes in the one `.ico`. |
+| `apple-touch-icon.png` | PNG | 180×180 | iOS home-screen. **No transparency** — fill the background (brand color or white); iOS adds its own rounding. ~12px safe padding inside. |
+| `icon-192.png` | PNG | 192×192 | Android / PWA manifest. |
+| `icon-512.png` | PNG | 512×512 | PWA manifest / splash. Provide a maskable-safe version (centered art within an 80% safe zone). |
+| `site.webmanifest` | JSON | — | Lists the 192 / 512 icons, `name`, `short_name`, `theme_color`, `background_color`. `theme_color` = `--cta-primary-bg` or the brand primary. |
 
 ---
 
@@ -190,7 +203,8 @@ and an accordion chevron.
 
 - [ ] Typeface(s) mapped to all 6 type roles, licensed for web, woff2 supplied
 - [ ] All color tokens (§2) assigned a hex value, AA-checked
-- [ ] Logo set: primary, reversed/mono, mark, favicon
+- [ ] Logo set: primary, reversed/mono, mark
+- [ ] Favicon set: `favicon.svg`, `favicon.ico` (16/32/48), `apple-touch-icon.png` (180, opaque), `icon-192.png`, `icon-512.png` (maskable-safe), `site.webmanifest` — mark redrawn to read at 16px
 - [ ] `hero` image (+ optional video with poster) — after-state, per instruction
 - [ ] `guide` portrait + 2–3 team headshots — real, consistent
 - [ ] `transformation` ×3 outcome visuals — lifestyle, not process

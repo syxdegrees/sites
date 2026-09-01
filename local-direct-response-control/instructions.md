@@ -95,6 +95,35 @@ all secondary CTAs)
   Consultation", "Get My Quote", "See How It Works". It should set the expectation for
   the page on the other side.
 
+## Site setup / `<head>`
+
+Not a visible section — but the build needs these, and the assets are listed in
+`asset-list.md` §3.
+
+**Favicon**
+
+- Base it on the **logo mark**, but **redraw it to read at 16px** — at that size the full
+  lockup turns to mud. Use the icon alone, or a single-letter monogram, on a simple
+  solid or transparent field. High contrast, one or two shapes, no fine detail or thin
+  strokes.
+- Ship the full set (`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`,
+  `icon-192.png`, `icon-512.png`, `site.webmanifest` — specs in `asset-list.md` §3).
+- `apple-touch-icon.png` must be **opaque** (brand color or white fill) with ~12px of
+  internal padding — iOS rounds the corners itself and clips anything that bleeds to the
+  edge.
+- If the mark needs to flip for dark mode, put a `prefers-color-scheme` rule inside
+  `favicon.svg`.
+- Wire it in the `<head>`:
+  `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
+  `<link rel="icon" href="/favicon.ico" sizes="any">`,
+  `<link rel="apple-touch-icon" href="/apple-touch-icon.png">`,
+  `<link rel="manifest" href="/site.webmanifest">`.
+
+**Also in `<head>`** (per-project, sourced from the content brief — noted here so they're
+not forgotten): page `<title>`, meta description, Open Graph / Twitter card image and
+copy, `theme-color` meta (= `--cta-primary-bg` or brand primary), canonical URL, and any
+analytics / call-tracking snippet.
+
 ---
 
 ## 1. `header` — Header / Nav
