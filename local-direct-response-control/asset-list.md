@@ -74,24 +74,31 @@ meet **WCAG AA** contrast against its background.
 
 ### Favicon set
 
-Derived from the logo mark, **redrawn to read at 16px** — usually just the icon /
-monogram, not the full lockup. **See:** `instructions.md` — "Site setup / `<head>`".
+Derived from the logo mark, **redrawn to read at 16px** — the icon / monogram only, not
+the full lockup. **See:** `instructions.md` — "Site setup / `<head>`". Filenames are
+fixed (the `<head>` links and manifest expect them) — do not rename.
 
 | File | Format | Size | Notes |
 |---|---|---|---|
-| `favicon.svg` | SVG | scalable | Primary. Modern browsers use this. Keep it a single simple shape; if it needs to invert for dark UI, include a `<style>` with `prefers-color-scheme`. |
+| `favicon.svg` | SVG | scalable | Primary; modern browsers use this. **Transparent background**, single simple shape, with an inline `<style>` `prefers-color-scheme` rule so the *mark* recolors for light vs. dark browser chrome. No background fill. |
 | `favicon.ico` | ICO (multi-res) | 16, 32, 48 | Legacy fallback. Bundle all three sizes in the one `.ico`. |
-| `apple-touch-icon.png` | PNG | 180×180 | iOS home-screen. **No transparency** — fill the background (brand color or white); iOS adds its own rounding. ~12px safe padding inside. |
+| `apple-touch-icon.png` | PNG | 180×180 | iOS home-screen — the exception: **opaque** (brand color or white fill), ~12px internal padding. iOS rounds corners and does no theme switching. |
 | `icon-192.png` | PNG | 192×192 | Android / PWA manifest. |
-| `icon-512.png` | PNG | 512×512 | PWA manifest / splash. Provide a maskable-safe version (centered art within an 80% safe zone). |
+| `icon-512.png` | PNG | 512×512 | PWA manifest / splash. Maskable-safe (art centered within an 80% safe zone). |
 | `site.webmanifest` | JSON | — | Lists the 192 / 512 icons, `name`, `short_name`, `theme_color`, `background_color`. `theme_color` = `--cta-primary-bg` or the brand primary. |
 
 ---
 
 ## 4. Images
 
-**AR** = aspect ratio. Photographic → JPG (or WebP + JPG fallback); supply a focal point
+**AR** = aspect ratio. Photographic → WebP with JPG/PNG fallback; supply a focal point
 for responsive cropping. Every row: read the linked instruction before shooting/sourcing.
+
+**Every image, video, and media file must follow the naming & SEO rules** in
+`instructions.md` — "Media naming & SEO": descriptive hyphenated filename (what it
+depicts, + service/location if genuinely shown), real-description `alt` text
+(`alt=""` for decorative), `title` usually omitted, right-sized and compressed,
+`loading="lazy"` below the fold.
 
 ### `hero` — **See:** `instructions.md` §`hero`
 
@@ -146,6 +153,12 @@ Uses the logo (§3) and the Google Map embed (§6) — no standalone image asset
 One line/solid icon set, single weight, consistent style, SVG, ~24×24 base (some slots
 render smaller). Beyond count, each group has a **subject** — what the icons should
 represent — defined in the linked instruction.
+
+Icons rendered inline as SVG need no filenames. Any icon exported as a standalone file
+follows the same **Media naming & SEO** rules (`instructions.md`): descriptive
+hyphenated filename; inline decorative icons take `aria-hidden="true"` (not `alt`),
+functional ones (an icon that is the link/button) take an `aria-label` describing the
+action.
 
 | Slug | Where | Count | Subject — **See:** `instructions.md` §`<slug>` |
 |---|---|---|---|
@@ -218,3 +231,4 @@ and an accordion chevron.
 - [ ] Nav links, both footer menus, legal links (from sitemap)
 - [ ] Primary + secondary CTA label/destination strings
 - [ ] Ideal-client avatar line, typical-timeframe figure, headline case-study number
+- [ ] Every image / video / media file named, alt-texted, and compressed per "Media naming & SEO"

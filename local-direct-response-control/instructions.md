@@ -103,16 +103,18 @@ Not a visible section — but the build needs these, and the assets are listed i
 **Favicon**
 
 - Base it on the **logo mark**, but **redraw it to read at 16px** — at that size the full
-  lockup turns to mud. Use the icon alone, or a single-letter monogram, on a simple
-  solid or transparent field. High contrast, one or two shapes, no fine detail or thin
-  strokes.
+  lockup turns to mud. Use the icon alone, or a single-letter monogram. High contrast,
+  one or two shapes, no fine detail or thin strokes.
 - Ship the full set (`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`,
   `icon-192.png`, `icon-512.png`, `site.webmanifest` — specs in `asset-list.md` §3).
-- `apple-touch-icon.png` must be **opaque** (brand color or white fill) with ~12px of
-  internal padding — iOS rounds the corners itself and clips anything that bleeds to the
-  edge.
-- If the mark needs to flip for dark mode, put a `prefers-color-scheme` rule inside
-  `favicon.svg`.
+- **`favicon.svg` is transparent-background** and carries a `prefers-color-scheme` rule
+  in an inline `<style>`, so the *mark* recolors for light vs. dark browser UI (e.g.
+  dark ink on light chrome, light ink on dark chrome). Don't solve dark mode with a
+  mid-tone background fill — it looks muddy on both. Transparent + adaptive mark is the
+  approach.
+- `apple-touch-icon.png` is the exception: it must be **opaque** (brand color or white
+  fill) with ~12px of internal padding — iOS rounds the corners itself, clips edge
+  bleed, and does no theme switching.
 - Wire it in the `<head>`:
   `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
   `<link rel="icon" href="/favicon.ico" sizes="any">`,
@@ -123,6 +125,53 @@ Not a visible section — but the build needs these, and the assets are listed i
 not forgotten): page `<title>`, meta description, Open Graph / Twitter card image and
 copy, `theme-color` meta (= `--cta-primary-bg` or brand primary), canonical URL, and any
 analytics / call-tracking snippet.
+
+## Media naming & SEO
+
+Applies to **every image, video, and downloadable media asset** on the site (photos,
+logos, icons exported as files, hero video, PDFs). Local-SEO best practice.
+
+**Filename**
+
+- Lowercase, hyphen-separated, no spaces or underscores, no `IMG_1234` / `hero-1` /
+  `final-FINAL`.
+- Describe **what the asset depicts**, most-specific first. Include the **service and/or
+  location** only when the asset genuinely shows it.
+  - Good: `kitchen-remodel-tampa-fl-after.jpg`, `founder-portrait-jane-doe.jpg`,
+    `google-reviews-badge.svg`.
+  - Bad: `syxdegrees-com-hero-image-final.jpg`, `photo1.png`.
+- Brand / domain in the filename is optional and low value — SEO rewards *what it shows*,
+  not *whose it is*. Lead with the subject.
+- Keep it reasonably short (~5 words / 60 chars).
+
+**Alt text** (`alt`)
+
+- A real, plain description of what's in the frame — written for a screen-reader user
+  first. If the keyword / location fits that description naturally, good; don't stuff it.
+- No "image of…" / "photo of…" / "graphic showing…". Just describe it.
+- ~125 characters max.
+- **Decorative assets** (dividers, background textures, icons that only repeat adjacent
+  text) get **`alt=""`** — empty, so assistive tech skips them.
+- Functional assets (a linked logo, an icon that *is* the button) describe the
+  destination/action, not the picture: `alt="Call or text us at 555-555-5555"`.
+
+**Title attribute** (`title`)
+
+- Usually **omit it.** It only surfaces as a hover tooltip and duplicating `alt` adds
+  nothing. Use it only when there's genuinely extra context a mouse user benefits from.
+
+**File hygiene**
+
+- Right-size before export (don't ship a 4000px file into a 720px slot). Compress.
+  Prefer WebP with a JPG/PNG fallback for photos; SVG for logos/icons.
+- Lazy-load anything below the fold (`loading="lazy"`).
+- Where a visible caption fits the layout, use `<figure>` + `<figcaption>` with a real
+  caption — it's indexable and helps context.
+
+**Favicon files** — these depict nothing describable, so they use a fixed pattern
+instead: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `icon-192.png`,
+`icon-512.png` (the names the `<head>` links and manifest expect — don't rename them).
+No `alt` (they're referenced by `<link>`, not `<img>`).
 
 ---
 
