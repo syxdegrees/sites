@@ -105,7 +105,10 @@ Built as HTML (Figma blocked by the free-plan seat — see below), in
 
 - `_temp/local-services-direct-response-v1.html` — the wireframe. Two page types in one
   scrollable file: **Home** (15 sections, structural only) and **About** (12 sections,
-  structural + content-intent). Wireframe-left / numbered-notes-right.
+  structural + content-intent; each section a distinct layout — centered statement,
+  asymmetric photo split, old-way/our-way contrast, for-you checklist, value cards, bio
+  cards, proof band, 2×2 icon grid — so the scroll varies like Home's). Wireframe-left /
+  numbered-notes-right.
 - `instructions.md` — per-section content instructions: what goes in each slot and how to
   write/choose it. Home = Hero's Journey framing supplemented from the "perfect homepage"
   Notion transcript. About = modified sales page for the brand, Hero's-Journey/StoryBrand
