@@ -831,8 +831,9 @@ No CTA here — momentum flows into A6.
 
 **Beat:** meeting the hero. The reader self-selects.
 **Layout:** full-bleed, **centered heading and CTA**. **Two cards side by side** (stack on
-mobile), each an em-dash list on a card background: one "This is for you if…", one
-"Probably not a fit if…".
+mobile), each a simple list where every row is a marker + one line: one "This is for you
+if…", one "Probably not a fit if…". Both cards use the same row structure; only the marker
+style differs (check-style vs. cross-style) at brand time.
 
 **What to put here:**
 
@@ -853,10 +854,10 @@ mobile), each an em-dash list on a card background: one "This is for you if…",
 
 **Beat:** the plan / the method. (The "Our Core Values" beat from
 `skill-site-content-about`, reframed.)
-**Layout:** contained-wide, **centered heading**. **3 cards, mirroring the Home page's Plan
-section (HP7)** — icon + value title + benefit line — so the About page flows with the
-Home design. 3-up desktop, 1-col mobile. No step numbers (these are values, not a
-sequence).
+**Layout:** contained-wide, **centered heading**. **3 cards using the same card style as
+the Home page's Plan section (HP7)** — icon + value title + benefit line — so the About
+page flows with the Home design. 3-up desktop, 1-col mobile. No step numbers (these are
+values, not a sequence).
 
 **What to put here:**
 
@@ -897,24 +898,24 @@ Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
 ## A9. `about-proof` — Proof We Deliver
 
 **Beat:** evidence.
-**Layout:** full-bleed, **centered heading**. **Mirrors the Home page's Proof section
-(HP9)** so the About page flows with the Home design — but **scaled down** (2 testimonial
-cards, not 3), because the About page is story-led and this is a supporting beat.
+**Layout:** full-bleed, **centered**. **Lighter than the Home page's Proof section (HP9)**
+— the About page is story-led; this is a supporting beat, so it uses *similar elements*
+(a stat, a testimonial, credentials) without transplanting the whole Home layout.
 
-**What to put here, top to bottom:**
+**What to put here:**
 
 - **Centered H2 proof heading.**
-- **A row split 2/3 "as seen in" press-mention logo row + 1/3 awards** (stacks on mobile;
-  omit either if the business genuinely has none).
-- **2 testimonial cards** — quote + avatar + name + result each. 1-col on mobile. (Home's
-  Proof has 3; the About page uses 2.)
-- **One full-width case-study block** — a large measurable-result number + short context
-  (who, what you did, over what period).
+- **One prominent result stat** — a big number + label (e.g. "1,900+ [city] homes
+  serviced").
+- **One testimonial card** — quote + name + result.
+- **A quiet credential / license / association row.**
 - **Two inline links** (unique to this page): *see recent [service] projects in [city]* →
   `/projects`; *read [business] reviews from [city] homeowners* → `/reviews`. Both plain
   text until those pages exist.
 
-The client / partner logo wall lives in HP3 (The Promise) on the Home page, not here.
+The press-mention row, the multi-testimonial cluster, and the full case-study block belong
+on the Home page's Proof section (HP9), not here. The client / partner logo wall lives in
+HP3 (The Promise).
 
 ---
 
@@ -951,11 +952,11 @@ consultation, we're here…").
 - **A large restated headline** made specific to the reader's dream outcome ("Ready for a
   house that's handled?").
 - **One grey reassurance line** echoing the low-risk framing.
-- **Primary CTA button** — same wording as the Home hero's primary — with a **click-to-call
-  link beside it**. Here the two sit together because they are distinct actions in a
-  closing band (call now vs. book online), not a redundant stack.
-
-All centered.
+- **Primary CTA button** — same wording as the Home hero's primary.
+- **Inline click-to-call beside the button** — include it **only when the primary CTA is
+  *not* itself a call** (e.g. the CTA is "Request an estimate" and the phone link gives
+  callers a second path). If the primary CTA *is* click-to-call, drop the inline phone
+  link — same rule as A2.
 
 ---
 

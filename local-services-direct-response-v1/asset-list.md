@@ -183,9 +183,8 @@ in §3. Additional About-page images:
 | Slug | Asset | Count | Size (1x) | AR | Depicts |
 |---|---|---|---|---|---|
 | `about-origin` | Founder / early-days photo | 1 | ~260 wide (its own column; supply 520×600 source) | ~9:10 | The founder — an authentic early-days or on-the-job shot, not a posed studio portrait. Or, per mode, a team / premises / job-site shot. Real, not stock. Sits beside the origin prose with a real gutter. |
-| `about-proof` | "As seen in" press logos | 3–6 | fits within 140×40 box | — | Same as `proof` §HP9. Omit the row if none. |
-| `about-proof` | Award badges | 1–3 | 80×80 | 1:1 | Real awards/certifications. Omit if none. |
-| `about-proof` | Testimonial author photos | 2 | 56×56 | 1:1 | The two About-page testimonial authors (Home's Proof uses 3; About uses 2). With permission, consistent framing. |
+| `about-proof` | Testimonial author photo | 1 | 56×56 | 1:1 | The one About-page testimonial author. With permission, consistent framing. (Lighter than the Home Proof section — one testimonial, not a cluster.) |
+| `about-proof` | Credential / license / association logos | 1–4 | fits within 64×26 box | — | Real licenses, certifications, trade associations. Quiet greyscale row. Omit any the business doesn't hold. |
 | `about-team` | Team / founder headshots | 2–6 | see §3 (800×800 source) | 1:1 | One per bio. Consistent framing/lighting/background across all. Also register each to the person's email as a Gravatar (§3). |
 | `about` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | About-page OG image — founder or team shot with the business name/logo overlaid. Referenced from `<head>` per-page OG tags. |
 
@@ -216,7 +215,7 @@ action.
 | `proof` + `hero` | 5-star graphic | 1 shared asset | Five filled stars (or one SVG of five). Uses `--rating` color. Reused in both `hero` (below CTAs) and `proof` (per testimonial). |
 | `footer` | social platform icons | = number of active profiles | Only the platforms the business actually maintains. |
 | `faq` | expand / collapse control | 1 asset | A chevron or +/− toggle for the accordion rows. |
-| `about-who-we-serve` | ideal-client list markers | 3+ | One per "who we're for" row; a single neutral marker reused is fine. |
+| `about-who-we-serve` | fit-card row markers | 2 styles | A check-style marker for the "This is for you if…" card rows; a cross-style marker for the "Probably not a fit if…" card rows. |
 | `about-proof` | headline-stat marker *(optional)* | 0–1 | Optional icon beside the About page's single result stat. |
 | `about-*` inline calls | phone / message glyph | 1 shared asset | Small phone (or chat) glyph that may precede an inline click-to-call link in prose. |
 
@@ -269,7 +268,7 @@ an accordion chevron, and a phone glyph.
 | `about-who-we-serve` | **Ideal-client definition + disqualifiers** | Who this business is built for; who it's *not* a fit for. Plus the service-area / radius. |
 | `about-how-we-work` | **Values as client benefits** | 3–4 values, each phrased as "value → what the client gets." |
 | `about-team` | **Team roster** | Per person: name, role, a benefit-led ad-style bio seed (~2–4 sentences), and **email address for Gravatar registration**. |
-| `about-proof` | **Headline result stat + one testimonial + credentials list** | One verifiable About-page stat; one short quote with name + result; the licenses/associations to badge. |
+| `about-proof` | **One result stat + one testimonial + credentials list** | One verifiable About-page stat (big number + label); one short quote with name + result; the licenses/associations for the quiet credential row. Lighter than the Home Proof section — no press row, no case-study block. |
 | `about-why-choose-us` | **Differentiators + guarantee** | 3–4 "why us" points as reader gains; the guarantee name + terms. |
 | `about-cta` | **Restated closing headline** | A version of "ready to get started?" specific to the reader's outcome. |
 | About page | **Potential internal links list** | The anchor-text-literal / destination / status table (mirrors the table at the top of the About wireframe). Drives which pages to build next. |
@@ -301,10 +300,10 @@ an accordion chevron, and a phone glyph.
 **About page**
 
 - [ ] Team / founder headshots — 800×800 source, consistent framing, registered as Gravatars by email
-- [ ] `about-origin` founder / early-days photo; `about-proof` press logos + award badges + 2 testimonial photos; About OG image (1200×630)
+- [ ] `about-origin` founder / early-days photo; `about-proof` 1 testimonial photo + credential logos; About OG image (1200×630)
 - [ ] Leader (2 lines + CTA) · service category for the /services link · Intro (≤200 words) · founder backstory · mission copy
 - [ ] Ideal-client definition + disqualifiers + service area
 - [ ] Values-as-benefits (3–4) · team roster with ad-bio seeds + emails
-- [ ] About headline stat + testimonial + credentials list · differentiators + guarantee · closing headline
+- [ ] About result stat + one testimonial + credentials list · differentiators + guarantee · closing headline
 - [ ] Potential-internal-links table filled in (drives which pages to build next)
 - [ ] Body copy 800–1,200 words, H2/H3, backstory woven not front-loaded
