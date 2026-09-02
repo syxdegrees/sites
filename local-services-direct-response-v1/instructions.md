@@ -1,6 +1,6 @@
-# local-direct-response-control — Section Instructions
+# local-services-direct-response-v1 — Section Instructions
 
-**Companion to:** `_temp/local-direct-response-control.html` (the wireframe) and
+**Companion to:** `_temp/local-services-direct-response-v1.html` (the wireframe) and
 `asset-list.md` (the required-inputs checklist).
 
 This document says **what to put in each slot** and **how to write or choose it**.
@@ -11,7 +11,7 @@ says *how to fill each slot*.
 
 | File | Answers | Consumed by |
 |---|---|---|
-| `_temp/local-direct-response-control.html` | Where each element sits, layout behavior | The person laying out the page |
+| `_temp/local-services-direct-response-v1.html` | Where each element sits, layout behavior | The person laying out the page |
 | `instructions.md` (this file) | What content goes in each slot, how to write it | Copywriter / whoever assembles the brief; the external brand + site files reference it by slug |
 | `asset-list.md` | Which concrete assets, fonts, colors, data are required + their specs | Whoever produces the assets (brand style guide, photo shoot, etc.) |
 

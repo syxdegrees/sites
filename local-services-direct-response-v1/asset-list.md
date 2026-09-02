@@ -1,6 +1,6 @@
-# local-direct-response-control — Asset List
+# local-services-direct-response-v1 — Asset List
 
-**Companion to:** `_temp/local-direct-response-control.html` (the wireframe) and
+**Companion to:** `_temp/local-services-direct-response-v1.html` (the wireframe) and
 `instructions.md` (how to fill each slot).
 
 This is the **required-inputs checklist** — *what concrete assets, fonts, colors, data,

@@ -98,12 +98,12 @@ maps the two together.
 - The Home page's specific section stack — to be provided by the owner before the first
   wireframe is built.
 
-## First wireframe — `local-direct-response-control`
+## First wireframe — `local-services-direct-response-v1`
 
 Built as HTML (Figma blocked by the free-plan seat — see below), in
-`sites/local-direct-response-control/`:
+`sites/local-services-direct-response-v1/`:
 
-- `_temp/local-direct-response-control.html` — the wireframe (15 sections, structural
+- `_temp/local-services-direct-response-v1.html` — the wireframe (15 sections, structural
   only), wireframe-left / numbered-notes-right.
 - `instructions.md` — per-section content instructions: what goes in each slot and how to
   write/choose it. Hero's Journey framing primary, supplemented from the "perfect
