@@ -831,9 +831,9 @@ No CTA here — momentum flows into A6.
 
 **Beat:** meeting the hero. The reader self-selects.
 **Layout:** full-bleed, **centered heading and CTA**. **Two cards side by side** (stack on
-mobile), each a simple list where every row is a marker + one line: one "This is for you
-if…", one "Probably not a fit if…". Both cards use the same row structure; only the marker
-style differs (check-style vs. cross-style) at brand time.
+mobile). **Both cards use the identical row structure** — a fixed marker + a full-width
+line, one per row; the only difference is the marker style (check-style in the "for you"
+card, cross-style in the "not a fit" card).
 
 **What to put here:**
 
@@ -898,24 +898,39 @@ Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
 ## A9. `about-proof` — Proof We Deliver
 
 **Beat:** evidence.
-**Layout:** full-bleed, **centered**. **Lighter than the Home page's Proof section (HP9)**
-— the About page is story-led; this is a supporting beat, so it uses *similar elements*
-(a stat, a testimonial, credentials) without transplanting the whole Home layout.
+**Layout:** full-bleed, **left-aligned**. Lighter than the Home page's Proof section — the
+About page is story-led; this is a supporting beat. **The layout branches on whether the
+business is on multiple review sites.** The wireframe draws the multi-site version.
 
-**What to put here:**
+**Row 1 — stats / reviews**
 
-- **Centered H2 proof heading.**
-- **One prominent result stat** — a big number + label (e.g. "1,900+ [city] homes
-  serviced").
-- **One testimonial card** — quote + name + result.
-- **A quiet credential / license / association row.**
-- **Two inline links** (unique to this page): *see recent [service] projects in [city]* →
-  `/projects`; *read [business] reviews from [city] homeowners* → `/reviews`. Both plain
-  text until those pages exist.
+- **Multiple review sites:** one **most-prominent result stat** (big number + label) on
+  the left, then a **review block per site** filling the rest of the row — each block =
+  site name + star rating + review count + a short "Read on [site]" link. Make sure all
+  the blocks fit the row.
+- **Single review site:** instead, **3 stats centered across the row** (no review blocks).
 
-The press-mention row, the multi-testimonial cluster, and the full case-study block belong
-on the Home page's Proof section (HP9), not here. The client / partner logo wall lives in
-HP3 (The Promise).
+**Row 2 — testimonial**
+
+- **Multiple sites:** one testimonial card on its own (quote + name + result).
+- **Single site:** the testimonial card + **one review block to its right** for the site
+  they have, carrying the `read [business] reviews from [city] homeowners` link.
+
+**Row 3 — projects showcase** (both branches)
+
+- **Up to 3 projects, centered across the row.** Each = an image or video of the work +
+  brief info (address + a short description). Their way to show their work.
+
+**Row 4 — inline links**
+
+- `see recent [service] projects in [city]` → `/projects` — **always**.
+- `read [business] reviews from [city] homeowners` → `/reviews` — **only in the single-site
+  branch**. In the multi-site branch each review block carries its own shorter "Read on
+  [site]" link, so this one is dropped from Row 4 to keep links unique on the page.
+
+**Removed:** the credential / license / association row. The multi-testimonial cluster and
+the full case-study block stay on the Home page's Proof section (HP9). The client /
+partner logo wall lives in HP3 (The Promise).
 
 ---
 

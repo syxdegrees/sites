@@ -183,8 +183,9 @@ in §3. Additional About-page images:
 | Slug | Asset | Count | Size (1x) | AR | Depicts |
 |---|---|---|---|---|---|
 | `about-origin` | Founder / early-days photo | 1 | ~260 wide (its own column; supply 520×600 source) | ~9:10 | The founder — an authentic early-days or on-the-job shot, not a posed studio portrait. Or, per mode, a team / premises / job-site shot. Real, not stock. Sits beside the origin prose with a real gutter. |
-| `about-proof` | Testimonial author photo | 1 | 56×56 | 1:1 | The one About-page testimonial author. With permission, consistent framing. (Lighter than the Home Proof section — one testimonial, not a cluster.) |
-| `about-proof` | Credential / license / association logos | 1–4 | fits within 64×26 box | — | Real licenses, certifications, trade associations. Quiet greyscale row. Omit any the business doesn't hold. |
+| `about-proof` | Testimonial author photo | 1 | 56×56 | 1:1 | The one About-page testimonial author. With permission, consistent framing. |
+| `about-proof` | Review-site logos *(multi-site branch)* | 1 per site | fits within 90×24 box | — | Small logo for each review site the business is on (Google, Yelp, Angi, BBB…). One per review block. |
+| `about-proof` | Project showcase media | up to 3 | 480×360 (image) or 1280×720 (video, ≤20s, muted, poster required) | 4:3 / 16:9 | An image or video of a real completed project. One per project card. Show the finished work, not the crew mid-job. |
 | `about-team` | Team / founder headshots | 2–6 | see §3 (800×800 source) | 1:1 | One per bio. Consistent framing/lighting/background across all. Also register each to the person's email as a Gravatar (§3). |
 | `about` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | About-page OG image — founder or team shot with the business name/logo overlaid. Referenced from `<head>` per-page OG tags. |
 
@@ -216,7 +217,8 @@ action.
 | `footer` | social platform icons | = number of active profiles | Only the platforms the business actually maintains. |
 | `faq` | expand / collapse control | 1 asset | A chevron or +/− toggle for the accordion rows. |
 | `about-who-we-serve` | fit-card row markers | 2 styles | A check-style marker for the "This is for you if…" card rows; a cross-style marker for the "Probably not a fit if…" card rows. |
-| `about-proof` | headline-stat marker *(optional)* | 0–1 | Optional icon beside the About page's single result stat. |
+| `about-proof` | headline-stat marker *(optional)* | 0–1 | Optional icon beside the About page's result stat. |
+| `about-proof` | review-block stars | 5 (one filled-star glyph, repeated) | The star row inside each review block. Reuse the shared 5-star SVG. |
 | `about-*` inline calls | phone / message glyph | 1 shared asset | Small phone (or chat) glyph that may precede an inline click-to-call link in prose. |
 
 **Deliverable:** one icon set covering all groups above, **plus** a dedicated 5-star SVG,
@@ -232,6 +234,7 @@ an accordion chevron, and a phone glyph.
 | `footer` | Google Business Profile | Public **GBP URL** for the "Visit Our Google Business Profile" button (exact button text, small style, sits below office hours). | `instructions.md` §`footer` |
 | `proof` | Review-site profiles *(optional)* | Public URLs for Google / Yelp / industry review profiles. | `instructions.md` §`proof` |
 | `header`, `hero`, `about-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP. | `instructions.md` — "Phone numbers" |
+| `about-proof` | **Review-site profiles** | Public URL for each review site the business is on. Drives Row 1 (multi-site) or the single review block in Row 2 (single-site). | `instructions.md` §`about-proof` |
 | all pages | **CallRail swap script ID** | The per-project CallRail script snippet for the `<head>`. | `instructions.md` — "Site setup / `<head>`", "Phone numbers" |
 | `footer` | **Real business phone number** | The genuine business line for the NAP citation block, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — **excluded from CallRail DNI swapping** (citation consistency). | `instructions.md` §`footer` |
 
@@ -268,7 +271,7 @@ an accordion chevron, and a phone glyph.
 | `about-who-we-serve` | **Ideal-client definition + disqualifiers** | Who this business is built for; who it's *not* a fit for. Plus the service-area / radius. |
 | `about-how-we-work` | **Values as client benefits** | 3–4 values, each phrased as "value → what the client gets." |
 | `about-team` | **Team roster** | Per person: name, role, a benefit-led ad-style bio seed (~2–4 sentences), and **email address for Gravatar registration**. |
-| `about-proof` | **One result stat + one testimonial + credentials list** | One verifiable About-page stat (big number + label); one short quote with name + result; the licenses/associations for the quiet credential row. Lighter than the Home Proof section — no press row, no case-study block. |
+| `about-proof` | **Result stats + one testimonial + up to 3 projects** | *Multi-site:* 1 most-prominent result stat + per-site rating/count/URL. *Single-site:* 3 stats (number + label each) + the one site's rating/count/URL. Plus one short testimonial (quote + name + result). Plus **up to 3 projects**, each with an address + a short description and its own image/video. |
 | `about-why-choose-us` | **Differentiators + guarantee** | 3–4 "why us" points as reader gains; the guarantee name + terms. |
 | `about-cta` | **Restated closing headline** | A version of "ready to get started?" specific to the reader's outcome. |
 | About page | **Potential internal links list** | The anchor-text-literal / destination / status table (mirrors the table at the top of the About wireframe). Drives which pages to build next. |
@@ -300,10 +303,10 @@ an accordion chevron, and a phone glyph.
 **About page**
 
 - [ ] Team / founder headshots — 800×800 source, consistent framing, registered as Gravatars by email
-- [ ] `about-origin` founder / early-days photo; `about-proof` 1 testimonial photo + credential logos; About OG image (1200×630)
+- [ ] `about-origin` founder / early-days photo; `about-proof` 1 testimonial photo + review-site logos + up to 3 project images/videos; About OG image (1200×630)
 - [ ] Leader (2 lines + CTA) · service category for the /services link · Intro (≤200 words) · founder backstory · mission copy
 - [ ] Ideal-client definition + disqualifiers + service area
 - [ ] Values-as-benefits (3–4) · team roster with ad-bio seeds + emails
-- [ ] About result stat + one testimonial + credentials list · differentiators + guarantee · closing headline
+- [ ] About: result stat(s) + per-site review data (rating/count/URL) + one testimonial + up to 3 projects (address + description + media) · differentiators + guarantee · closing headline
 - [ ] Potential-internal-links table filled in (drives which pages to build next)
 - [ ] Body copy 800–1,200 words, H2/H3, backstory woven not front-loaded
