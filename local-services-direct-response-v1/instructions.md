@@ -802,9 +802,11 @@ where the business has genuine dated milestones** — founded, licensed, an expa
 Nth job, an award. If the business just "started in 2015" with nothing else to plot,
 **omit the timeline** — the prose + photo stand alone.
 
-**Slots:** centered **H2 origin heading** · optional milestone timeline · origin prose (a
-**story, not a company timeline**, backstory woven) beside a photo · a line naming **the
-gap this business was started to fix**. Leads into A5.
+**Slots:** centered **H2 origin heading** · **business start date** (the founding year —
+always captured, drives "since 20XX" phrasing and the timeline's first node even when no
+full timeline is shown) · optional milestone timeline · origin prose (a **story, not a
+company timeline**, backstory woven) beside a photo · a line naming **the gap this
+business was started to fix**. Leads into A5.
 
 ---
 
