@@ -510,20 +510,25 @@
   .pnarrow--para > * + * { margin-top: 8px; }
 
   /* origin — one modest inline photo, text wraps beside then below */
+  .origin-wrap {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 36px;
+    align-items: start;
+    max-width: 980px;
+  }
   .origin-photo {
-    float: left;
-    width: 240px;
-    height: 260px;
-    margin: 4px 28px 16px 0;
+    width: 260px;
+    height: 300px;
     background: var(--fill-2);
     border: 1px solid var(--line);
     border-radius: 2px;
   }
   .origin-body { max-width: 620px; }
-  .origin-body::after { content: ""; display: block; clear: both; }
   .origin-body > * + * { margin-top: 10px; }
-  @media (max-width: 640px) {
-    .origin-photo { float: none; width: 100%; max-width: 320px; height: 220px; margin: 0 0 14px; }
+  @media (max-width: 700px) {
+    .origin-wrap { grid-template-columns: 1fr; gap: 18px; }
+    .origin-photo { width: 100%; max-width: 320px; height: 240px; }
   }
 
   /* timeline — horizontal hairline, dated nodes alternating above / below */
@@ -572,16 +577,31 @@
     .tl__node .tl__date, .tl__node .tl__label { width: 80%; }
   }
 
-  /* plain-list — em-dash / tick list, no card, no tick-circle (A6) */
-  .plist {
+  /* A6 — two fit cards: "for you" and "not for you" */
+  .fit-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 40px;
-    max-width: 820px;
+    gap: 20px;
+    max-width: 960px;
+    margin: 18px auto 0;
+    text-align: left;
   }
-  .plist__row { display: flex; align-items: baseline; gap: 10px; }
-  .plist__row::before { content: "\2014"; color: var(--line-strong); flex: 0 0 auto; }
-  @media (max-width: 560px) { .plist { grid-template-columns: 1fr; } }
+  .fit-card {
+    background: var(--fill-1);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px;
+  }
+  .fit-card h4 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--line-strong);
+  }
+  .fit-card--no { background: var(--paper); }
+  .fit-list { display: flex; flex-direction: column; gap: 9px; }
+  .fit-list .plist__row { display: flex; align-items: baseline; gap: 10px; }
+  .fit-list .plist__row::before { content: "\2014"; color: var(--line-strong); flex: 0 0 auto; }
+  @media (max-width: 640px) { .fit-cards { grid-template-columns: 1fr; } }
 
   /* icon-row — small icon, bold label, grey body. No box. 3–4 across (A7, A10) */
   .irow {
@@ -623,25 +643,6 @@
   @media (max-width: 820px) { .pgrid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 560px) { .pgrid { grid-template-columns: repeat(2, 1fr); } }
 
-  /* stat-pair — 1–2 very large numerals + small label (A9) */
-  .stats {
-    display: flex;
-    gap: 64px;
-    flex-wrap: wrap;
-    margin: 4px 0 18px;
-  }
-  .stats__n {
-    height: 52px; width: 150px;
-    background: var(--fill-3);
-    border: 1px solid var(--line);
-    border-radius: 2px;
-  }
-  .stats__lbl { height: 10px; width: 120px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; margin-top: 8px; }
-
-  /* quiet inline logo row (credentials) */
-  .cred-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
-  .cred-row .cred { width: 64px; height: 26px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
-
   /* potential-internal-links table */
   .links-table {
     width: 100%;
@@ -674,7 +675,7 @@
   <p class="doc__meta">
     This file contains <strong>two page types</strong>: <strong>Home</strong> (below) and <strong>About</strong> (scroll down past the double-rule divider).<br>
     <br>
-    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong><br>
+    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About sections are tagged <strong>A1–A12</strong>)<br>
     Model: <strong>Direct-response landing-page hero</strong> + <strong>Hero's Journey</strong> arc, aligned to the <strong>Content Sequencing</strong> copy framework (intro connection → problem → opportunity → cost of DIY → proof → ease → speed → futurecast → credentials)<br>
     Contains layout &amp; composition only. No content intent, no copy, no colors, no type. Brand style guide + sitemap + content brief are supplied per project at build time.
   </p>
@@ -690,16 +691,16 @@
     <b>Companion files</b> (same folder, one level up from <code>_temp/</code>)<br>
     <code>instructions.md</code> — what to put in each slot and how to write / choose it (per section slug).<br>
     <code>asset-list.md</code> — the required-inputs checklist: fonts, colors, logos, images (with dimensions), icons, embeds, content data.<br>
-    Home slugs: <code>header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof · speed-to-results · offer · faq · features · final-cta · footer</code><br>
-    About slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code>
+    Home (tags <code>HP1–HP15</code>) slugs: <code>header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof · speed-to-results · offer · faq · features · final-cta · footer</code><br>
+    About (tags <code>A1–A12</code>) slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code>
   </div>
 
-  <!-- ============================================================= 1. HEADER / NAV -->
+  <!-- ============================================================= HP1. HEADER / NAV -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">1 · Header / Nav</span>
+      <span class="wire__tag">HP1 · Header / Nav</span>
       <div class="band" style="padding-top:26px;">
-        <span class="mk mk--abs">1</span>
+        <span class="mk mk--abs">HP1</span>
         <div class="navbar">
           <div class="ph dot dot--sq" title="logo" style="width:120px;height:28px;border-radius:2px;"></div>
           <div class="navlinks">
@@ -718,7 +719,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Header / Nav</p>
-      <div class="note"><span class="mk">1</span><p class="note__body"><b>Header / Nav</b><span>
+      <div class="note"><span class="mk">HP1</span><p class="note__body"><b>Header / Nav</b><span>
         Full-bleed bar, contained inner row. Sticky on scroll (condenses).
         Left: logo. Center/right: primary nav, max 7 links. Far right: one persistent primary CTA button;
         optional phone-number slot beside it for local-service use. On mobile: logo + hamburger; CTA stays visible, nav collapses into the menu.
@@ -726,12 +727,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 2. HERO -->
+  <!-- ============================================================= HP2. HERO -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">2 · Hero (landing-page format)</span>
+      <span class="wire__tag">HP2 · Hero (landing-page format)</span>
       <div class="band band--full band--tall">
-        <span class="mk mk--abs">2</span>
+        <span class="mk mk--abs">HP2</span>
         <div class="cols cols--2" style="align-items:center;gap:32px;">
           <div class="stack">
             <div class="lbl">eyebrow — names the ideal-client avatar</div>
@@ -766,7 +767,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Hero</p>
-      <div class="note"><span class="mk">2</span><p class="note__body"><b>Hero — formatted as a landing page</b><span>
+      <div class="note"><span class="mk">HP2</span><p class="note__body"><b>Hero — formatted as a landing page</b><span>
         Full-bleed section, contained inner grid, ~70–85vh. Journey beat: Ordinary World + Call to Adventure.<br>
         Slots, in order: <b>eyebrow</b> — one line naming the ideal-client avatar (e.g. "For overworked teachers", "Houston homeowners") so the visitor knows the page is for them ·
         headline (1–2 lines, promises the desired outcome / the problem solved — not a description of the service) ·
@@ -778,12 +779,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 3. THE PROMISE / OUTCOMES -->
+  <!-- ============================================================= HP3. THE PROMISE / OUTCOMES -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">3 · The Promise / Outcomes</span>
+      <span class="wire__tag">HP3 · The Promise / Outcomes</span>
       <div class="band band--full" style="padding-top:22px;padding-bottom:22px;">
-        <span class="mk mk--abs">3</span>
+        <span class="mk mk--abs">HP3</span>
         <div class="contained--wide">
           <div class="promise-banner">
             <div class="promise-item">
@@ -810,23 +811,23 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — The Promise / Outcomes</p>
-      <div class="note"><span class="mk">3</span><p class="note__body"><b>The Promise / Outcomes</b><span>
+      <div class="note"><span class="mk">HP3</span><p class="note__body"><b>The Promise / Outcomes</b><span>
         Full-bleed section, short band. Journey beat: the vision of the transformed world — the promise stated up front, before the page dives into the problem.<br>
         Slots: <b>single horizontal banner strip</b> with exactly three outcomes evenly spaced across the full contained width,
         each = small icon + short outcome-label (one line, no supporting sentence). No dividers, no eyebrow, no border — flat "trusted by" treatment, not cards ·
         directly below it, the <b>client / partner logo wall</b> (5 across desktop, wraps on mobile) — pairs the outcomes with who has actually achieved them.<br>
         Collapses to a vertical stack on mobile. No CTA.
-        Distinct from Section 8 "The Transformation", which restates the same three outcomes later as full cards with supporting copy, after the proof.
+        Distinct from Section HP8 "The Transformation", which restates the same three outcomes later as full cards with supporting copy, after the proof.
       </span></p></div>
     </div>
   </div>
 
-  <!-- ============================================================= 4. PROBLEM + STAKES -->
+  <!-- ============================================================= HP4. PROBLEM + STAKES -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">4 · Problem + Stakes</span>
+      <span class="wire__tag">HP4 · Problem + Stakes</span>
       <div class="band">
-        <span class="mk mk--abs">4</span>
+        <span class="mk mk--abs">HP4</span>
         <div class="contained stack">
           <div class="lbl">section heading</div>
           <div class="ph ph--head" style="width:60%;"></div>
@@ -862,7 +863,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Problem + Stakes</p>
-      <div class="note"><span class="mk">4</span><p class="note__body"><b>Problem + Stakes</b><span>
+      <div class="note"><span class="mk">HP4</span><p class="note__body"><b>Problem + Stakes</b><span>
         Contained width. Journey beat: Refusal / the cost of staying put — names the pains, then what's at risk if nothing changes.<br>
         Slots: section heading ·
         <b>vertical list of problems</b> — one per row, each = small icon/marker + a single line. Stack them, no cards, no columns. 3–6 rows ·
@@ -872,12 +873,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 5. COST OF DOING IT YOURSELF -->
+  <!-- ============================================================= HP5. COST OF DOING IT YOURSELF -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">5 · Cost of Doing It Yourself</span>
+      <span class="wire__tag">HP5 · Cost of Doing It Yourself</span>
       <div class="band">
-        <span class="mk mk--abs">5</span>
+        <span class="mk mk--abs">HP5</span>
         <div class="contained stack">
           <div class="lbl">heading</div>
           <div class="ph ph--head" style="width:58%;"></div>
@@ -915,7 +916,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Cost of Doing It Yourself</p>
-      <div class="note"><span class="mk">5</span><p class="note__body"><b>Cost of Doing It Yourself</b><span>
+      <div class="note"><span class="mk">HP5</span><p class="note__body"><b>Cost of Doing It Yourself</b><span>
         Contained width, shorter band. Journey beat: the false path — establishes affinity/empathy by walking through the pain and cost of going it alone ("you could do this yourself, but you'd have to&hellip;").<br>
         Slots: heading · short "you could do this yourself, but&hellip;" copy block ·
         <b>vertical list</b> of what DIY actually costs — time, trial-and-error, hard costs — one per row, 3–5 rows, same treatment as the Problem list ·
@@ -924,12 +925,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 6. THE GUIDE -->
+  <!-- ============================================================= HP6. THE GUIDE -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">6 · The Guide</span>
+      <span class="wire__tag">HP6 · The Guide</span>
       <div class="band band--full">
-        <span class="mk mk--abs">6</span>
+        <span class="mk mk--abs">HP6</span>
         <div class="cols cols--2" style="gap:32px;align-items:center;">
           <div class="imgbox imgbox--lg"></div>
           <div class="stack">
@@ -989,7 +990,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — The Guide</p>
-      <div class="note"><span class="mk">6</span><p class="note__body"><b>The Guide</b><span>
+      <div class="note"><span class="mk">HP6</span><p class="note__body"><b>The Guide</b><span>
         Full-bleed section, contained inner grid. Journey beat: meeting the mentor + highlight credentials — the company positioned as the guide, and "why should they listen to us?" answered with real people.<br>
         Slots: portrait / team visual area (left on desktop, top on mobile) ·
         heading · short authority + empathy copy block ·
@@ -999,12 +1000,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 7. THE PLAN -->
+  <!-- ============================================================= HP7. THE PLAN -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">7 · The Plan</span>
+      <span class="wire__tag">HP7 · The Plan</span>
       <div class="band">
-        <span class="mk mk--abs">7</span>
+        <span class="mk mk--abs">HP7</span>
         <div class="contained contained--wide stack">
           <div class="lbl" style="text-align:center;">heading</div>
           <div class="ph ph--head" style="width:44%;margin:0 auto;"></div>
@@ -1041,7 +1042,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — The Plan</p>
-      <div class="note"><span class="mk">7</span><p class="note__body"><b>The Plan</b><span>
+      <div class="note"><span class="mk">HP7</span><p class="note__body"><b>The Plan</b><span>
         Contained-wide. Journey beat: the map forward — makes the path feel simple and low-effort. People are terrified of complexity.<br>
         Slots: centered heading · <b>exactly 3 steps</b> — not 4, not 5 — each = step number + label ("Step 1 / Step 2 / Step 3", never bare "1 / 2 / 3") + icon slot + step-title slot + one supporting line.<br>
         <b>Step 1</b> = the client takes action — repeat the hero CTA verb. <b>Step 2</b> = your whole process, simplified to its essence (you take the messy middle out of their hands). <b>Step 3</b> = their happy outcome.<br>
@@ -1050,12 +1051,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 8. THE TRANSFORMATION -->
+  <!-- ============================================================= HP8. THE TRANSFORMATION -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">8 · The Transformation</span>
+      <span class="wire__tag">HP8 · The Transformation</span>
       <div class="band band--full">
-        <span class="mk mk--abs">8</span>
+        <span class="mk mk--abs">HP8</span>
         <div class="contained contained--wide stack">
           <div class="lbl" style="text-align:center;">heading</div>
           <div class="ph ph--head" style="width:50%;margin:0 auto;"></div>
@@ -1097,21 +1098,21 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — The Transformation</p>
-      <div class="note"><span class="mk">8</span><p class="note__body"><b>The Transformation</b><span>
+      <div class="note"><span class="mk">HP8</span><p class="note__body"><b>The Transformation</b><span>
         Full-bleed section, contained-wide inner. Journey beat: crossing the threshold / futurecast — life after the problem is solved, framed as outcomes not features.<br>
         <b>Treatment: alternating rows</b>, not a card grid. Exactly three outcomes; each is a full-width row — visual block on one side, text on the other (title slot + 2–3 supporting lines), alternating left/right down the section. Reads substantial and editorial, distinct from the Plan grid above and the Proof wall below.<br>
         Below the rows: one <b>"why us vs. the alternatives"</b> line — how this stands out from competitors / existing offers.<br>
-        On mobile: every row stacks visual-over-text. Substantiated restatement of Section 3 "The Promise" — same three outcomes, developed with copy and imagery.
+        On mobile: every row stacks visual-over-text. Substantiated restatement of Section HP3 "The Promise" — same three outcomes, developed with copy and imagery.
       </span></p></div>
     </div>
   </div>
 
-  <!-- ============================================================= 8. PROOF -->
+  <!-- ============================================================= HP9. PROOF -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">9 · Proof</span>
+      <span class="wire__tag">HP9 · Proof</span>
       <div class="band">
-        <span class="mk mk--abs">9</span>
+        <span class="mk mk--abs">HP9</span>
         <div class="contained contained--wide stack">
           <div class="lbl" style="text-align:center;">heading</div>
           <div class="ph ph--head" style="width:40%;margin:0 auto;"></div>
@@ -1189,23 +1190,23 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Proof</p>
-      <div class="note"><span class="mk">9</span><p class="note__body"><b>Proof</b><span>
+      <div class="note"><span class="mk">HP9</span><p class="note__body"><b>Proof</b><span>
         Contained-wide. Journey beat: proof — make every claim as undeniably true as possible; prefer concrete, verifiable numbers.<br>
         Slots, top to bottom: heading ·
         a row split <b>2/3 "as seen in" press-mention logo row</b> + <b>1/3 awards</b> to its right (stacks on mobile) ·
         testimonial cluster, 3-up (quote + avatar + name + role/company), 1-col on mobile ·
         one full-width <b>case-study block</b> — large measurable-result number + short context.<br>
-        The client / partner logo wall lives in Section 3 (The Promise), not here.
+        The client / partner logo wall lives in Section HP3 (The Promise), not here.
       </span></p></div>
     </div>
   </div>
 
-  <!-- ============================================================= 10. SPEED TO RESULTS -->
+  <!-- ============================================================= HP10. SPEED TO RESULTS -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">10 · Speed to Results</span>
+      <span class="wire__tag">HP10 · Speed to Results</span>
       <div class="band band--full">
-        <span class="mk mk--abs">10</span>
+        <span class="mk mk--abs">HP10</span>
         <div class="contained stack" style="text-align:center;">
           <div class="lbl">heading</div>
           <div class="ph ph--head" style="width:52%;margin:0 auto;"></div>
@@ -1232,7 +1233,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Speed to Results</p>
-      <div class="note"><span class="mk">10</span><p class="note__body"><b>Speed to Results</b><span>
+      <div class="note"><span class="mk">HP10</span><p class="note__body"><b>Speed to Results</b><span>
         Full-bleed section, contained inner, centered. Shorter band. Journey beat: show speed to results with proof — answers "how long until this pays off?".<br>
         Slots: heading · one prominent timeframe stat ("most clients see X within Y weeks") + label ·
         one supporting testimonial block tied specifically to speed (quote + name + result). Single column on mobile.
@@ -1240,12 +1241,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 11. THE OFFER / RISK REVERSAL -->
+  <!-- ============================================================= HP11. THE OFFER / RISK REVERSAL -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">11 · The Offer / Risk Reversal</span>
+      <span class="wire__tag">HP11 · The Offer / Risk Reversal</span>
       <div class="band band--full">
-        <span class="mk mk--abs">11</span>
+        <span class="mk mk--abs">HP11</span>
         <div class="contained stack" style="text-align:center;">
           <div class="lbl">heading</div>
           <div class="ph ph--head" style="width:60%;margin:0 auto;"></div>
@@ -1277,7 +1278,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — The Offer / Risk Reversal</p>
-      <div class="note"><span class="mk">11</span><p class="note__body"><b>The Offer / Risk Reversal</b><span>
+      <div class="note"><span class="mk">HP11</span><p class="note__body"><b>The Offer / Risk Reversal</b><span>
         Full-bleed section, contained inner, centered. Journey beat: removing the last obstacle.<br>
         Slots: heading · offer-summary block · guarantee slot · reassurance microcopy slot (e.g. "free / no obligation / no card") ·
         optional urgency slot (only if genuine) · one primary CTA button. No secondary CTA here — single action.
@@ -1285,12 +1286,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 12. FAQ -->
+  <!-- ============================================================= HP12. FAQ -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">12 · FAQ</span>
+      <span class="wire__tag">HP12 · FAQ</span>
       <div class="band">
-        <span class="mk mk--abs">12</span>
+        <span class="mk mk--abs">HP12</span>
         <div class="contained stack">
           <div class="lbl" style="text-align:center;">heading</div>
           <div class="ph ph--head" style="width:34%;margin:0 auto;"></div>
@@ -1306,7 +1307,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — FAQ</p>
-      <div class="note"><span class="mk">12</span><p class="note__body"><b>FAQ</b><span>
+      <div class="note"><span class="mk">HP12</span><p class="note__body"><b>FAQ</b><span>
         Contained width. Journey beat: answering the doubts.<br>
         Slots: centered heading · 4–8 accordion rows (wireframe shows 6), each = question slot + expand control, answer slot revealed on open.
         Single column at all breakpoints.
@@ -1314,12 +1315,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 13. FEATURES -->
+  <!-- ============================================================= HP13. FEATURES -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">13 · Features</span>
+      <span class="wire__tag">HP13 · Features</span>
       <div class="band">
-        <span class="mk mk--abs">13</span>
+        <span class="mk mk--abs">HP13</span>
         <div class="contained contained--wide stack">
           <div class="lbl" style="text-align:center;">heading</div>
           <div class="ph ph--head" style="width:34%;margin:0 auto;"></div>
@@ -1344,7 +1345,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Features</p>
-      <div class="note"><span class="mk">13</span><p class="note__body"><b>Features</b><span>
+      <div class="note"><span class="mk">HP13</span><p class="note__body"><b>Features</b><span>
         Contained-wide. Journey beat: let the analytical buyers justify the emotional buy-in with logic — this is the "tech specs" list (what you actually get).<br>
         Slots: centered heading · <b>10–20 plain features</b>, each = icon/checkmark + one short line. Simple multi-column bullet list — no cards, no descriptions.
         Examples of the kind of item: free consultation, 3D renderings, permits handled, daily cleanup, 10-year warranty.
@@ -1353,12 +1354,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 14. FINAL CTA BAND -->
+  <!-- ============================================================= HP14. FINAL CTA BAND -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">14 · Final CTA Band</span>
+      <span class="wire__tag">HP14 · Final CTA Band</span>
       <div class="band band--full" style="padding-top:40px;padding-bottom:40px;">
-        <span class="mk mk--abs">14</span>
+        <span class="mk mk--abs">HP14</span>
         <div class="contained stack" style="text-align:center;">
           <div class="ph ph--head" style="width:64%;height:32px;margin:0 auto;"></div>
           <div class="ph ph--text" style="width:44%;margin:6px auto 0;" title="one reassurance line"></div>
@@ -1372,7 +1373,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Final CTA Band</p>
-      <div class="note"><span class="mk">14</span><p class="note__body"><b>Final CTA Band</b><span>
+      <div class="note"><span class="mk">HP14</span><p class="note__body"><b>Final CTA Band</b><span>
         Full-bleed section, contained inner, centered. Journey beat: the return — decide now.<br>
         Slots: restated headline slot · one supporting reassurance line · primary CTA (matches the hero's primary), optional quieter secondary.
         This is the last conversion shot before the footer.
@@ -1380,12 +1381,12 @@
     </div>
   </div>
 
-  <!-- ============================================================= 15. FOOTER -->
+  <!-- ============================================================= HP15. FOOTER -->
   <div class="row">
     <div class="wire">
-      <span class="wire__tag">15 · Footer</span>
+      <span class="wire__tag">HP15 · Footer</span>
       <div class="band" style="background:var(--fill-1);">
-        <span class="mk mk--abs">15</span>
+        <span class="mk mk--abs">HP15</span>
         <div class="contained--wide">
 
           <!-- 4-col body -->
@@ -1459,7 +1460,7 @@
     </div>
     <div class="notes">
       <p class="notes__h">Notes — Footer</p>
-      <div class="note"><span class="mk">15</span><p class="note__body"><b>Footer</b><span>
+      <div class="note"><span class="mk">HP15</span><p class="note__body"><b>Footer</b><span>
         Full-bleed. Order: 4-col body → bottom bar.<br>
         <b>Col 1</b>: company logo (vertically aligned) · NAP citation block beneath it — business name, street address, city/state/zip, phone, business email — must match the Google Business Profile exactly (local-SEO citation consistency) · social media links beneath that (only platforms the business uses).<br>
         <b>Col 2 — menu</b>: About · Team · Contact · Careers.<br>
@@ -1484,7 +1485,7 @@
       Model: <strong>Modified sales page for the brand</strong> — a Hero's-Journey / StoryBrand arc told from the company's origin, every beat bent back to "&hellip;and that's why we're the right choice for you." Incorporates the Leader / Intro / Body credibility spine from <code>skill-site-content-about</code>.<br>
       Primary purpose: <strong>establish a credible backstory and show the visitor this is a real company with real people who care about them and their result</strong> — and that this business can help <em>them</em> specifically.<br>
       Sections: <strong>12</strong> &nbsp;·&nbsp; Body copy target: <strong>800–1,200 words</strong>, H2/H3 structure.<br>
-      <strong>Design direction (via frontend-design):</strong> type carries every section — each opens with a large, <strong>left-aligned</strong> headline that states the section's whole argument, with short grey supporting copy in a narrow column (&lt; 66ch). <strong>No boxes as a default</strong> — icon rows, lists, values, the guarantee all sit on the page background; a box appears only around a real object (a photo). Structure (the milestone timeline in A4) appears only where the content is genuinely sequential. Section variety comes from real content shape (a portrait grid vs. an icon row vs. a stat pair), not from imposed section-types.<br>
+      <strong>Design direction (via frontend-design, then reconciled with the Home page):</strong> type carries most sections — a large headline stating the section's whole argument, with short grey supporting copy in a narrow column (&lt; 66ch). Boxes are used sparingly, and where the About page needs a beat that also exists on the Home page (A7 values, A9 proof), it <strong>reuses the Home page's card treatment</strong> so the two pages flow together. Alignment: A2/A3/A5/A8/A10 left-aligned; A4/A6/A7/A9/A11 centered heading. The A4 milestone timeline is the one structural device, used only where the business has real dated milestones.<br>
       Notes on this page carry <strong>content intent</strong> as well as structure (it is copy-led). Colors, type, and final copy still come from the brand style guide + content brief.
     </p>
 
@@ -1502,7 +1503,7 @@
           <tr><th>Anchor text literal (keyword-optimized)</th><th>Destination page</th><th>Appears in section</th><th>Status</th></tr>
         </thead>
         <tbody>
-          <tr><td>the [service] services we provide across [city]</td><td><code>/services</code></td><td>about-promise, about-who-we-serve</td><td>exists on most sites — link if present</td></tr>
+          <tr><td>[service category] in [city]</td><td><code>/services</code></td><td>about-promise, about-who-we-serve</td><td>exists on most sites — link if present</td></tr>
           <tr><td>[specific service] in [city]</td><td><code>/services/[service-slug]</code></td><td>about-how-we-work</td><td>create per primary offering</td></tr>
           <tr><td>the [city / neighborhood] area we serve</td><td><code>/locations/[city-slug]</code></td><td>about-who-we-serve</td><td>create per service area</td></tr>
           <tr><td>meet the full [business] team</td><td><code>/team</code></td><td>about-team</td><td>create if team &gt; ~4 or bios run long</td></tr>
@@ -1575,7 +1576,7 @@
         Full-bleed band, <b>left-aligned</b>. The type does the work: a small subline, then a <b>large</b> H1 (deliberately oversized relative to body copy), spanning about 60% of the width.<br>
         <b>Line 1</b> &mdash; H3 subline, ≤10 words (e.g. "A local team [city] homeowners trust").<br>
         <b>Line 2</b> &mdash; H1, descriptive and simple, ≤10 words (e.g. "About [Business] &mdash; [service] in [city]"). The page's keyword-bearing heading &mdash; render it big.<br>
-        <b>Primary CTA button</b> on one row with a quiet inline phone link beside it (not stacked above the button, not a second button). The skill's line-3 <code>(call: )</code> placeholder is folded into that inline link.<br>
+        <b>Primary CTA button</b> on one row with a quiet inline phone link beside it. <b>Include the phone link only when the primary CTA is <em>not</em> itself a call</b> &mdash; e.g. the CTA is "Request an estimate" (a webform) and the phone link gives callers a second path. If a project's primary CTA <em>is</em> click-to-call, drop the inline phone link here (it's redundant). The skill's line-3 <code>(call: )</code> placeholder is folded into this inline link.<br>
         No hero image &mdash; the Leader is text-only and fast.
       </span></p></div>
     </div>
@@ -1601,7 +1602,7 @@
             <div class="ph ph--text w70"></div>
             <div class="lbl" style="margin-top:10px;">one inline link + one inline click-to-call, in the last line</div>
             <div class="row-inline" style="gap:8px;flex-wrap:wrap;">
-              <span class="anchor-lit">the [service] services we provide across [city]</span>
+              <span class="anchor-lit">[service category] in [city]</span>
               <span class="inline-call">(555) 555-5555</span>
             </div>
           </div>
@@ -1613,7 +1614,7 @@
       <div class="note"><span class="mk">A3</span><p class="note__body"><b>The Promise &mdash; "you're in the right place"</b> <span>(Intro, from <code>skill-site-content-about</code>)</span><span>
         <b>Asymmetric, left-aligned:</b> a large headline (~50% width) carries the point that this page is about <em>the visitor</em>; a shorter grey support column beside it holds the actual welcome copy (≤200 words total), ending in a reframe line ("Here's how we can help you&hellip;"). On mobile the support column drops below the headline.<br>
         The welcome <b>immediately gets into the page's most important topic</b>. Anchored to the backstory but doesn't tell it yet. Friendly, plain language, no headings inside the support column.<br>
-        <b>Slots:</b> H2 headline · support paragraph + reframe line · one inline click-to-call · one inline link, anchor literal <span class="anchor-lit">the [service] services we provide across [city]</span> → <code>/services</code>.
+        <b>Slots:</b> H2 headline · support paragraph + reframe line · one inline click-to-call · one inline link using the anchor literal <span class="anchor-lit">[service category] in [city]</span> &mdash; the <b>umbrella service category</b> ("electrical services in Tampa", "kitchen remodeling in Boise"), linking to <code>/services</code>. Specific services (generator install, panel replacement&hellip;) get their own links elsewhere &mdash; A7 links one specific service &mdash; so there's no overlap.
       </span></p></div>
     </div>
   </div>
@@ -1624,46 +1625,39 @@
       <span class="wire__tag">A4 · Where We Started</span>
       <div class="band band--full">
         <span class="mk mk--abs">A4</span>
-        <div class="disp">
-          <div class="lbl">H2 — origin heading</div>
-          <div class="disp__h" style="width:44%;"></div>
-          <div style="height:14px;"></div>
-          <div class="origin-body">
-            <div class="origin-photo"></div>
-            <div class="lbl">origin narrative — story, not a company timeline · prose &lt; 66ch · text wraps beside photo then below · mode depends on the business (see notes)</div>
-            <div class="pnarrow--para">
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w80"></div>
-            </div>
-            <div class="lbl" style="margin-top:12px;">the gap this business was started to fix</div>
-            <div class="pnarrow--para">
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w75"></div>
+        <div class="disp" style="max-width:980px;">
+          <div class="lbl" style="text-align:center;">H2 — origin heading, centered</div>
+          <div class="disp__h" style="width:44%;margin:0 auto;"></div>
+
+          <div style="height:22px;"></div>
+          <div class="lbl">milestone timeline — directly below the H2 · dated nodes alternating above / below · use ONLY where the business has genuine dated milestones</div>
+          <div class="tl">
+            <div class="tl__line"></div>
+            <div class="tl__track">
+              <div class="tl__node tl__node--up"><div class="tl__date"></div><div class="tl__label"></div></div>
+              <div class="tl__node tl__node--down"><div class="tl__date"></div><div class="tl__label"></div></div>
+              <div class="tl__node tl__node--up"><div class="tl__date"></div><div class="tl__label"></div></div>
+              <div class="tl__node tl__node--down"><div class="tl__date"></div><div class="tl__label"></div></div>
+              <div class="tl__node tl__node--up"><div class="tl__date"></div><div class="tl__label"></div></div>
             </div>
           </div>
-        </div>
 
-        <div style="height:18px;"></div>
-        <div class="lbl">milestone timeline — dated nodes, alternating above / below · use ONLY where the business has genuine dated milestones</div>
-        <div class="tl">
-          <div class="tl__line"></div>
-          <div class="tl__track">
-            <div class="tl__node tl__node--up">
-              <div class="tl__date"></div><div class="tl__label"></div>
-            </div>
-            <div class="tl__node tl__node--down">
-              <div class="tl__date"></div><div class="tl__label"></div>
-            </div>
-            <div class="tl__node tl__node--up">
-              <div class="tl__date"></div><div class="tl__label"></div>
-            </div>
-            <div class="tl__node tl__node--down">
-              <div class="tl__date"></div><div class="tl__label"></div>
-            </div>
-            <div class="tl__node tl__node--up">
-              <div class="tl__date"></div><div class="tl__label"></div>
+          <div style="height:26px;"></div>
+          <div class="origin-wrap">
+            <div class="origin-photo"></div>
+            <div class="origin-body">
+              <div class="lbl">origin narrative — a story, not a company timeline · prose &lt; 66ch · mode depends on the business (see notes)</div>
+              <div class="pnarrow--para">
+                <div class="ph ph--text w100"></div>
+                <div class="ph ph--text w100"></div>
+                <div class="ph ph--text w100"></div>
+                <div class="ph ph--text w80"></div>
+              </div>
+              <div class="lbl" style="margin-top:12px;">the gap this business was started to fix</div>
+              <div class="pnarrow--para">
+                <div class="ph ph--text w100"></div>
+                <div class="ph ph--text w75"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1672,13 +1666,13 @@
     <div class="notes">
       <p class="notes__h">Notes — Where We Started</p>
       <div class="note"><span class="mk">A4</span><p class="note__body"><b>Where We Started &mdash; ordinary world + call to adventure</b><span>
-        Full-bleed, left-aligned. <b>H2 origin heading</b>, then a single narrow prose column (&lt; 66ch) with <b>one modest inline photo</b> the text wraps around &mdash; not a 40/60 split panel. The photo is a founder shot, an early-days / on-the-job shot, or a team / premises shot, depending on mode.<br>
+        Full-bleed. <b>Centered H2 origin heading</b>, then the <b>milestone timeline directly below it</b>, then a left-aligned two-column block: a modest photo (fixed 260px, its own column with a real gutter) beside a narrow prose column (&lt; 66ch) &mdash; not a 40/60 split panel, and the photo does not butt against the text. The photo is a founder shot, an early-days / on-the-job shot, or a team / premises shot, depending on mode.<br>
         <b>Pick the mode that fits the business</b> (the source skill assumes a founder; these fill the gap when there isn't one):<br>
         &nbsp;&nbsp;<b>1. Founder story</b> &mdash; a real founder narrative: who they are, how they learned the trade, the moment they started. The <code>skill-site-content-about</code> "We've Grown Into a Trusted Name" pattern. Photo = the founder.<br>
         &nbsp;&nbsp;<b>2. Origin without a person</b> &mdash; no single face: <em>why this company exists</em> &mdash; the market gap the owners saw, the standard they set, what they refuse to do. Photo = team or premises.<br>
         &nbsp;&nbsp;<b>3. New business as a strength</b> &mdash; company is young: lean in. "We started [year] because&hellip;", a fresh approach, the experience the <em>team</em> brings, the owner's prior background. Honest about being new, framed as hungry and accountable.<br>
-        <b>Timeline:</b> a horizontal hairline with dated nodes alternating above and below (collapses to a vertical list on mobile). <b>Use it only where the business has genuine dated milestones</b> &mdash; founded, licensed, an expansion, an Nth job, an award. If the business just "started in 2015" with nothing else to plot, omit the timeline &mdash; the prose + photo stand alone.<br>
-        <b>Slots:</b> H2 origin heading · origin prose + inline photo · a line naming the gap this business was started to fix · optional milestone timeline. Leads into &sect;A5.
+        <b>Timeline</b> sits <b>directly below the H2</b>: a horizontal hairline with dated nodes alternating above and below (collapses to a vertical list on mobile). <b>Use it only where the business has genuine dated milestones</b> &mdash; founded, licensed, an expansion, an Nth job, an award. If the business just "started in 2015" with nothing else to plot, omit the timeline &mdash; the prose + photo stand alone.<br>
+        <b>Slots:</b> centered H2 origin heading · optional milestone timeline · origin prose beside a photo · a line naming the gap this business was started to fix. Leads into &sect;A5.
       </span></p></div>
     </div>
   </div>
@@ -1720,27 +1714,36 @@
       <span class="wire__tag">A6 · Who We're For</span>
       <div class="band band--full">
         <span class="mk mk--abs">A6</span>
-        <div class="disp">
-          <div class="lbl">H2 — "who we're the right fit for" heading</div>
-          <div class="disp__h" style="width:46%;"></div>
-          <div style="height:16px;"></div>
-          <div class="lbl">plain 2-column list — em-dash prefix, one short trait per line · NO card, NO tick-circle</div>
-          <div class="plist">
-            <div class="plist__row"><span class="ph ph--text w90"></span></div>
-            <div class="plist__row"><span class="ph ph--text w80"></span></div>
-            <div class="plist__row"><span class="ph ph--text w85"></span></div>
-            <div class="plist__row"><span class="ph ph--text w75"></span></div>
-            <div class="plist__row"><span class="ph ph--text w88"></span></div>
-            <div class="plist__row"><span class="ph ph--text w70"></span></div>
+        <div class="contained--wide" style="text-align:center;">
+          <div class="lbl">H2 — "who we're the right fit for" heading, centered</div>
+          <div class="ph ph--head" style="width:44%;margin:0 auto;"></div>
+          <div style="height:6px;"></div>
+          <div class="lbl">two cards — one "who this is for", one "who this is not for" · each a plain em-dash list on a card background</div>
+          <div class="fit-cards">
+            <div class="fit-card">
+              <h4>This is for you if…</h4>
+              <div class="fit-list">
+                <div class="plist__row"><span class="ph ph--text w90"></span></div>
+                <div class="plist__row"><span class="ph ph--text w80"></span></div>
+                <div class="plist__row"><span class="ph ph--text w85"></span></div>
+                <div class="plist__row"><span class="ph ph--text w75"></span></div>
+              </div>
+            </div>
+            <div class="fit-card fit-card--no">
+              <h4>Probably not a fit if…</h4>
+              <div class="fit-list">
+                <div class="plist__row"><span class="ph ph--text w85"></span></div>
+                <div class="plist__row"><span class="ph ph--text w70"></span></div>
+                <div class="plist__row"><span class="ph ph--text w80"></span></div>
+              </div>
+            </div>
           </div>
-          <div class="lbl" style="margin-top:16px;">"Not a fit if…" — one muted line</div>
-          <div class="ph ph--text" style="width:52%;opacity:0.6;"></div>
-          <div class="lbl" style="margin-top:12px;">service-area line + inline link</div>
-          <div class="row-inline">
+          <div class="lbl" style="margin-top:14px;">service-area line + inline link</div>
+          <div class="row-inline" style="justify-content:center;">
             <span class="anchor-lit">the [city / neighborhood] area we serve</span>
           </div>
           <div style="height:16px;"></div>
-          <div class="row-inline">
+          <div class="row-inline" style="justify-content:center;">
             <span class="btn btn--primary">Primary CTA</span>
           </div>
         </div>
@@ -1749,8 +1752,8 @@
     <div class="notes">
       <p class="notes__h">Notes — Who We're For</p>
       <div class="note"><span class="mk">A6</span><p class="note__body"><b>Who We're For &mdash; meeting the hero</b><span>
-        Full-bleed, <b>left-aligned</b>. Names the <b>ideal client precisely</b> so the right visitor self-selects. Rendered as a <b>plain two-column list</b> (em-dash prefix, one short trait per line, 4&ndash;6 lines) &mdash; no cards, no tick-circles, sits on the page background. Then one <b>muted</b> "Not a fit if&hellip;" line (out of area, DIY-only budget, emergency-only when you don't do emergencies). The honest disqualifier builds trust.<br>
-        <b>Slots:</b> H2 heading · plain trait list · "not a fit" line · service-area line with inline link <span class="anchor-lit">the [city / neighborhood] area we serve</span> → <code>/locations/[city-slug]</code> · <b>mid-page primary CTA button</b>, left-aligned.
+        Full-bleed, <b>centered heading and CTA</b>. Names the <b>ideal client precisely</b> so the right visitor self-selects. Rendered as <b>two cards side by side</b> (stack on mobile), each an em-dash list on a card background: one <b>"This is for you if&hellip;"</b> (4&ndash;6 traits &mdash; type of homeowner / property / situation this business is built for), one <b>"Probably not a fit if&hellip;"</b> (2&ndash;4 honest disqualifiers &mdash; out of area, DIY-only budget, emergency-only when you don't do emergencies). The honest disqualifier card builds trust.<br>
+        <b>Slots:</b> centered H2 heading · the two fit cards · service-area line with inline link <span class="anchor-lit">the [city / neighborhood] area we serve</span> → <code>/locations/[city-slug]</code> · <b>centered mid-page primary CTA button</b>.
       </span></p></div>
     </div>
   </div>
@@ -1761,32 +1764,34 @@
       <span class="wire__tag">A7 · How We Work</span>
       <div class="band">
         <span class="mk mk--abs">A7</span>
-        <div class="disp">
-          <div class="lbl">H2 — could be a display line ("How the work actually goes")</div>
-          <div class="disp__h" style="width:52%;"></div>
-          <div class="lbl">3 values as a plain icon row — small icon, bold label, 2–3 grey lines · NO box around each</div>
-          <div class="irow irow--3">
-            <div class="irow__item">
-              <div class="irow__ico"></div>
-              <div class="irow__label"></div>
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w80"></div>
+        <div class="contained contained--wide stack">
+          <div class="lbl" style="text-align:center;">heading, centered — "How the work actually goes"</div>
+          <div class="ph ph--head" style="width:44%;margin:0 auto;"></div>
+          <div style="height:14px;"></div>
+          <div class="lbl">3 value cards — same treatment as Home HP7 (The Plan): icon + value title + benefit line, on a card fill</div>
+          <div class="cols cols--3" style="gap:18px;">
+            <div class="card stack--tight" style="text-align:center;">
+              <div class="dot" style="margin:0 auto;"></div>
+              <div class="ph ph--sub" style="width:80%;margin:8px auto 0;" title="the value"></div>
+              <div class="ph ph--text" style="width:90%;margin:0 auto;" title="the client benefit it produces"></div>
+              <div class="ph ph--text" style="width:65%;margin:0 auto;"></div>
             </div>
-            <div class="irow__item">
-              <div class="irow__ico"></div>
-              <div class="irow__label"></div>
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w80"></div>
+            <div class="card stack--tight" style="text-align:center;">
+              <div class="dot" style="margin:0 auto;"></div>
+              <div class="ph ph--sub" style="width:80%;margin:8px auto 0;"></div>
+              <div class="ph ph--text" style="width:90%;margin:0 auto;"></div>
+              <div class="ph ph--text" style="width:65%;margin:0 auto;"></div>
             </div>
-            <div class="irow__item">
-              <div class="irow__ico"></div>
-              <div class="irow__label"></div>
-              <div class="ph ph--text w100"></div>
-              <div class="ph ph--text w80"></div>
+            <div class="card stack--tight" style="text-align:center;">
+              <div class="dot" style="margin:0 auto;"></div>
+              <div class="ph ph--sub" style="width:80%;margin:8px auto 0;"></div>
+              <div class="ph ph--text" style="width:90%;margin:0 auto;"></div>
+              <div class="ph ph--text" style="width:65%;margin:0 auto;"></div>
             </div>
           </div>
-          <div class="lbl" style="margin-top:18px;">trailing line — inline link to a specific service + inline click-to-call</div>
-          <div class="row-inline" style="gap:8px;flex-wrap:wrap;">
+          <div style="height:14px;"></div>
+          <div class="lbl" style="text-align:center;">trailing line — inline link to a specific service + inline click-to-call</div>
+          <div class="row-inline" style="gap:8px;flex-wrap:wrap;justify-content:center;">
             <span class="anchor-lit">[specific service] in [city]</span>
             <span class="inline-call">(555) 555-5555</span>
           </div>
@@ -1796,8 +1801,8 @@
     <div class="notes">
       <p class="notes__h">Notes — How We Work</p>
       <div class="note"><span class="mk">A7</span><p class="note__body"><b>How We Work &mdash; the plan / the method</b><span>
-        Left-aligned. The "Our Core Values" beat from <code>skill-site-content-about</code>, but each value is written as <b>how work actually gets done for the client</b> &mdash; value → the client benefit it produces (e.g. "Transparency → you approve every line before we start"). <b>Rendered as a plain icon row</b> &mdash; small line icon, bold label, 2&ndash;3 grey lines &mdash; sitting directly on the page background. <b>No boxes, no numbered chips.</b> 3 across on desktop, wraps on mobile.<br>
-        <b>Slots:</b> H2 heading · 3 icon-row items (icon + label + 2 benefit lines) · a trailing line with one inline link <span class="anchor-lit">[specific service] in [city]</span> → <code>/services/[service-slug]</code> and one inline click-to-call.<br>
+        Contained-wide, centered heading. The "Our Core Values" beat from <code>skill-site-content-about</code>, but each value is written as <b>how work actually gets done for the client</b> &mdash; value → the client benefit it produces (e.g. "Transparency → you approve every line before we start"). <b>Rendered as 3 cards, mirroring the Home page's Plan section (HP7)</b> &mdash; icon + value title + benefit line &mdash; so the About page flows with the Home design. 3-up desktop, 1-col mobile. (No step numbers &mdash; these are values, not a sequence.)<br>
+        <b>Slots:</b> centered heading · 3 value cards · a trailing line with one inline link <span class="anchor-lit">[specific service] in [city]</span> → <code>/services/[service-slug]</code> and one inline click-to-call.<br>
         Don't repeat an anchor used elsewhere on the page.
       </span></p></div>
     </div>
@@ -1850,26 +1855,69 @@
       <span class="wire__tag">A9 · Proof We Deliver</span>
       <div class="band band--full">
         <span class="mk mk--abs">A9</span>
-        <div class="disp">
-          <div class="lbl">H2 — proof heading (left)</div>
-          <div class="disp__h" style="width:38%;"></div>
-          <div class="lbl" style="margin-top:14px;">1–2 very large numerals, small label under each · no band, no box</div>
-          <div class="stats">
-            <div><div class="stats__n"></div><div class="stats__lbl"></div></div>
-            <div><div class="stats__n" style="width:120px;"></div><div class="stats__lbl" style="width:140px;"></div></div>
+        <div class="contained contained--wide stack">
+          <div class="lbl" style="text-align:center;">heading, centered</div>
+          <div class="ph ph--head" style="width:38%;margin:0 auto;"></div>
+          <div style="height:14px;"></div>
+          <div class="lbl">same treatment as Home HP9 (Proof), scaled down: press row + awards, then 2 testimonial cards, then a case-study number block</div>
+          <div class="cols" style="grid-template-columns:2fr 1fr;gap:20px;align-items:start;">
+            <div>
+              <div class="lbl" style="text-align:center;">as seen in / press mentions</div>
+              <div class="logos">
+                <div class="logo"></div><div class="logo"></div><div class="logo"></div>
+                <div class="logo"></div><div class="logo"></div>
+              </div>
+            </div>
+            <div>
+              <div class="lbl" style="text-align:center;">awards</div>
+              <div class="row-inline" style="justify-content:center;gap:12px;flex-wrap:wrap;">
+                <span class="dot dot--sq" style="width:40px;height:40px;"></span>
+                <span class="dot dot--sq" style="width:40px;height:40px;"></span>
+              </div>
+            </div>
           </div>
-          <div class="pnarrow">
-            <div class="lbl">one short testimonial — plain, below the stats</div>
-            <div class="ph ph--text w100"></div>
-            <div class="ph ph--text w75"></div>
-            <div class="ph ph--text" style="width:45%;margin-top:4px;" title="— Name, result"></div>
+          <div style="height:16px;"></div>
+          <div class="cols cols--2" style="gap:18px;">
+            <div class="card stack--tight">
+              <div class="ph ph--text w100"></div>
+              <div class="ph ph--text w100"></div>
+              <div class="ph ph--text w70"></div>
+              <div class="row-inline" style="margin-top:10px;">
+                <div class="dot" style="width:28px;height:28px;"></div>
+                <div class="stack--tight" style="flex:1;">
+                  <div class="ph ph--text" style="width:60%;"></div>
+                  <div class="ph ph--text" style="width:40%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card stack--tight">
+              <div class="ph ph--text w100"></div>
+              <div class="ph ph--text w100"></div>
+              <div class="ph ph--text w70"></div>
+              <div class="row-inline" style="margin-top:10px;">
+                <div class="dot" style="width:28px;height:28px;"></div>
+                <div class="stack--tight" style="flex:1;">
+                  <div class="ph ph--text" style="width:60%;"></div>
+                  <div class="ph ph--text" style="width:40%;"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="lbl" style="margin-top:14px;">quiet credential logo row</div>
-          <div class="cred-row">
-            <span class="cred"></span><span class="cred"></span><span class="cred"></span>
+          <div style="height:18px;"></div>
+          <div class="card cols cols--3" style="align-items:center;gap:20px;">
+            <div style="text-align:center;">
+              <div class="ph ph--head" style="width:70%;height:40px;margin:0 auto 6px;"></div>
+              <div class="ph ph--text" style="width:80%;margin:0 auto;"></div>
+            </div>
+            <div class="stack--tight" style="grid-column:span 2;">
+              <div class="ph ph--text w85"></div>
+              <div class="ph ph--text w100"></div>
+              <div class="ph ph--text w55"></div>
+            </div>
           </div>
-          <div class="lbl" style="margin-top:12px;">two inline links</div>
-          <div class="row-inline" style="gap:14px;flex-wrap:wrap;">
+          <div style="height:14px;"></div>
+          <div class="lbl" style="text-align:center;">two inline links</div>
+          <div class="row-inline" style="gap:14px;flex-wrap:wrap;justify-content:center;">
             <span class="anchor-lit">see recent [service] projects in [city]</span>
             <span class="anchor-lit">read [business] reviews from [city] homeowners</span>
           </div>
@@ -1879,8 +1927,9 @@
     <div class="notes">
       <p class="notes__h">Notes — Proof We Deliver</p>
       <div class="note"><span class="mk">A9</span><p class="note__body"><b>Proof We Deliver &mdash; evidence</b><span>
-        Left-aligned. Deliberately <b>lighter than the Home page's Proof section</b> &mdash; the About page is story-led; this beat keeps it from being all narrative. Rendered as a <b>stat pair</b> (1&ndash;2 very large numerals + small label each, sitting on the page background &mdash; no band, no box), then <b>one short testimonial</b> in plain prose beneath, then a <b>quiet greyscale credential logo row</b>.<br>
-        <b>Slots:</b> H2 heading · 1&ndash;2 headline result stats · one testimonial (quote + name + result) · credential / license / association logos · two inline links: <span class="anchor-lit">see recent [service] projects in [city]</span> → <code>/projects</code>, <span class="anchor-lit">read [business] reviews from [city] homeowners</span> → <code>/reviews</code> (both plain text until those pages exist).
+        Full-bleed, centered heading. <b>Mirrors the Home page's Proof section (HP9)</b> so the About page flows with the Home design &mdash; but <b>scaled down</b> (2 testimonial cards, not 3), because the About page is story-led and this is a supporting beat.<br>
+        <b>Slots, top to bottom:</b> centered heading · a row split <b>2/3 "as seen in" press-mention logo row</b> + <b>1/3 awards</b> (stacks on mobile; omit either if none) · <b>2 testimonial cards</b> (quote + avatar + name + result), 1-col on mobile · one full-width <b>case-study block</b> (large measurable-result number + short context) · two inline links: <span class="anchor-lit">see recent [service] projects in [city]</span> → <code>/projects</code>, <span class="anchor-lit">read [business] reviews from [city] homeowners</span> → <code>/reviews</code> (both plain text until those pages exist).<br>
+        The client / partner logo wall lives in Section HP3 (The Promise) on the Home page, not here.
       </span></p></div>
     </div>
   </div>
@@ -1949,14 +1998,14 @@
       <span class="wire__tag">A11 · Ready to Get Started?</span>
       <div class="band band--full" style="padding-top:44px;padding-bottom:44px;">
         <span class="mk mk--abs">A11</span>
-        <div class="disp">
-          <div class="lbl">restated headline — LARGE, specific to the reader's outcome (e.g. "Ready for a house that's handled?")</div>
-          <div class="disp__h" style="width:64%;"></div>
-          <div class="disp__h" style="width:42%;"></div>
-          <div class="lbl" style="margin-top:14px;">supporting reassurance line, grey</div>
-          <div class="ph ph--text" style="width:44%;"></div>
+        <div class="contained stack" style="text-align:center;">
+          <div class="lbl">restated headline — LARGE, centered, specific to the reader's outcome (e.g. "Ready for a house that's handled?")</div>
+          <div class="ph ph--head" style="width:60%;height:34px;margin:0 auto;"></div>
+          <div class="ph ph--head" style="width:38%;height:34px;margin:6px auto 0;"></div>
+          <div class="lbl" style="text-align:center;">supporting reassurance line, grey</div>
+          <div class="ph ph--text" style="width:42%;margin:0 auto;"></div>
           <div style="height:18px;"></div>
-          <div class="row-inline">
+          <div class="row-inline" style="justify-content:center;">
             <span class="btn btn--primary">Primary CTA</span>
             <span class="inline-call">Call or Text (555) 555-5555</span>
           </div>
@@ -1966,8 +2015,8 @@
     <div class="notes">
       <p class="notes__h">Notes — Ready to Get Started?</p>
       <div class="note"><span class="mk">A11</span><p class="note__body"><b>Ready to Get Started? &mdash; the call to action</b><span>
-        Full-bleed band, <b>left-aligned</b> (not a centered high-contrast band). Mirrors the Home page's <code>final-cta</code> in intent. Models the closing paragraph from <code>skill-site-content-about</code> ("Whether it's immediate help or a scheduled consultation, we're here&hellip;").<br>
-        <b>Slots:</b> a <b>large</b> restated headline made specific to the reader's dream outcome · one grey reassurance line · primary CTA button (same wording as the Home hero's primary) with a click-to-call link beside it &mdash; here the two sit together because they're distinct actions in a closing band (call now vs. book online), not a redundant stack.
+        Full-bleed band, <b>all elements centered</b>. Mirrors the Home page's <code>final-cta</code>. Models the closing paragraph from <code>skill-site-content-about</code> ("Whether it's immediate help or a scheduled consultation, we're here&hellip;").<br>
+        <b>Slots:</b> a <b>large</b> restated headline made specific to the reader's dream outcome · one grey reassurance line · primary CTA button (same wording as the Home hero's primary) with a click-to-call link beside it &mdash; here the two sit together because they're distinct actions in a closing band (call now vs. book online), not a redundant stack. All centered.
       </span></p></div>
     </div>
   </div>
@@ -1979,14 +2028,14 @@
       <div class="band" style="background:var(--fill-1);">
         <span class="mk mk--abs">A12</span>
         <div class="contained--wide" style="text-align:center;color:var(--line-strong);font-family:var(--mono);font-size:12px;padding:24px;">
-          same Footer component as the Home page (§15) &mdash; identity + NAP citation, two menus, map + hours + GBP button, bottom bar
+          same Footer component as the Home page (HP15) &mdash; identity + NAP citation, two menus, map + hours + GBP button, bottom bar
         </div>
       </div>
     </div>
     <div class="notes">
       <p class="notes__h">Notes — About Footer</p>
       <div class="note"><span class="mk">A12</span><p class="note__body"><b>Footer</b><span>
-        Identical component to the Home <code>footer</code> (§15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "About" menu link shows its active state.
+        Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "About" menu link shows its active state.
       </span></p></div>
     </div>
   </div>

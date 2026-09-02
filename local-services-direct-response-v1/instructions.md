@@ -16,25 +16,26 @@ says *how to fill each slot*.
 | `asset-list.md` | Which concrete assets, fonts, colors, data are required + their specs | Whoever produces the assets (brand style guide, photo shoot, etc.) |
 
 Every section has a **slug**. All three files use the same slugs so they cross-reference
-cleanly.
+cleanly. The wireframe *tags* sections `HP1–HP15` (Home) and `A1–A12` (About); the slugs
+below are what the content and cross-references use.
 
-| # | Slug | Section |
+| Tag | Slug | Section |
 |---|---|---|
-| 1 | `header` | Header / Nav |
-| 2 | `hero` | Hero |
-| 3 | `promise` | The Promise / Outcomes |
-| 4 | `problem` | Problem + Stakes |
-| 5 | `cost-of-diy` | Cost of Doing It Yourself |
-| 6 | `guide` | The Guide |
-| 7 | `plan` | The Plan |
-| 8 | `transformation` | The Transformation |
-| 9 | `proof` | Proof |
-| 10 | `speed-to-results` | Speed to Results |
-| 11 | `offer` | The Offer / Risk Reversal |
-| 12 | `faq` | FAQ |
-| 13 | `features` | Features |
-| 14 | `final-cta` | Final CTA Band |
-| 15 | `footer` | Footer |
+| HP1 | `header` | Header / Nav |
+| HP2 | `hero` | Hero |
+| HP3 | `promise` | The Promise / Outcomes |
+| HP4 | `problem` | Problem + Stakes |
+| HP5 | `cost-of-diy` | Cost of Doing It Yourself |
+| HP6 | `guide` | The Guide |
+| HP7 | `plan` | The Plan |
+| HP8 | `transformation` | The Transformation |
+| HP9 | `proof` | Proof |
+| HP10 | `speed-to-results` | Speed to Results |
+| HP11 | `offer` | The Offer / Risk Reversal |
+| HP12 | `faq` | FAQ |
+| HP13 | `features` | Features |
+| HP14 | `final-cta` | Final CTA Band |
+| HP15 | `footer` | Footer |
 
 ### About page slugs
 
@@ -45,7 +46,7 @@ right choice for you." It incorporates the Leader / Intro / Body credibility spi
 with Home slugs. Full detail is in the **About page** part of this document, after the Home
 sections.
 
-| # | Slug | Section |
+| Tag | Slug | Section |
 |---|---|---|
 | A1 | `about-header` | Header / Nav (reuses `header`) |
 | A2 | `about-leader` | Leader |
@@ -692,7 +693,7 @@ the vehicle, but every beat bends back to the reader's decision:
 work → the people → the proof → why us → act now.*
 
 **Structural spine** from `skill-site-content-about` (Rank Expand Academy): a **Leader**
-(3-line block), an **Intro** (one punchy welcome, ≤200 words), and a **Body** of
+(headline block), an **Intro** (one punchy welcome, ≤200 words), and a **Body** of
 800–1,200 words in H2/H3 structure, credibility-focused, with the backstory woven
 throughout rather than told as a timeline.
 
@@ -707,15 +708,14 @@ woven into the prose at `about-promise`, `about-how-we-work`, `about-why-choose-
 `about-cta` — never stacked directly above a CTA button (the button already carries the
 call/contact action).
 
-**Design direction (via `frontend-design`).** Type carries every section. Each opens with a
-**large, left-aligned headline** that states the section's whole argument, with short grey
-supporting copy in a narrow column (< 66ch) beside or beneath it. **No boxes as a
-default** — icon rows, lists, values, the guarantee all sit directly on the page
-background; a box appears only around a real object (a photo). **Structure only where the
-content is genuinely structured** — the milestone timeline in A4 is the only structural
-device, and it's used only if the business has real dated milestones. Section variety
-comes from genuine content shape (a portrait grid vs. an icon row vs. a stat pair), not
-from imposed section-types or decorative panels. The treatment is named per section below.
+**Design direction (via `frontend-design`, then reconciled with the Home page).** Type
+carries most sections — each opens with a large headline that states the section's whole
+argument, with short grey supporting copy in a narrow column (< 66ch). Boxes are used
+sparingly. **Where the About page needs a beat that also exists on the Home page (A7
+values, A9 proof), it reuses the Home page's card treatment** so the two pages flow
+together. Alignment: **A2, A3, A5, A8, A10 left-aligned; A4, A6, A7, A9, A11 have a
+centered heading**. The A4 **milestone timeline** is the one structural device — used only
+where the business has real dated milestones. The treatment is named per section below.
 
 ---
 
@@ -739,9 +739,12 @@ state. See §`header`.
    [city] homeowners trust."
 2. **H1 page heading** — descriptive and simple, ≤10 words, the page's keyword-bearing
    heading. E.g. "About [Business] — [service] in [city]." Render it large.
-3. **Primary CTA button** on one row with a quiet **inline phone link** beside it — not
-   stacked above the button, not a second button. The skill's line-3 `(call: )`
-   placeholder is folded into that inline link.
+3. **Primary CTA button** on one row with a quiet **inline phone link** beside it.
+   **Include the phone link only when the primary CTA is *not* itself a call** — e.g. the
+   CTA is "Request an estimate" (a webform) and the phone link gives callers a second
+   path. If a project's primary CTA *is* click-to-call, drop the inline phone link here
+   (it's redundant). The skill's line-3 `(call: )` placeholder is folded into this inline
+   link.
 
 No hero image — the Leader is text-only and fast.
 
@@ -761,8 +764,11 @@ drops below the headline on mobile.
   page's most important topic*, anchored to the backstory but doesn't tell it yet, ending
   in a **reframe line** ("Here's how we can help you…").
 - **One inline click-to-call** in the support column's last line.
-- **One inline link** — suggested literal: *the [service] services we provide across
-  [city]* → `/services`.
+- **One inline link** using the anchor literal **`[service category] in [city]`** — the
+  **umbrella service category** ("electrical services in Tampa", "kitchen remodeling in
+  Boise"), linking to `/services`. Specific services (generator install, panel
+  replacement…) get their own links elsewhere — A7 links one specific service — so there
+  is no overlap between the two.
 
 Friendly, plain language. No headings inside the support column.
 
@@ -771,9 +777,10 @@ Friendly, plain language. No headings inside the support column.
 ## A4. `about-origin` — Where We Started
 
 **Beat:** ordinary world + call to adventure — the origin.
-**Layout:** full-bleed, **left-aligned**. H2, then a **single narrow prose column (< 66ch)
-with one modest inline photo the text wraps around** — not a 40/60 split panel. Then an
-**optional milestone timeline**.
+**Layout:** full-bleed. **Centered H2 origin heading**, then the **optional milestone
+timeline directly below it**, then a left-aligned two-column block — a modest photo (fixed
+~260px, its own column with a real gutter) beside a narrow prose column (< 66ch). Not a
+40/60 split panel, and the photo must not butt against the text.
 
 **Pick the mode that fits the business.** The `skill-site-content-about` skill assumes a
 founder exists (its example is built entirely around one). These three modes fill the gap
@@ -789,15 +796,15 @@ when that isn't true — the *beat* is the same in all three, only the story cha
    [year] because…", a fresh approach, the experience the *team* brings, the owner's prior
    background. Honest about being new; framed as hungry and accountable.
 
-**Milestone timeline** — a horizontal hairline with dated nodes alternating above and
-below (collapses to a vertical list on mobile). **Use it only where the business has
-genuine dated milestones** — founded, licensed, an expansion, an Nth job, an award. If the
-business just "started in 2015" with nothing else to plot, **omit the timeline** — the
-prose + photo stand alone.
+**Milestone timeline** sits **directly below the H2**: a horizontal hairline with dated
+nodes alternating above and below (collapses to a vertical list on mobile). **Use it only
+where the business has genuine dated milestones** — founded, licensed, an expansion, an
+Nth job, an award. If the business just "started in 2015" with nothing else to plot,
+**omit the timeline** — the prose + photo stand alone.
 
-**Slots:** photo · **H2 origin heading** · origin prose (a **story, not a company
-timeline**, backstory woven) · a line naming **the gap this business was started to fix** ·
-optional milestone timeline. Leads into A5.
+**Slots:** centered **H2 origin heading** · optional milestone timeline · origin prose (a
+**story, not a company timeline**, backstory woven) beside a photo · a line naming **the
+gap this business was started to fix**. Leads into A5.
 
 ---
 
@@ -823,21 +830,22 @@ No CTA here — momentum flows into A6.
 ## A6. `about-who-we-serve` — Who We're For
 
 **Beat:** meeting the hero. The reader self-selects.
-**Layout:** full-bleed, **left-aligned**. A **plain two-column list** — em-dash prefix, one
-short trait per line, no cards, no tick-circles, sitting on the page background — then one
-**muted** "Not a fit if…" line.
+**Layout:** full-bleed, **centered heading and CTA**. **Two cards side by side** (stack on
+mobile), each an em-dash list on a card background: one "This is for you if…", one
+"Probably not a fit if…".
 
 **What to put here:**
 
-- **H2 "who we're the right fit for" heading.**
-- **The plain trait list** (4–6 lines) — the type of homeowner / property / situation this
-  business is built for, one short trait per line.
-- **"Not a fit if…" line** — honest disqualifiers (out of area, DIY-only budget,
-  emergency-only when you don't do emergencies), set muted. The disqualifier builds trust.
+- **Centered H2 "who we're the right fit for" heading.**
+- **Card 1 — "This is for you if…"** — 4–6 traits, one per line: the type of homeowner /
+  property / situation this business is built for.
+- **Card 2 — "Probably not a fit if…"** — 2–4 honest disqualifiers (out of area, DIY-only
+  budget, emergency-only when you don't do emergencies). The honest disqualifier card
+  builds trust.
 - **Service-area line** with an inline link — suggested literal: *the [city /
   neighborhood] area we serve* → `/locations/[city-slug]` (plain text until that page
   exists).
-- **Mid-page primary CTA button**, left-aligned.
+- **Centered mid-page primary CTA button.**
 
 ---
 
@@ -845,17 +853,18 @@ short trait per line, no cards, no tick-circles, sitting on the page background 
 
 **Beat:** the plan / the method. (The "Our Core Values" beat from
 `skill-site-content-about`, reframed.)
-**Layout:** **left-aligned**. A **plain icon row** — small line icon, bold label, 2–3 grey
-lines — sitting directly on the page background. **No boxes, no numbered chips.** 3 across
-on desktop, wraps on mobile.
+**Layout:** contained-wide, **centered heading**. **3 cards, mirroring the Home page's Plan
+section (HP7)** — icon + value title + benefit line — so the About page flows with the
+Home design. 3-up desktop, 1-col mobile. No step numbers (these are values, not a
+sequence).
 
 **What to put here:**
 
-- **H2 heading** (can be a display line like "How the work actually goes").
+- **Centered H2 heading** ("How the work actually goes").
 - **3 values, each written as how work actually gets done for the client** — value → the
   client benefit it produces. E.g. "Transparency → you approve every line before we
-  start"; "Punctuality → we call 30 minutes out, every time." Each item = icon + label +
-  2 benefit lines.
+  start"; "Punctuality → we call 30 minutes out, every time." Each card = icon + value
+  title + benefit line.
 - **A trailing line** with one inline link to a specific service — suggested literal:
   *[specific service] in [city]* → `/services/[service-slug]` — and one inline
   click-to-call.
@@ -887,23 +896,25 @@ Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
 
 ## A9. `about-proof` — Proof We Deliver
 
-**Beat:** evidence. Deliberately **lighter than the Home page's `proof` section** — the
-About page is story-led; this beat just keeps it from being all narrative and no
-substance.
-**Layout:** left-aligned. A **stat pair** (1–2 very large numerals + small label each,
-sitting on the page background — no band, no box), then **one short testimonial** in plain
-prose beneath, then a **quiet greyscale credential logo row**.
+**Beat:** evidence.
+**Layout:** full-bleed, **centered heading**. **Mirrors the Home page's Proof section
+(HP9)** so the About page flows with the Home design — but **scaled down** (2 testimonial
+cards, not 3), because the About page is story-led and this is a supporting beat.
 
-**What to put here:**
+**What to put here, top to bottom:**
 
-- **H2 proof heading.**
-- **1–2 headline result stats** — a big number + label (e.g. "1,900+ [city] homes
-  serviced", "4.9★").
-- **One short testimonial** — quote + name + the result they got.
-- **A quiet row of credential / license / association logos.**
+- **Centered H2 proof heading.**
+- **A row split 2/3 "as seen in" press-mention logo row + 1/3 awards** (stacks on mobile;
+  omit either if the business genuinely has none).
+- **2 testimonial cards** — quote + avatar + name + result each. 1-col on mobile. (Home's
+  Proof has 3; the About page uses 2.)
+- **One full-width case-study block** — a large measurable-result number + short context
+  (who, what you did, over what period).
 - **Two inline links** (unique to this page): *see recent [service] projects in [city]* →
   `/projects`; *read [business] reviews from [city] homeowners* → `/reviews`. Both plain
   text until those pages exist.
+
+The client / partner logo wall lives in HP3 (The Promise) on the Home page, not here.
 
 ---
 
@@ -933,7 +944,7 @@ sentence**, not a panel.
 **Beat:** the call to action. Mirrors the Home page's `final-cta`. Models the closing
 paragraph from `skill-site-content-about` ("Whether it's immediate help or a scheduled
 consultation, we're here…").
-**Layout:** full-bleed band, **left-aligned** — not a centered high-contrast band.
+**Layout:** full-bleed band, **all elements centered**.
 
 **What to put here:**
 
@@ -943,6 +954,8 @@ consultation, we're here…").
 - **Primary CTA button** — same wording as the Home hero's primary — with a **click-to-call
   link beside it**. Here the two sit together because they are distinct actions in a
   closing band (call now vs. book online), not a redundant stack.
+
+All centered.
 
 ---
 
