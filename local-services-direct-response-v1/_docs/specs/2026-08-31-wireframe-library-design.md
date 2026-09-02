@@ -103,21 +103,27 @@ maps the two together.
 Built as HTML (Figma blocked by the free-plan seat — see below), in
 `sites/local-services-direct-response-v1/`:
 
-- `_temp/local-services-direct-response-v1.html` — the wireframe (15 sections, structural
-  only), wireframe-left / numbered-notes-right.
+- `_temp/local-services-direct-response-v1.html` — the wireframe. Two page types in one
+  scrollable file: **Home** (15 sections, structural only) and **About** (12 sections,
+  structural + content-intent). Wireframe-left / numbered-notes-right.
 - `instructions.md` — per-section content instructions: what goes in each slot and how to
-  write/choose it. Hero's Journey framing primary, supplemented from the "perfect
-  homepage" Notion transcript.
+  write/choose it. Home = Hero's Journey framing supplemented from the "perfect homepage"
+  Notion transcript. About = modified sales page for the brand, Hero's-Journey/StoryBrand
+  arc with the Leader/Intro/Body spine from `skill-site-content-about`. Also carries
+  site-wide subsections: Buttons & CTAs, Phone numbers (CallRail DNI), Site setup /
+  `<head>`, Media naming & SEO, Internal linking & anchor text, Bios written as ads.
 - `asset-list.md` — required-inputs checklist: typography roles, color tokens, logos,
-  images (with dimensions/AR/treatment), icons, embeds, content data.
+  favicon set, author/team/Gravatar images, per-slot images/icons/embeds, content data
+  (Home + About).
 
-All three files cross-reference by **section slug**:
-`header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof ·
-speed-to-results · offer · faq · features · final-cta · footer`.
+All files cross-reference by **section slug** — Home: `header … footer`; About:
+`about-header … about-footer`.
 
 The intended build flow: pick this template → external files (brand style guide, sitemap,
-content brief) reference `instructions.md` for what to produce and `asset-manifest.md` for
-the specs → assets get created → page is assembled to the wireframe structure.
+content brief) reference `instructions.md` for what to produce and `asset-list.md` for
+the specs → assets get created → pages are assembled to the wireframe structure. The
+About page's "potential internal links" table tells the build which additional pages to
+create and where to wire links.
 
 ## Note on tooling
 
@@ -129,5 +135,8 @@ HTML in the repo instead. Revisit porting to Figma if the plan is upgraded.
 
 - [ ] Decide whether the wireframe stays in `_temp/` or moves to a permanent location in
       the folder.
-- [ ] Additional page-type wireframes (interior, listing, detail, contact, blog) — build
-      per style as sitemaps require them.
+- [ ] Additional page-type wireframes (services, service detail, locations, contact, team,
+      blog) — build per style as sitemaps require them. The About page's potential-links
+      table names the first candidates.
+- [ ] Gravatar headshot display size on the About page — sensible default specced
+      (800×800 source, ~96–120px round); owner to confirm on mockup review.

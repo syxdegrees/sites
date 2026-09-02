@@ -36,6 +36,30 @@ cleanly.
 | 14 | `final-cta` | Final CTA Band |
 | 15 | `footer` | Footer |
 
+### About page slugs
+
+The About page is a **modified sales page for the brand** — a Hero's-Journey / StoryBrand
+arc told from the company's origin, with every beat bent back to "…and that's why we're the
+right choice for you." It incorporates the Leader / Intro / Body credibility spine from the
+`skill-site-content-about` skill. Its slugs are prefixed `about-` so they never collide
+with Home slugs. Full detail is in the **About page** part of this document, after the Home
+sections.
+
+| # | Slug | Section |
+|---|---|---|
+| A1 | `about-header` | Header / Nav (reuses `header`) |
+| A2 | `about-leader` | Leader |
+| A3 | `about-promise` | The Promise (to the reader) |
+| A4 | `about-origin` | Where We Started |
+| A5 | `about-why-this-work` | Why We Do This |
+| A6 | `about-who-we-serve` | Who We're For |
+| A7 | `about-how-we-work` | How We Work |
+| A8 | `about-team` | The People You'll Work With |
+| A9 | `about-proof` | Proof We Deliver |
+| A10 | `about-why-choose-us` | Why Homeowners Choose Us |
+| A11 | `about-cta` | Ready to Get Started? |
+| A12 | `about-footer` | Footer (reuses `footer`) |
+
 ## Governing principles (apply to every section)
 
 - **Client-centric, always.** Every section is about the visitor's story, desire,
@@ -76,7 +100,7 @@ and behavior differ. Referenced from `header`, `hero`, `plan`, `offer`, `final-c
   no "Submit", "Contact us", "Learn more", "Click here".
 
 **Kind 1 — Click-to-call / click-to-text** (phone-number buttons — mainly `header` and
-`footer`)
+`footer`; also inline in prose on the About page)
 
 - Mark up as `<a href="tel:5555555555">` for calling and/or `<a href="sms:5555555555">`
   for texting — click-to-call / click-to-SMS enabled on every device, not just mobile.
@@ -85,6 +109,12 @@ and behavior differ. Referenced from `header`, `hero`, `plan`, `offer`, `final-c
 - Use the project's assigned **tracking / call-tracking number**, not the raw business
   line, so calls are attributable. The visible number and the `href` digits must match
   that tracking number.
+- **Inline click-to-call (in paragraph text):** on copy-heavy pages (the About page
+  especially), a phone link woven into a sentence converts better than a button breaking
+  the prose. Use a plain `<a href="tel:…">` around a natural phrase — "give us a call at
+  (555) 555-5555" — not a styled button. Reserve buttons for section breaks and CTA
+  bands.
+- See "Phone numbers" below for the CallRail dynamic-number-insertion requirement.
 
 **Kind 2 — Link to a webform or another page** (`hero`, `plan`, `offer`, `final-cta`, and
 all secondary CTAs)
@@ -94,6 +124,70 @@ all secondary CTAs)
 - **Button text = the CTA** — what happens when they land there: "Book Your Free
   Consultation", "Get My Quote", "See How It Works". It should set the expectation for
   the page on the other side.
+
+## Phone numbers
+
+- **Every displayed phone number is a link** — `<a href="tel:…">` (and `<a href="sms:…">`
+  where texting is offered), on every device.
+- **Use dynamic number insertion (DNI) via CallRail.** Different lead sources / marketing
+  channels (organic, Google Ads, GMB, direct, referral, print) each get a distinct
+  tracking number so calls are attributable to channel. CallRail's script swaps the
+  number at page load based on the visitor's source; the page markup carries a default
+  number that CallRail replaces.
+  - Wire CallRail's swap script in the `<head>` (see "Site setup / `<head>`").
+  - The **NAP citation phone in the footer is the exception** — it stays the *real
+    business number* and is **excluded from DNI swapping** (CallRail swap-target class not
+    applied), because local-SEO citation consistency requires the same number everywhere
+    it's published. Every *other* on-page number (header CTA, hero, inline calls, CTA
+    bands) is a swappable tracking number.
+- Format the visible number consistently with the Google Business Profile format.
+
+## Internal linking & anchor text
+
+Applies to every page. The About page leans on this heavily.
+
+**Anchor text**
+
+- **Keyword-optimized, descriptive, and it matches the destination** — the linked words
+  are what the destination page is actually about ("anchor text literals"). A link to a
+  bathroom-remodel service page reads *bathroom remodeling in [city]*, not *click here*
+  or *learn more*.
+- Write anchors as a natural noun phrase inside the sentence, not bolted on.
+- **No link stuffing.** A few high-value links per page beat a dozen. If two links would
+  point to the same destination, keep one.
+- **Unique links per page.** Don't repeat the same anchor → same URL twice on one page,
+  and try not to reuse the exact anchor text across different pages of the site — vary
+  the phrasing so each link reads naturally in its own context.
+- Link *out* to the pages a reader would genuinely want next from this point in the copy;
+  don't link for the sake of an internal-linking quota.
+
+**Links to pages that don't exist yet**
+
+- Write the anchor phrase as **plain text now** (no `<a>`), styled normally.
+- **Record it** in the page's "potential internal links" list (the About wireframe has a
+  table at the top of the page; other pages should keep an equivalent note). Each entry:
+  the anchor-text literal, the intended destination path, the section it appears in, and
+  whether that page should be created.
+- This list is the source of truth for *which pages to build next* and *which links to
+  wire up* once they exist. When a destination page ships, convert its plain-text anchor
+  on this page into a real link.
+
+## Bios written as ads
+
+Team-member / author / founder bios (the About page `about-team` section, and any byline
+bio elsewhere) are **benefit-led mini-sales-copy, not résumés.**
+
+- **Lead with what the reader gets** from working with this person — "the calm voice on
+  the phone who makes sure your install runs on schedule" — before any title or tenure.
+- **Credentials are support, not the headline.** One line: license, years, a signature
+  specialty. Not a career history.
+- **One line of real personality** — something human that makes them memorable and
+  trustworthy (not "loves hiking and coffee" filler; something specific).
+- Keep each bio to ~2–4 sentences on the About page. A dedicated `/team` page can run
+  longer.
+- Written in the same friendly, plain first- or third-person voice as the rest of the
+  site.
+- Every bio has a real, recent headshot (see `asset-list.md` §3 — Author / team images).
 
 ## Site setup / `<head>`
 
@@ -123,8 +217,13 @@ Not a visible section — but the build needs these, and the assets are listed i
 
 **Also in `<head>`** (per-project, sourced from the content brief — noted here so they're
 not forgotten): page `<title>`, meta description, Open Graph / Twitter card image and
-copy, `theme-color` meta (= `--cta-primary-bg` or brand primary), canonical URL, and any
-analytics / call-tracking snippet.
+copy, `theme-color` meta (= `--cta-primary-bg` or brand primary), canonical URL, and the
+analytics snippet.
+
+**CallRail dynamic number insertion** — the CallRail swap script goes in the `<head>` on
+every page. It replaces the default tracking number in the markup with a per-visitor
+channel number at load time. The footer NAP number is excluded from the swap (see
+"Phone numbers"). Per-project: the CallRail account/company script ID.
 
 ## Media naming & SEO
 
@@ -576,3 +675,234 @@ listed below.
   "Buttons & CTAs".
 - **Legal menu** (right) — Privacy · Terms · Disclaimers, plus similar items as needed
   (Accessibility, Sitemap).
+
+---
+---
+
+# About page
+
+A **modified sales page for the brand.** It exists to *establish a credible backstory and
+show the visitor this is a real company with real people who care about them and their
+result* — and, above all, that **this business can help *them* specifically.** It is not a
+company history; it is a persuasion sequence told through the company's origin.
+
+**Framework:** Hero's-Journey / StoryBrand arc — on the About page the founder's story is
+the vehicle, but every beat bends back to the reader's decision:
+*hook → this is about you → our origin → the change we're making → who we're for → how we
+work → the people → the proof → why us → act now.*
+
+**Structural spine** from `skill-site-content-about` (Rank Expand Academy): a **Leader**
+(3-line block), an **Intro** (one punchy welcome, ≤200 words), and a **Body** of
+800–1,200 words in H2/H3 structure, credibility-focused, with the backstory woven
+throughout rather than told as a timeline.
+
+**Site-wide rules that apply heavily here:** "Buttons & CTAs" (inline click-to-call in
+prose), "Phone numbers" (CallRail DNI), "Internal linking & anchor text" (keyword-matched
+anchors, no stuffing, unique links, plain-text future links recorded in the page's
+potential-links table), "Bios written as ads".
+
+**CTA placement on this page:** primary CTA *button* at the Leader, mid-page
+(`about-who-we-serve`), and the closing band (`about-cta`). **Inline click-to-call links**
+woven into the prose at `about-leader` (line 3), `about-promise`, `about-how-we-work`,
+`about-why-choose-us`, and `about-cta`.
+
+---
+
+## A1. `about-header` — Header / Nav
+
+Identical component to Home `header`. Same logo, ≤7 nav links, persistent primary CTA,
+optional click-to-call. Sticky, condenses on scroll. The "About" nav item shows its active
+state. See §`header`.
+
+---
+
+## A2. `about-leader` — Leader
+
+**Beat:** the hook. (From `skill-site-content-about`.)
+
+**What to put here — exactly three lines:**
+
+1. **H3 subline** — short and simple, ≤10 words. Names who this is for / the reassurance.
+   E.g. "A local team [city] homeowners trust."
+2. **H1 page heading** — descriptive and simple, ≤10 words. The page's keyword-bearing
+   heading. E.g. "About [Business] — [service] in [city]."
+3. **Click-to-call line** — the phone as a `tel:` link (CallRail DNI number). In the
+   source CMS this was a `(call: )` placeholder; here it is a real link.
+
+Then a **primary CTA button** directly below the three lines. No hero image — the Leader
+is text-only and fast.
+
+---
+
+## A3. `about-promise` — The Promise (to the reader)
+
+**Beat:** "you're in the right place." (Intro, from `skill-site-content-about`.)
+
+**What to put here:**
+
+- **One punchy welcome paragraph, ≤200 words**, that *immediately gets into the page's
+  most important topic* and **reframes the whole page as being about helping the visitor**,
+  not about the company. Anchored to the backstory but doesn't tell it yet.
+- **One reframe line** — "Here's how we can help you…" — that sets the reader's
+  expectation for the rest of the page.
+- **One inline click-to-call** woven into the prose.
+- **One inline link** using a keyword-matched anchor — suggested literal:
+  *the [service] services we provide across [city]* → `/services`.
+
+Friendly, plain language. No headings inside this block.
+
+---
+
+## A4. `about-origin` — Where We Started
+
+**Beat:** ordinary world + call to adventure — the founder's origin. (The "We've Grown
+Into a Trusted Name" pattern from `skill-site-content-about`.)
+
+**What to put here:**
+
+- **Founder / early-days photo** (left on desktop, top on mobile).
+- **H2 origin heading.**
+- **Origin-story paragraphs** — who the founder is, how they learned the trade, the moment
+  they decided to start. Tell it as a **story, not a timeline**. Backstory woven
+  throughout.
+- **A paragraph naming the problem the founder saw** in how this work was usually done,
+  and why that made them start.
+
+Leads into A5.
+
+---
+
+## A5. `about-why-this-work` — Why We Do This
+
+**Beat:** the stakes / the mission. The beat most about pages skip, and the one that
+builds real affinity.
+
+**What to put here:**
+
+- **H2 mission heading.**
+- **"What's wrong" paragraph** — the founder naming what's broken about how this work is
+  usually done (rushed jobs, surprise upsells, no-shows, hidden pricing — whatever is true
+  for this trade).
+- **"The change we make" paragraph** — the mission: the different way this business does
+  it.
+- **One empathy line** — "we get it" — that shows the reader their frustration is
+  understood.
+
+No CTA here — keep the emotional momentum flowing into A6.
+
+---
+
+## A6. `about-who-we-serve` — Who We're For
+
+**Beat:** meeting the hero. The reader self-selects.
+
+**What to put here:**
+
+- **H2 "who we're for" heading.**
+- **The ideal client, named precisely** — the type of homeowner / property / situation
+  this business is built for. 3-row list or 2–3 short paragraphs.
+- **Who we're *not* the right fit for** — honest disqualifiers (out of area, DIY-only
+  budget, emergency-only when you don't do emergencies). The disqualifier builds trust.
+- **Service-area line** with an inline link — suggested literal: *the [city /
+  neighborhood] area we serve* → `/locations/[city-slug]` (plain text until that page
+  exists).
+- **Mid-page primary CTA button.**
+
+---
+
+## A7. `about-how-we-work` — How We Work
+
+**Beat:** the plan / the method. (The "Our Core Values" beat from
+`skill-site-content-about`, reframed.)
+
+**What to put here:**
+
+- **H2 "how we work" / values heading.**
+- **3–4 values, each written as how work actually gets done for the client** — value → the
+  client benefit it produces. E.g. "Transparency → you approve every line before we
+  start"; "Punctuality → we call 30 minutes out, every time." Each is an **H3 + 2 lines**,
+  2-up on desktop / 1-col mobile.
+- **One inline link** to a specific service — suggested literal: *[specific service] in
+  [city]* → `/services/[service-slug]`.
+- **One inline click-to-call.**
+
+Don't reuse an anchor already used elsewhere on the page.
+
+---
+
+## A8. `about-team` — The People You'll Work With
+
+**Beat:** the guides. Real faces, real names.
+
+**What to put here:**
+
+- **H2 team heading.**
+- **Bios — each written as an ad**, not a résumé (see "Bios written as ads"): lead with
+  what the reader gets from working with this person, credentials as support, one line of
+  real personality. ~2–4 sentences each.
+- **Per bio:** headshot / Gravatar (round, ~96px) · name · role · the ad-style bio.
+  2-up on desktop / 1-col mobile.
+- **Optional:** if the team is large (roughly > 4, or bios run long), link *meet the full
+  [business] team* → `/team` (plain text until that page exists).
+
+Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
+
+---
+
+## A9. `about-proof` — Proof We Deliver
+
+**Beat:** evidence. Deliberately **lighter than the Home page's `proof` section** — the
+About page is story-led; this beat just keeps it from being all narrative and no
+substance.
+
+**What to put here:**
+
+- **H2 proof heading.**
+- **One headline result stat** — a big number + label (e.g. "1,900+ [city] homes
+  serviced").
+- **One short testimonial** — quote + name + the result they got.
+- **A row of credential / license / association badges.**
+- **Inline links** (unique to this page): *see recent [service] projects in [city]* →
+  `/projects`; *read [business] reviews from [city] homeowners* → `/reviews`. Both plain
+  text until those pages exist.
+
+---
+
+## A10. `about-why-choose-us` — Why Homeowners Choose Us
+
+**Beat:** overcoming the last objection. (The "Why Choose [Business]?" beat from
+`skill-site-content-about`, with its H3 sub-sections.)
+
+**What to put here:**
+
+- **H2 "why choose us" heading.**
+- **3–4 differentiators**, each an **H3 + short paragraph**, framed as the reader's gain.
+  Adapt the source skill's set: Personalized Service · Experienced Team · Comprehensive
+  Services · Customer Satisfaction / guarantee.
+- **Risk-reversal / guarantee line** with an inline link — suggested literal: *our
+  [guarantee name] guarantee* → `/guarantee` (plain text until that page exists).
+- **A "we make your life easier, your home safer" closing line** + an inline
+  click-to-call.
+
+---
+
+## A11. `about-cta` — Ready to Get Started?
+
+**Beat:** the call to action. Mirrors the Home page's `final-cta`. Models the closing
+paragraph from `skill-site-content-about` ("Whether it's immediate help or a scheduled
+consultation, we're here…").
+
+**What to put here:**
+
+- **Restated headline** made specific to the reader's dream outcome ("Ready for a home
+  that's finally handled?").
+- **One reassurance line** echoing the low-risk framing.
+- **Primary CTA button** — same wording as the Home hero's primary.
+- **A click-to-call link beside it.**
+
+---
+
+## A12. `about-footer` — Footer
+
+Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar. The
+footer's "About" menu link shows its active state.

@@ -17,6 +17,11 @@ Slugs shared across all three files:
 `header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof ·
 speed-to-results · offer · faq · features · final-cta · footer`.
 
+About-page slugs (prefixed `about-`):
+`about-header · about-leader · about-promise · about-origin · about-why-this-work ·
+about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us ·
+about-cta · about-footer`.
+
 All dimensions are 1x for a **max content width of ~1200px**. Export at 2x for retina.
 
 ---
@@ -87,6 +92,30 @@ fixed (the `<head>` links and manifest expect them) — do not rename.
 | `icon-512.png` | PNG | 512×512 | PWA manifest / splash. Maskable-safe (art centered within an 80% safe zone). |
 | `site.webmanifest` | JSON | — | Lists the 192 / 512 icons, `name`, `short_name`, `theme_color`, `background_color`. `theme_color` = `--cta-primary-bg` or the brand primary. |
 
+### Author / team / Gravatar images
+
+Used by `guide` (Home page team bios) and `about-team` (About page bios), and by any
+byline elsewhere. **See:** `instructions.md` §`guide`, §`about-team`, and "Bios written as
+ads".
+
+| Item | Format | Size (1x) | Notes |
+|---|---|---|---|
+| Team / author headshot — **source** | WebP + JPG fallback | **800×800** square | One per person. Master file; all display sizes are downscales of this. |
+| — display: About / team bio | (from source) | rendered ~96–120px round | `about-team` and `guide` bio cards. CSS crops to a circle — keep the face centered with headroom so the circle mask doesn't clip it. |
+| — display: inline byline (future `/blog`, `/team`) | (from source) | rendered ~40–48px round | Small avatar beside an author name. |
+| Gravatar upload | JPG or PNG (Gravatar also takes GIF) | **≥ 512×512** square (upload the 800×800 source) | Register each author's headshot to their **email address** at gravatar.com so it resolves anywhere that pulls Gravatars (comment systems, some schema consumers, dev tools). Same image as the on-site headshot for consistency. |
+
+**Shoot / treatment:** consistent framing, lighting, and background across every person
+(same crop ratio, same eye-line, same backdrop). Recent — not a 10-year-old photo.
+Friendly, professional. Real people, never stock or AI. See §`guide` for the trust
+rationale.
+
+**Filenames** (per "Media naming & SEO"): `team-{first-last}-headshot.jpg`
+(e.g. `team-jane-doe-headshot.jpg`); founder may use `founder-{first-last}-headshot.jpg`.
+Byline/author variant if it differs: `author-{first-last}.jpg`. Lowercase, hyphenated.
+**Alt text:** the person's name and role — `alt="Jane Doe, lead electrician"` — not
+"headshot of…".
+
 ---
 
 ## 4. Images
@@ -146,6 +175,18 @@ depicts, + service/location if genuinely shown), real-description `alt` text
 
 Uses the logo (§3) and the Google Map embed (§6) — no standalone image asset.
 
+### About page — **See:** `instructions.md` "About page"
+
+Team / author headshots for `about-team` use the **Author / team / Gravatar images** spec
+in §3. Additional About-page images:
+
+| Slug | Asset | Count | Size (1x) | AR | Depicts |
+|---|---|---|---|---|---|
+| `about-origin` | Founder / early-days photo | 1 | 560×620 | ~9:10 | The founder — ideally an authentic early-days or on-the-job shot, not a posed studio portrait. Supports the origin story. Real, not stock. |
+| `about-team` | Team / founder headshots | 2–6 | see §3 (800×800 source) | 1:1 | One per bio. Consistent framing/lighting/background across all. Also register each to the person's email as a Gravatar (§3). |
+| `about-proof` | Credential / license / association badges | 1–4 | 80×80 | 1:1 | Real licenses, certifications, trade associations. Omit any the business doesn't hold. |
+| `about` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | About-page OG image — founder or team shot with the business name/logo overlaid. Referenced from `<head>` per-page OG tags. |
+
 ---
 
 ## 5. Icons
@@ -173,9 +214,12 @@ action.
 | `proof` + `hero` | 5-star graphic | 1 shared asset | Five filled stars (or one SVG of five). Uses `--rating` color. Reused in both `hero` (below CTAs) and `proof` (per testimonial). |
 | `footer` | social platform icons | = number of active profiles | Only the platforms the business actually maintains. |
 | `faq` | expand / collapse control | 1 asset | A chevron or +/− toggle for the accordion rows. |
+| `about-who-we-serve` | ideal-client list markers | 3+ | One per "who we're for" row; a single neutral marker reused is fine. |
+| `about-proof` | headline-stat marker *(optional)* | 0–1 | Optional icon beside the About page's single result stat. |
+| `about-*` inline calls | phone / message glyph | 1 shared asset | Small phone (or chat) glyph that may precede an inline click-to-call link in prose. |
 
-**Deliverable:** one icon set covering all groups above, **plus** a dedicated 5-star SVG
-and an accordion chevron.
+**Deliverable:** one icon set covering all groups above, **plus** a dedicated 5-star SVG,
+an accordion chevron, and a phone glyph.
 
 ---
 
@@ -186,8 +230,9 @@ and an accordion chevron.
 | `footer` | Embedded Google Map | Google Maps **embed URL / place ID** for the business location. | `instructions.md` §`footer` |
 | `footer` | Google Business Profile | Public **GBP URL** for the "Visit Our Google Business Profile" button (exact button text, small style, sits below office hours). | `instructions.md` §`footer` |
 | `proof` | Review-site profiles *(optional)* | Public URLs for Google / Yelp / industry review profiles. | `instructions.md` §`proof` |
-| `header`, `hero` | **Tracking / call-tracking number** | The attributable phone number for the click-to-call / click-to-text CTA buttons, in `tel:` (and `sms:` if click-to-text is offered) format. **Not** the raw business line. | `instructions.md` — "Buttons & CTAs" (Kind 1) |
-| `footer` | **Real business phone number** | The genuine business line for the NAP citation block, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — do **not** substitute the tracking number here. | `instructions.md` §`footer` |
+| `header`, `hero`, `about-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP. | `instructions.md` — "Phone numbers" |
+| all pages | **CallRail swap script ID** | The per-project CallRail script snippet for the `<head>`. | `instructions.md` — "Site setup / `<head>`", "Phone numbers" |
+| `footer` | **Real business phone number** | The genuine business line for the NAP citation block, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — **excluded from CallRail DNI swapping** (citation consistency). | `instructions.md` §`footer` |
 
 ---
 
@@ -210,6 +255,23 @@ and an accordion chevron.
 | `speed-to-results` | **Typical timeframe** | Honest "[result] within [timeframe]" figure — a range, not a best case. |
 | `proof` | **Headline case-study number** | One verifiable result stat + 2–3 lines of context (who, what you did, over what period). |
 
+### About page content data — **See:** `instructions.md` "About page"
+
+| Slug | Data | Notes |
+|---|---|---|
+| `about-leader` | **Leader — 3 lines** | H3 subline (≤10 words) · H1 page heading (≤10 words, keyword-bearing) · phone (rendered as a click-to-call link). |
+| `about-promise` | **Intro** | One punchy welcome, ≤200 words, reframing the page as "about helping you." |
+| `about-origin` | **Founder backstory** | Origin narrative — who the founder is, how they learned the trade, the moment they started. Story, not timeline. (In `skill-site-content-about` this is `profile.backstory`, generated by the brand skill.) |
+| `about-why-this-work` | **The mission** | What's broken about how this work is usually done + the change this business makes. |
+| `about-who-we-serve` | **Ideal-client definition + disqualifiers** | Who this business is built for; who it's *not* a fit for. Plus the service-area / radius. |
+| `about-how-we-work` | **Values as client benefits** | 3–4 values, each phrased as "value → what the client gets." |
+| `about-team` | **Team roster** | Per person: name, role, a benefit-led ad-style bio seed (~2–4 sentences), and **email address for Gravatar registration**. |
+| `about-proof` | **Headline result stat + one testimonial + credentials list** | One verifiable About-page stat; one short quote with name + result; the licenses/associations to badge. |
+| `about-why-choose-us` | **Differentiators + guarantee** | 3–4 "why us" points as reader gains; the guarantee name + terms. |
+| `about-cta` | **Restated closing headline** | A version of "ready to get started?" specific to the reader's outcome. |
+| About page | **Potential internal links list** | The anchor-text-literal / destination / status table (mirrors the table at the top of the About wireframe). Drives which pages to build next. |
+| About page | **Body word count** | Target 800–1,200 words across A3–A10, H2/H3 structure. |
+
 ---
 
 ## 8. Quick coverage checklist
@@ -224,11 +286,22 @@ and an accordion chevron.
 - [ ] `proof` testimonial photos ×3, press logos, award badges (omit press/awards if none)
 - [ ] `speed-to-results` testimonial photo
 - [ ] `promise` client / partner logos ×5+
-- [ ] Icon set covering all §5 groups + dedicated 5-star SVG + accordion chevron; `plan` icons follow the fixed action→process→outcome meaning
+- [ ] Icon set covering all §5 groups + dedicated 5-star SVG + accordion chevron + phone glyph; `plan` icons follow the fixed action→process→outcome meaning
 - [ ] Google Map embed URL + Google Business Profile URL
-- [ ] Tracking number for click-to-call CTAs (`header` / `hero`); real business number for the footer NAP — kept distinct
+- [ ] CallRail swap script ID + default tracking number; footer NAP number excluded from DNI
 - [ ] NAP block, business email, office hours, social URLs
 - [ ] Nav links, both footer menus, legal links (from sitemap)
 - [ ] Primary + secondary CTA label/destination strings
 - [ ] Ideal-client avatar line, typical-timeframe figure, headline case-study number
 - [ ] Every image / video / media file named, alt-texted, and compressed per "Media naming & SEO"
+
+**About page**
+
+- [ ] Team / founder headshots — 800×800 source, consistent framing, registered as Gravatars by email
+- [ ] `about-origin` founder / early-days photo; `about-proof` credential badges; About OG image (1200×630)
+- [ ] Leader 3 lines · Intro (≤200 words) · founder backstory · mission copy
+- [ ] Ideal-client definition + disqualifiers + service area
+- [ ] Values-as-benefits (3–4) · team roster with ad-bio seeds + emails
+- [ ] About headline stat + testimonial + credentials list · differentiators + guarantee · closing headline
+- [ ] Potential-internal-links table filled in (drives which pages to build next)
+- [ ] Body copy 800–1,200 words, H2/H3, backstory woven not front-loaded
