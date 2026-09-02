@@ -707,9 +707,15 @@ woven into the prose at `about-promise`, `about-how-we-work`, `about-why-choose-
 `about-cta` — never stacked directly above a CTA button (the button already carries the
 call/contact action).
 
-**Layout variety.** Every section on this page uses a **distinct layout** so the scroll
-keeps varying — the same principle as the Home page. The treatment is named in each
-section below; don't render them all as "heading + left-aligned text."
+**Design direction (via `frontend-design`).** Type carries every section. Each opens with a
+**large, left-aligned headline** that states the section's whole argument, with short grey
+supporting copy in a narrow column (< 66ch) beside or beneath it. **No boxes as a
+default** — icon rows, lists, values, the guarantee all sit directly on the page
+background; a box appears only around a real object (a photo). **Structure only where the
+content is genuinely structured** — the milestone timeline in A4 is the only structural
+device, and it's used only if the business has real dated milestones. Section variety
+comes from genuine content shape (a portrait grid vs. an icon row vs. a stat pair), not
+from imposed section-types or decorative panels. The treatment is named per section below.
 
 ---
 
@@ -723,68 +729,75 @@ state. See §`header`.
 
 ## A2. `about-leader` — Leader
 
-**Beat:** the hook. (From `skill-site-content-about`.)
-**Layout:** full-bleed band, **centered**.
+**Beat:** the hook. (Leader from `skill-site-content-about`.)
+**Layout:** full-bleed band, **left-aligned**. Type does the work: a small subline, then a
+**large** H1 spanning ~60% width.
 
-**What to put here — two lines + a button:**
+**What to put here — two lines + a button row:**
 
-1. **H3 subline** — short and simple, ≤10 words. Names who this is for / the reassurance.
-   E.g. "A local team [city] homeowners trust."
-2. **H1 page heading** — descriptive and simple, ≤10 words. The page's keyword-bearing
-   heading. E.g. "About [Business] — [service] in [city]."
-3. **Primary CTA button**, centered below.
+1. **H3 subline** — ≤10 words. Names who this is for / the reassurance. E.g. "A local team
+   [city] homeowners trust."
+2. **H1 page heading** — descriptive and simple, ≤10 words, the page's keyword-bearing
+   heading. E.g. "About [Business] — [service] in [city]." Render it large.
+3. **Primary CTA button** on one row with a quiet **inline phone link** beside it — not
+   stacked above the button, not a second button. The skill's line-3 `(call: )`
+   placeholder is folded into that inline link.
 
-The source skill's line-3 `(call: )` placeholder is **dropped** — the primary CTA already
-carries the call/contact action, so a separate click-to-call line stacked above it is
-redundant. No hero image — the Leader is text-only and fast.
+No hero image — the Leader is text-only and fast.
 
 ---
 
 ## A3. `about-promise` — The Promise (to the reader)
 
 **Beat:** "you're in the right place." (Intro, from `skill-site-content-about`.)
-**Layout:** **centered, narrow measure (~640px), set larger than body copy** — reads as a
-statement, not a paragraph of body text.
+**Layout:** **asymmetric, left-aligned** — a large headline (~50% width) carries the point;
+a shorter grey support column (< 66ch) beside it holds the welcome copy. Support column
+drops below the headline on mobile.
 
 **What to put here:**
 
-- **One punchy welcome, ≤200 words**, that *immediately gets into the page's most important
-  topic* and **reframes the whole page as being about helping the visitor**, not about the
-  company. Anchored to the backstory but doesn't tell it yet.
-- **One reframe line** — "Here's how we can help you…".
-- **One inline click-to-call** woven into the prose.
+- **A large headline** that carries the "this page is about *you*" point.
+- **The welcome, ≤200 words total**, in the support column — *immediately gets into the
+  page's most important topic*, anchored to the backstory but doesn't tell it yet, ending
+  in a **reframe line** ("Here's how we can help you…").
+- **One inline click-to-call** in the support column's last line.
 - **One inline link** — suggested literal: *the [service] services we provide across
   [city]* → `/services`.
 
-Friendly, plain language. No headings inside this block.
+Friendly, plain language. No headings inside the support column.
 
 ---
 
 ## A4. `about-origin` — Where We Started
 
 **Beat:** ordinary world + call to adventure — the origin.
-**Layout:** full-bleed, **asymmetric split** — large photo left (40%), copy right (60%);
-stacks on mobile. The photo anchors the section.
+**Layout:** full-bleed, **left-aligned**. H2, then a **single narrow prose column (< 66ch)
+with one modest inline photo the text wraps around** — not a 40/60 split panel. Then an
+**optional milestone timeline**.
 
 **Pick the mode that fits the business.** The `skill-site-content-about` skill assumes a
 founder exists (its example is built entirely around one). These three modes fill the gap
 when that isn't true — the *beat* is the same in all three, only the story changes:
 
-1. **Founder story** — there is a real founder narrative: who they are, how they learned
-   the trade, the moment they decided to start. The skill's "We've Grown Into a Trusted
-   Name" pattern. Photo = the founder (a founder shot or an authentic early-days /
-   on-the-job shot).
-2. **Origin without a person** — no single face to build around: tell *why this company
-   exists* — the market gap the owners saw, the standard they set, what they refuse to do.
-   Photo = the team or the premises / a van / a job site.
+1. **Founder story** — a real founder narrative: who they are, how they learned the trade,
+   the moment they decided to start. The skill's "We've Grown Into a Trusted Name"
+   pattern. Photo = the founder / an authentic early-days shot.
+2. **Origin without a person** — no single face: tell *why this company exists* — the
+   market gap the owners saw, the standard they set, what they refuse to do. Photo = the
+   team or the premises / a van / a job site.
 3. **New business as a strength** — the company is young: lean into it. "We started
-   [year] because…", a fresh approach, the years of experience the *team* brings even
-   though the company is new, the owner's prior background in the trade. Be honest about
-   being new; frame it as hungry and accountable, not inexperienced.
+   [year] because…", a fresh approach, the experience the *team* brings, the owner's prior
+   background. Honest about being new; framed as hungry and accountable.
 
-**Slots (all modes):** photo · **H2 origin heading** · origin-narrative paragraphs (a
-**story, not a timeline**, backstory woven throughout) · a paragraph naming **the gap /
-problem this business was started to fix**. Leads into A5.
+**Milestone timeline** — a horizontal hairline with dated nodes alternating above and
+below (collapses to a vertical list on mobile). **Use it only where the business has
+genuine dated milestones** — founded, licensed, an expansion, an Nth job, an award. If the
+business just "started in 2015" with nothing else to plot, **omit the timeline** — the
+prose + photo stand alone.
+
+**Slots:** photo · **H2 origin heading** · origin prose (a **story, not a company
+timeline**, backstory woven) · a line naming **the gap this business was started to fix** ·
+optional milestone timeline. Leads into A5.
 
 ---
 
@@ -792,19 +805,16 @@ problem this business was started to fix**. Leads into A5.
 
 **Beat:** the stakes / the mission. The beat most about pages skip, and the one that
 builds real affinity.
-**Layout:** contained. **Two-column "how it's usually done / how we do it" contrast** — an
-icon + one short line per row (about 3 rows each side, paired topic-for-topic), left column
-shaded, right column light. **Not a prose block.** On mobile the columns stack (old on
-top, ours below).
+**Layout:** **left-aligned, carried by one large headline** — not a two-column contrast
+panel. No box, no icons.
 
 **What to put here:**
 
-- **H2 mission heading.**
-- **The contrast:** left side = what's broken about how this work is usually done (rushed
-  jobs, surprise upsells, no-shows, hidden pricing — whatever's true for this trade);
-  right side = the paired better way this business does each one.
-- **One "we get it" empathy line** beneath the contrast — shows the reader their
-  frustration is understood.
+- **A large H2 headline that *is* the "what's wrong"** — state it bluntly and specifically
+  ("Most [trade] jobs are rushed, and the invoice always has a surprise on it").
+- **Tight prose beneath (< 66ch) that is "our way":** we don't; here's the standard we
+  hold and why (2 short paragraphs).
+- **One "we get it" empathy line.**
 
 No CTA here — momentum flows into A6.
 
@@ -813,21 +823,21 @@ No CTA here — momentum flows into A6.
 ## A6. `about-who-we-serve` — Who We're For
 
 **Beat:** meeting the hero. The reader self-selects.
-**Layout:** full-bleed, **centered**. A **"This is for you if…" 2-column checkmark list**
-(4–6 ticks) — scannable, not paragraphs — then one **muted** "Probably not a fit if…"
-line.
+**Layout:** full-bleed, **left-aligned**. A **plain two-column list** — em-dash prefix, one
+short trait per line, no cards, no tick-circles, sitting on the page background — then one
+**muted** "Not a fit if…" line.
 
 **What to put here:**
 
-- **H2 "who we're for" heading.**
-- **The checkmark list** — the type of homeowner / property / situation this business is
-  built for, one tick per line.
-- **"Probably not a fit if…" line** — honest disqualifiers (out of area, DIY-only budget,
+- **H2 "who we're the right fit for" heading.**
+- **The plain trait list** (4–6 lines) — the type of homeowner / property / situation this
+  business is built for, one short trait per line.
+- **"Not a fit if…" line** — honest disqualifiers (out of area, DIY-only budget,
   emergency-only when you don't do emergencies), set muted. The disqualifier builds trust.
 - **Service-area line** with an inline link — suggested literal: *the [city /
   neighborhood] area we serve* → `/locations/[city-slug]` (plain text until that page
   exists).
-- **Mid-page primary CTA button**, centered.
+- **Mid-page primary CTA button**, left-aligned.
 
 ---
 
@@ -835,20 +845,20 @@ line.
 
 **Beat:** the plan / the method. (The "Our Core Values" beat from
 `skill-site-content-about`, reframed.)
-**Layout:** contained-wide. **3 numbered/iconed cards on a fill background** (3-up desktop
-/ 1-col mobile) — visually echoes the Home page's Plan section, but these are values, not
-steps.
+**Layout:** **left-aligned**. A **plain icon row** — small line icon, bold label, 2–3 grey
+lines — sitting directly on the page background. **No boxes, no numbered chips.** 3 across
+on desktop, wraps on mobile.
 
 **What to put here:**
 
-- **H2 "how we work" / values heading.**
+- **H2 heading** (can be a display line like "How the work actually goes").
 - **3 values, each written as how work actually gets done for the client** — value → the
   client benefit it produces. E.g. "Transparency → you approve every line before we
-  start"; "Punctuality → we call 30 minutes out, every time." Each card = number/icon +
-  the value (H3) + 2 benefit lines.
-- **One inline link** to a specific service — suggested literal: *[specific service] in
-  [city]* → `/services/[service-slug]`.
-- **One inline click-to-call.**
+  start"; "Punctuality → we call 30 minutes out, every time." Each item = icon + label +
+  2 benefit lines.
+- **A trailing line** with one inline link to a specific service — suggested literal:
+  *[specific service] in [city]* → `/services/[service-slug]` — and one inline
+  click-to-call.
 
 Don't reuse an anchor already used elsewhere on the page.
 
@@ -857,18 +867,19 @@ Don't reuse an anchor already used elsewhere on the page.
 ## A8. `about-team` — The People You'll Work With
 
 **Beat:** the guides. Real faces, real names.
-**Layout:** full-bleed, centered H2. **Bio cards 2-up on a fill background** — photo left,
-ad-copy right; 1-col on mobile.
+**Layout:** full-bleed, left-aligned H2 + one framing line, then a **plain portrait grid** —
+square photo, name + role underneath, 4 across (wraps). **No cards, no borders on the
+block, no bios in the grid itself.**
 
 **What to put here:**
 
-- **H2 team heading.**
-- **Bios — each written as an ad**, not a résumé (see "Bios written as ads"): lead with
-  what the reader gets from working with this person, credentials as support, one line of
-  real personality. ~2–4 sentences each.
-- **Per bio:** headshot / Gravatar (round, ~96px) · name · role · the ad-style bio.
-- **Optional:** if the team is large (roughly > 4, or bios run long), link *meet the full
-  [business] team* → `/team` (plain text until that page exists).
+- **H2 team heading** + one framing line beneath it.
+- **The portrait grid** — one square photo per person, name + role under each. B&W or
+  duotone at brand time.
+- **The ad-style bio still exists** (see "Bios written as ads" — lead with what the reader
+  gets, credentials as support, one line of personality) — but it lives on the `/team`
+  page, or as expand-on-click text, **not in this grid**. Keep the grid clean.
+- **Link** *meet the full [business] team* → `/team` (plain text until that page exists).
 
 Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
 
@@ -879,39 +890,39 @@ Headshot specs (size, format, filename, Gravatar) in `asset-list.md` §3.
 **Beat:** evidence. Deliberately **lighter than the Home page's `proof` section** — the
 About page is story-led; this beat just keeps it from being all narrative and no
 substance.
-**Layout:** full-bleed, centered H2. **One horizontal band** — big result stat (left) ·
-one short testimonial (center) · credential badges (right). Stacks vertically on mobile.
-One scannable row, visually distinct from the Home Proof section's stacked blocks.
+**Layout:** left-aligned. A **stat pair** (1–2 very large numerals + small label each,
+sitting on the page background — no band, no box), then **one short testimonial** in plain
+prose beneath, then a **quiet greyscale credential logo row**.
 
 **What to put here:**
 
 - **H2 proof heading.**
-- **One headline result stat** — a big number + label (e.g. "1,900+ [city] homes
-  serviced").
+- **1–2 headline result stats** — a big number + label (e.g. "1,900+ [city] homes
+  serviced", "4.9★").
 - **One short testimonial** — quote + name + the result they got.
-- **A row of credential / license / association badges.**
-- **Two inline links beneath the band** (unique to this page): *see recent [service]
-  projects in [city]* → `/projects`; *read [business] reviews from [city] homeowners* →
-  `/reviews`. Both plain text until those pages exist.
+- **A quiet row of credential / license / association logos.**
+- **Two inline links** (unique to this page): *see recent [service] projects in [city]* →
+  `/projects`; *read [business] reviews from [city] homeowners* → `/reviews`. Both plain
+  text until those pages exist.
 
 ---
 
 ## A10. `about-why-choose-us` — Why Homeowners Choose Us
 
 **Beat:** overcoming the last objection. (The "Why Choose [Business]?" beat from
-`skill-site-content-about`, with its H3 sub-sections.)
-**Layout:** contained-wide. **2×2 grid of icon rows** — icon left, H3 + one line right —
-not stacked cards. Then a **shaded guarantee callout**.
+`skill-site-content-about`, with its sub-sections.)
+**Layout:** left-aligned. A **plain icon row** — the same treatment as A7, on the page
+background. **No 2×2 card grid, no shaded callout.** The guarantee is written as a **plain
+sentence**, not a panel.
 
 **What to put here:**
 
-- **H2 "why choose us" heading.**
-- **3–4 differentiators**, each an **icon + H3 + one short line**, framed as the reader's
-  gain. Adapt the source skill's set: Personalized Service · Experienced Team ·
+- **H2 "why homeowners choose us" heading.**
+- **3–4 differentiators**, each an **icon + label + 2–3 grey lines**, framed as the
+  reader's gain. Adapt the source skill's set: Personalized Service · Experienced Team ·
   Comprehensive Services · Customer Satisfaction / guarantee.
-- **Guarantee callout** (shaded box) — the risk-reversal line with an inline link —
-  suggested literal: *our [guarantee name] guarantee* → `/guarantee` (plain text until
-  that page exists).
+- **Guarantee sentence** — the risk-reversal line with an inline link — suggested literal:
+  *our [guarantee name] guarantee* → `/guarantee` (plain text until that page exists).
 - **A "we make your life easier, your home safer" closing line** + an inline
   click-to-call.
 
@@ -922,17 +933,16 @@ not stacked cards. Then a **shaded guarantee callout**.
 **Beat:** the call to action. Mirrors the Home page's `final-cta`. Models the closing
 paragraph from `skill-site-content-about` ("Whether it's immediate help or a scheduled
 consultation, we're here…").
-**Layout:** full-bleed band, **centered**, high-contrast fill.
+**Layout:** full-bleed band, **left-aligned** — not a centered high-contrast band.
 
 **What to put here:**
 
-- **Restated headline** made specific to the reader's dream outcome ("Ready for a home
-  that's finally handled?").
-- **One reassurance line** echoing the low-risk framing.
-- **Primary CTA button** — same wording as the Home hero's primary.
-- **A click-to-call link beside it** — this is the one place a click-to-call sits next to
-  the button, because they are two distinct actions in a closing band (call now vs. book
-  online), not a redundant stack.
+- **A large restated headline** made specific to the reader's dream outcome ("Ready for a
+  house that's handled?").
+- **One grey reassurance line** echoing the low-risk framing.
+- **Primary CTA button** — same wording as the Home hero's primary — with a **click-to-call
+  link beside it**. Here the two sit together because they are distinct actions in a
+  closing band (call now vs. book online), not a redundant stack.
 
 ---
 
