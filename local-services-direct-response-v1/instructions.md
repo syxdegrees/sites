@@ -104,6 +104,29 @@ part of this document.
 | L11 | `location-cta` | Final CTA |
 | L12 | `location-footer` | Footer (reuses `footer`) |
 
+### Locations hub page slugs
+
+The Locations hub (`/service-areas` or `/locations`) is the **index of all individual
+location pages** — an **overview of the whole geographic area served** that links out to
+every `location-*` page. It follows the **overview** contract in
+`skill-site-content-locations` (plural — distinct from `skill-site-content-location`, which
+does the individual pages): 3 passes — Leader (line 3 = the `(call: )` CMS placeholder),
+Intro (~150 words with a punchy bold H2), Body (geographic overview, not a services
+pitch). Its slugs are prefixed `locations-` (plural). Full detail is in the **Locations
+hub page** part of this document.
+
+| Tag | Slug | Section |
+|---|---|---|
+| LH1 | `locations-header` | Header / Nav (reuses `header`) |
+| LH2 | `locations-leader` | Leader |
+| LH3 | `locations-intro` | Intro (~150 words, bold H2) |
+| LH4 | `locations-map` | Coverage Map + GBP |
+| LH5 | `locations-overview` | The Area We Serve |
+| LH6 | `locations-list` | Service Areas (all locations) |
+| LH7 | `locations-not-listed` | Not Seeing Your Town? |
+| LH8 | `locations-cta` | Final CTA |
+| LH9 | `locations-footer` | Footer (reuses `footer`) |
+
 ## Governing principles (apply to every section)
 
 - **Client-centric, always.** Every section is about the visitor's story, desire,
@@ -1463,3 +1486,161 @@ call (same rule as HP14 / A11 / C6).
 ## L12. `location-footer` — Footer
 
 Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar.
+
+---
+---
+
+# Locations hub page
+
+The **index of all individual location pages** (`/service-areas` or `/locations`) — **not
+an individual location page**. It gives an **overview of the whole geographic area
+served**, builds local trust, and **links out to every individual location page**
+(`location-*`, the L1–L12 page type).
+
+**Framework:** the **overview** contract from `skill-site-content-locations` (plural — the
+individual pages use `skill-site-content-location`, singular) — **3 content passes**:
+
+- **Leader** — 3 lines; line 3 is the **`(call: )` CMS placeholder** (the individual
+  Location page uses a written CTA sentence there instead).
+- **Intro** — **~150 words**, and it **must open with a punchy bold H2 that names the
+  primary location and establishes geographic reach**.
+- **Body** — H2/H3, describes **the region and the towns/cities served**, with an
+  `(element: locations)` placeholder where the location cards render. **Focus is
+  geographic reach — not specific services.**
+
+No "description" pass, no per-paragraph CTA requirement (those are individual-page rules).
+
+**Site-wide rules that apply here:** "Buttons & CTAs", "Phone numbers" (CallRail DNI on
+every phone link except the footer NAP), "Internal linking & anchor text" (every
+service-area name is a keyword-anchored internal link, unique per link; by-service
+cross-links; the `/contact` or `/estimate` link in LH7), "Media naming & SEO", "Site
+setup / `<head>`" (lazy-load the map).
+
+**Structured data:** emit **BreadcrumbList** (Home › Locations) and **ItemList /
+CollectionPage** enumerating the linked individual location pages — this makes the
+hub → spoke relationship explicit to search engines.
+
+---
+
+## LH1. `locations-header` — Header / Nav
+
+Identical component to Home `header` (§`header`). The "Locations" / "Service Areas" nav
+item shows its active state.
+
+---
+
+## LH2. `locations-leader` — Leader
+
+**Beat:** the hook.
+**Layout:** full-bleed band, **left-aligned**, text-only (no hero image).
+
+**What to put here — three lines:**
+
+1. **H3 subline** — ≤10 words.
+2. **H1 page heading** — descriptive and simple, ≤10 words, naming the primary location
+   and the service (e.g. "[Service] Service Areas Near [primary location]").
+3. **The `(call: )` line** — renders as a click-to-call on the tracking number (CallRail
+   DNI). **Not** a written CTA sentence.
+
+No CTA button in the Leader.
+
+---
+
+## LH3. `locations-intro` — Intro (~150 words, bold H2)
+
+**Beat:** establish geographic reach.
+**Layout:** contained-wide.
+
+**What to put here:** **~150 words**, opening with a **punchy bold H2 that names the
+primary location and establishes geographic reach** ("**[Business] — Serving the Greater
+[Metro] Area and Beyond**"). Then a short paragraph: how long you've served the region,
+the breadth of the coverage area (name a few edge towns), and the promise of fast local
+response. Keep it about **the area**, not a service pitch.
+
+---
+
+## LH4. `locations-map` — Coverage Map + GBP
+
+**Beat:** show the whole footprint; give a directions / profile path.
+**Layout:** full-width map, then a summary line + GBP button beneath.
+
+**What to put here:**
+
+- **Embedded Google Map** framed to show the **entire coverage area** — the whole metro /
+  county set / service radius — **not** a tight pin on HQ. Real `title` ("Map of
+  [Business] service areas across [region]"), lazy-loaded.
+- **Coverage summary line / stat** — a concrete reach signal: "We serve **[N]
+  communities** across **[region]**, within a **[X]-mile radius** of [HQ city]."
+- **"Visit Our Google Business Profile" button** — exact text, small / secondary style,
+  links to the public GBP URL (Kind 2, new tab). Same asset as the footer / Contact page.
+
+---
+
+## LH5. `locations-overview` — The Area We Serve
+
+**Beat:** the geographic body — regional local knowledge.
+**Layout:** a readable column, H2/H3 structure.
+
+**What to put here — ~600–800 words, all about the geographic area:**
+
+- The metro / region, the counties or sub-metros it spans, the drive radius.
+- The local knowledge that makes a regional provider better than a distant one — traffic
+  patterns, permitting by jurisdiction, terrain, housing stock, climate.
+- **Do not turn this into a services list** — the individual Location and Service pages
+  own that.
+- **By-service cross-links** — a short row linking to the main `/services/[service-slug]`
+  pages ("see all [service] services") so the hub interlinks **laterally**, not only down
+  to city pages. Keyword anchor literals, unique on this page.
+
+---
+
+## LH6. `locations-list` — Service Areas (all locations)
+
+**Beat:** the actual index — every area, each linked.
+**Layout:** cards, 3–4 across; grouped by county / region if the list is long.
+
+**What to put here:** this is where `(element: locations)` resolves. **List every service
+area the business covers.**
+
+- **Card format:** town / city name (the **internal link** to that area's
+  `/locations/[city-slug]` page), a one-line descriptor ("24/7 [service] in [city]"),
+  optional tiny thumbnail.
+- **Anchor text:** keyword-optimized — `[primary service] in [city]`, or just the city
+  name where a card context makes that read naturally. **Unique per link.** Any city page
+  not built yet is plain text and recorded in the potential-internal-links table.
+- **Grouping:** if the list runs long (> ~12), group into sections by county / region /
+  sub-metro with a heading each.
+- **Every linked page must actually exist and be worth linking to** — a hub of links to
+  thin pages hurts more than it helps.
+
+---
+
+## LH7. `locations-not-listed` — Not Seeing Your Town?
+
+**Beat:** capture edge-of-area demand.
+**Layout:** a short bordered band.
+
+**What to put here:** the "**Not seeing your town? Call us — if you're within our service
+area, we'll come to you.**" line from `skill-site-content-locations`. A short reassurance
+sentence + an **inline click-to-call** and **one inline link to `/contact` or
+`/estimate`** — keyword anchor literal (*get a free [service] estimate*), unique to this
+page.
+
+---
+
+## LH8. `locations-cta` — Final CTA
+
+**Beat:** the last conversion shot, framed regionally.
+**Layout:** full-bleed band, centered — mirrors the Home `final-cta`.
+
+**What to put here:** a restated headline with regional framing ("Wherever you are in
+[metro], we're close by"), one grey reassurance line, the **primary CTA button** (same
+wording as the Home hero's primary), and an inline click-to-call beside it only when the
+primary CTA isn't itself a call (same rule as HP14 / A11 / C6 / L11).
+
+---
+
+## LH9. `locations-footer` — Footer
+
+Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar. The
+footer's "Locations" menu link shows its active state.

@@ -31,6 +31,11 @@ Location-page slugs (individual service-area page, prefixed `location-`, wirefra
 location-area · location-services · location-proof · location-promo · location-gallery ·
 location-faq · location-cta · location-footer`.
 
+Locations-hub slugs (the `/service-areas` index, prefixed `locations-`, wireframe tags
+`LH1–LH9`): `locations-header · locations-leader · locations-intro · locations-map ·
+locations-overview · locations-list · locations-not-listed · locations-cta ·
+locations-footer`.
+
 All dimensions are 1x for a **max content width of ~1200px**. Export at 2x for retina.
 
 ---
@@ -219,6 +224,13 @@ lifted from a competitor or reused across locations** (Local SEO Framework instr
 | `location-proof` | Local review / project photo *(optional)* | 0–2 | 56×56 (headshot) / 480×360 (project) | 1:1 / 4:3 | The local customer whose review is quoted, or a local project shot. With permission. |
 | `location` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | Location-page OG image — a local scene or map view with `[focus keyword] in [city]` overlaid. Per-page OG tags. |
 
+### Locations hub page — **See:** `instructions.md` "Locations hub page"
+
+| Slug | Asset | Count | Size (1x) | AR | Depicts |
+|---|---|---|---|---|---|
+| `locations-list` | Service-area card thumbnails *(optional)* | 0–1 per area | 96×72 | 4:3 | A small recognizable image per service area — a local street, landmark, or job. Optional; the cards work as text + link without them. Owned / purchased, not stock. |
+| `locations` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | Locations-hub OG image — a coverage-map view or regional scene with the business name + region overlaid. Per-page OG tags. |
+
 ---
 
 ## 5. Icons
@@ -275,6 +287,9 @@ an accordion chevron, and a phone glyph.
 | `header`, `hero`, `about-*`, `contact-*`, `location-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP and the Contact page's citation-block number. | `instructions.md` — "Phone numbers" |
 | `location-area` | Embedded Google Map *(single-location view)* | Google Maps **embed URL** centered on **this location** with the service radius around it. Real `title` (e.g. "Map of [Business] [service] service area in [city]"), lazy-loaded. One per location page. | `instructions.md` §`location-area` |
 | `location-area` | Directions / GBP link | "Get Directions" URL to the service area, **or** a location-specific Google Business Profile URL if one exists. | `instructions.md` §`location-area` |
+| `locations-map` | Embedded Google Map *(coverage-area view)* | Google Maps **embed URL** framed to show the **entire coverage area** (whole metro / county set / service radius), not a single HQ pin. Real `title`, lazy-loaded. | `instructions.md` §`locations-map` |
+| `locations-map` | Google Business Profile | Same public **GBP URL** as the footer — "Visit Our Google Business Profile" button beneath the coverage map. | `instructions.md` §`locations-map` |
+| `locations` (page) | **Structured data** | BreadcrumbList (Home › Locations) + ItemList / CollectionPage enumerating the linked individual location pages. | `instructions.md` — "Locations hub page" |
 | `location` (page) | **Focus-keyword competitive analysis** | The verified focus keyword for this page (a primary service + this location), chosen via the Local SEO Campaign Framework's competitive analysis. One per page; checked against Search Console for cannibalization. | `instructions.md` — "Location pages & local SEO" |
 | `location` (page) | **Structured data** | LocalBusiness (or subtype) + Service scoped to this city (`areaServed`, `geo`), BreadcrumbList (Home › Locations › [City]), and FAQPage for the L10 rows. | `instructions.md` — "Location pages & local SEO" |
 | `about-proof` | **Review-site profiles** | Public URL for each review site the business is on. Drives Row 1 (multi-site) or the single review block in Row 2 (single-site). | `instructions.md` §`about-proof` |
@@ -360,6 +375,21 @@ an accordion chevron, and a phone glyph.
 | `location-cta` | **Restated closing headline** | Carries the focus keyword + location; reuses the Home primary CTA string. |
 | `location` (page) | **Body word count** | ~800 words in `location-services` (per `skill-site-content-locations` individual-page target); plus the ~150-word description and the FAQ. |
 
+### Locations hub page content data — **See:** `instructions.md` "Locations hub page"
+
+| Slug | Data | Notes |
+|---|---|---|
+| `locations-leader` | **Leader — 3 lines** | H3 subline (≤10 words) · H1 page heading (≤10 words, names primary location + service) · the `(call: )` placeholder (renders as a click-to-call on the tracking number). |
+| `locations-intro` | **Intro** | **~150 words**, opening with a **punchy bold H2** naming the primary location + establishing geographic reach. About the area, not services. |
+| `locations-map` | **Coverage map embed** | Google Maps embed URL framed on the entire coverage area (metro / county set / radius). |
+| `locations-map` | **Coverage summary line** | "[N] communities across [region], within [X] miles of [HQ city]" — real figures. |
+| `locations-map` | **GBP URL** | Same public Google Business Profile URL as the footer. |
+| `locations-overview` | **Geographic overview body** | ~600–800 words, H2/H3, about the region / counties / radius / local knowledge. Not a services list. Plus by-service cross-links (`/services/[service-slug]`, anchor literal each). |
+| `locations-list` | **Full service-area list** | Every service area the business covers. Per area: city/town name, its `/locations/[city-slug]` URL (or "to build" status), a one-line descriptor, optional thumbnail. Group by county / region if > ~12. |
+| `locations-not-listed` | **Catch-all copy** | The "not seeing your town? call us" reassurance line + the `/contact` or `/estimate` anchor literal. |
+| `locations-cta` | **Restated closing headline** | Regional framing; reuses the Home primary CTA string. |
+| `locations` (page) | **Body word count** | ~150-word intro + ~600–800-word overview. |
+
 ---
 
 ## 8. Quick coverage checklist
@@ -418,3 +448,13 @@ an accordion chevron, and a phone glyph.
 - [ ] On-page FAQ 5–6 Q&As (focus kw + location in questions) — **no separate FAQ page** — with FAQPage schema
 - [ ] Single-location Google Map embed URL + directions/GBP link
 - [ ] LocalBusiness + Service + BreadcrumbList structured data scoped to this city
+
+**Locations hub page** *(the `/service-areas` index)*
+
+- [ ] Leader (3 lines, `(call:)` placeholder) + Intro (~150 words, punchy bold H2, geographic reach)
+- [ ] Coverage-area Google Map embed URL (whole footprint, not one pin) + coverage summary line/stat + GBP URL
+- [ ] Geographic overview body ~600–800 words (region / radius / local knowledge, NOT a services list) + by-service cross-links
+- [ ] Full service-area list — every area, each with its `/locations/[city-slug]` link (or "to build" status) + one-line descriptor; grouped if long
+- [ ] "Not seeing your town?" catch-all line + `/contact` or `/estimate` link
+- [ ] Regional final-CTA headline
+- [ ] BreadcrumbList + ItemList/CollectionPage structured data (hub → spoke)

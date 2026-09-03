@@ -906,6 +906,68 @@
   .loc-gallery .cap { height: 9px; width: 80%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; margin-top: 7px; }
   @media (max-width: 720px) { .loc-gallery { grid-template-columns: 1fr; } }
 
+  /* ==========================================================================
+     LOCATIONS HUB PAGE (/service-areas) — layout vocabulary
+     3-pass spine from skill-site-content-locations (plural): Leader / ~150-word
+     Intro with a bold H2 / geographic-overview Body that links out to every
+     individual location page. Focus is geographic reach, NOT specific services.
+     ========================================================================== */
+
+  /* LH4 — coverage map + GBP + summary stat */
+  .hub-map {
+    background: var(--fill-2);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    min-height: 260px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--line-strong);
+    font-family: var(--mono); font-size: 12px;
+  }
+  .hub-map::after { content: "\25a8 embedded Google Map \2014 full coverage area (MSA-wide)"; }
+  .hub-map-row {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .hub-stat { height: 14px; width: 320px; max-width: 100%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+
+  /* LH6 — service-area cards, one per location, each an internal link */
+  .hub-group { margin-top: 24px; }
+  .hub-group__h { height: 13px; width: 180px; background: var(--fill-3); border: 1px solid var(--line); border-radius: 2px; margin-bottom: 12px; }
+  .hub-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .hub-card {
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 14px;
+  }
+  .hub-card > * + * { margin-top: 7px; }
+  .hub-card .town {              /* town/city name — the internal link */
+    height: 13px; width: 70%;
+    background: var(--fill-3);
+    border-bottom: 2px solid var(--line-strong);
+    border-radius: 2px;
+  }
+  .hub-card .oneline { height: 9px; width: 92%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+  .hub-card .arrow { font-family: var(--mono); font-size: 11px; color: var(--line-strong); }
+  @media (max-width: 900px) { .hub-cards { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .hub-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 440px) { .hub-cards { grid-template-columns: 1fr; } }
+
+  /* LH5 — by-service cross-link row */
+  .hub-services { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+
+  /* LH7 — not-seeing-your-town band */
+  .hub-notlisted {
+    border: 1px dashed var(--line-strong);
+    border-radius: 2px;
+    padding: 18px 20px;
+    max-width: 760px;
+  }
+  .hub-notlisted > * + * { margin-top: 8px; }
+
   /* potential-internal-links table */
   .links-table {
     width: 100%;
@@ -936,9 +998,9 @@
   <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL ONLY</p>
   <h1 class="doc__h1">local-services-direct-response-v1</h1>
   <p class="doc__meta">
-    This file contains <strong>four page types</strong>: <strong>Home</strong> (below), then <strong>About</strong>, <strong>Contact</strong>, and <strong>Location</strong> — each past a double-rule divider.<br>
+    This file contains <strong>five page types</strong>: <strong>Home</strong> (below), then <strong>About</strong>, <strong>Contact</strong>, <strong>Location</strong> (one individual service area), and <strong>Locations Hub</strong> (the <code>/service-areas</code> index) — each past a double-rule divider.<br>
     <br>
-    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About <strong>A1–A12</strong>; Contact <strong>C1–C7</strong>; Location <strong>L1–L12</strong>)<br>
+    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About <strong>A1–A12</strong>; Contact <strong>C1–C7</strong>; Location <strong>L1–L12</strong>; Locations Hub <strong>LH1–LH9</strong>)<br>
     Model: <strong>Direct-response landing-page hero</strong> + <strong>Hero's Journey</strong> arc, aligned to the <strong>Content Sequencing</strong> copy framework (intro connection → problem → opportunity → cost of DIY → proof → ease → speed → futurecast → credentials)<br>
     Contains layout &amp; composition only. No content intent, no copy, no colors, no type. Brand style guide + sitemap + content brief are supplied per project at build time.
   </p>
@@ -957,7 +1019,8 @@
     Home (tags <code>HP1–HP15</code>) slugs: <code>header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof · speed-to-results · offer · faq · features · final-cta · footer</code><br>
     About (tags <code>A1–A12</code>) slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code><br>
     Contact (tags <code>C1–C7</code>) slugs: <code>contact-header · contact-leader · contact-details · contact-map · contact-reputation · contact-cta · contact-footer</code><br>
-    Location (tags <code>L1–L12</code>) slugs: <code>location-header · location-leader · location-intro · location-description · location-area · location-services · location-proof · location-promo · location-gallery · location-faq · location-cta · location-footer</code>
+    Location (tags <code>L1–L12</code>) slugs: <code>location-header · location-leader · location-intro · location-description · location-area · location-services · location-proof · location-promo · location-gallery · location-faq · location-cta · location-footer</code><br>
+    Locations Hub (tags <code>LH1–LH9</code>) slugs: <code>locations-header · locations-leader · locations-intro · locations-map · locations-overview · locations-list · locations-not-listed · locations-cta · locations-footer</code>
   </div>
 
   <!-- ============================================================= HP1. HEADER / NAV -->
@@ -3010,6 +3073,309 @@
       <p class="notes__h">Notes — Location Footer</p>
       <div class="note"><span class="mk">L12</span><p class="note__body"><b>Footer</b><span>
         Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>.
+      </span></p></div>
+    </div>
+  </div>
+
+
+  <!-- ################################################################################
+       LOCATIONS HUB PAGE  (/service-areas — the index of all individual location pages)
+       ################################################################################ -->
+
+  <div class="page-break">
+    <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL + CONTENT-INTENT</p>
+    <h1 class="doc__h1">local-services-direct-response-v1 &nbsp;/&nbsp; Locations Hub</h1>
+    <p class="doc__meta">
+      Page type: <strong>Locations Hub</strong> (<code>/service-areas</code> or <code>/locations</code>) &nbsp;·&nbsp; Role: part of the <strong>Control</strong> template<br>
+      <strong>This is the hub / index, not an individual location page.</strong> It gives an <strong>overview of the whole geographic area served</strong>, builds local trust, and <strong>links out to every individual location page</strong>. Built on the overview contract in <code>skill-site-content-locations</code> (plural — distinct from <code>skill-site-content-location</code>, which does the individual pages): <strong>3 content passes</strong> — <strong>Leader</strong> (line 3 is the <code>(call: )</code> CMS placeholder, <em>not</em> a written CTA), <strong>Intro</strong> (~150 words with a <em>punchy bold H2</em> naming the primary location and establishing geographic reach), <strong>Body</strong> (H2/H3, describes the region and towns/cities served, with an <code>(element: locations)</code> placeholder where the location cards render).<br>
+      Sections: <strong>9</strong>. <strong>Focus is geographic reach — not specific services.</strong> No "description" pass, no per-paragraph CTA requirement (those are individual-page rules).<br>
+      Notes carry <strong>content intent</strong> as well as structure. Colors, type, and final copy still come from the brand style guide + content brief.
+    </p>
+
+    <div class="legend">
+      <b>Locations-hub conventions</b><br>
+      <span class="anchor-lit">anchor text literal</span> = the exact, keyword-optimized words a link should use. On this page <strong>every service-area name is an internal link</strong> to its own <code>/locations/[city-slug]</code> page — the anchor is <code>[primary service] in [city]</code> (or just the city name where that reads more naturally in a card). Unique per link; not reused from other pages.<br>
+      <b>Hub → spoke.</b> This page is the parent of every individual Location page (the <code>L1–L12</code> page type). Emit <strong>BreadcrumbList</strong> (Home › Locations) and <strong>ItemList / CollectionPage</strong> structured data enumerating the linked location pages.<br>
+      The Leader's line 3 is the <code>(call: )</code> CMS placeholder here (the individual Location page uses a written CTA sentence instead).
+    </p>
+
+    <div class="legend">
+      <b>Section slugs (Locations Hub)</b><br>
+      <code>locations-header · locations-leader · locations-intro · locations-map · locations-overview · locations-list · locations-not-listed · locations-cta · locations-footer</code>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH1. HEADER / NAV -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH1 · Header / Nav</span>
+      <div class="band" style="padding-top:26px;">
+        <span class="mk mk--abs">LH1</span>
+        <div class="navbar">
+          <div class="ph dot dot--sq" style="width:120px;height:28px;border-radius:2px;"></div>
+          <div class="navlinks">
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+          </div>
+          <div class="row-inline">
+            <span class="ph ph--text" style="width:90px;"></span>
+            <span class="btn btn--primary">CTA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Locations Hub Header / Nav</p>
+      <div class="note"><span class="mk">LH1</span><p class="note__body"><b>Header / Nav</b><span>
+        Identical component to the Home <code>header</code> — same logo, nav (≤7), persistent primary CTA, optional click-to-call. Sticky, condenses on scroll. The "Locations" / "Service Areas" nav item shows its active state. See <code>instructions.md</code> §<code>header</code>.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH2. LEADER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH2 · Leader</span>
+      <div class="band band--full" style="padding-top:44px;padding-bottom:44px;">
+        <span class="mk mk--abs">LH2</span>
+        <div class="disp">
+          <div class="lbl">line 1 — H3 subline, small, ≤10 words</div>
+          <div class="ph ph--text" style="width:34%;"></div>
+          <div style="height:8px;"></div>
+          <div class="lbl">line 2 — H1 page heading, LARGE, descriptive + simple, ≤10 words (e.g. "[Service] Service Areas Near [primary location]")</div>
+          <div class="disp__h" style="width:60%;"></div>
+          <div style="height:16px;"></div>
+          <div class="lbl">line 3 — (call:) CMS placeholder → renders as a click-to-call on the TRACKING number (NOT a written CTA sentence)</div>
+          <div class="row-inline">
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Locations Hub Leader</p>
+      <div class="note"><span class="mk">LH2</span><p class="note__body"><b>Leader — the hook</b><span>
+        Full-bleed band, <b>left-aligned</b>, text-only (no hero image). The Leader from <code>skill-site-content-locations</code> (overview variant): <b>exactly three lines</b> — (1) H3 subline, ≤10 words; (2) H1 page heading, descriptive and simple, ≤10 words, naming the primary location and the service; (3) the <b><code>(call: )</code> CMS placeholder</b>, which renders as a click-to-call on the tracking number (CallRail DNI). <b>Not</b> a written CTA sentence — that's the individual Location page.<br>
+        No CTA button in the Leader; the call link and the CTAs further down carry the action.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH3. INTRO -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH3 · Intro</span>
+      <div class="band" style="padding-top:32px;padding-bottom:32px;">
+        <span class="mk mk--abs">LH3</span>
+        <div class="contained--wide">
+          <div class="lbl">intro — ~150 words, opens with a PUNCHY BOLD H2 naming the primary location + establishing geographic reach</div>
+          <div class="ph ph--head" style="width:64%;height:22px;"></div>
+          <div style="height:10px;"></div>
+          <div class="ph ph--para" style="max-width:760px;">
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w70"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Locations Hub Intro</p>
+      <div class="note"><span class="mk">LH3</span><p class="note__body"><b>Intro — ~150 words, bold H2</b><span>
+        From <code>skill-site-content-locations</code>: <b>around 150 words</b>, and it <b>must open with a punchy bold H2 that names the primary location and establishes geographic reach</b> (e.g. "**[Business] — Serving the Greater [Metro] Area and Beyond**"). Then a short paragraph: how long you've served the region, the breadth of the coverage area (name a few edge towns), and the promise of fast local response. Keep it about <b>the area</b>, not a service pitch.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH4. COVERAGE MAP + GBP -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH4 · Coverage Map + GBP</span>
+      <div class="band" style="padding-top:34px;padding-bottom:34px;">
+        <span class="mk mk--abs">LH4</span>
+        <div class="contained--wide">
+          <div class="lbl">embedded Google Map — the FULL coverage area (MSA-wide), not a single pin</div>
+          <div class="hub-map"></div>
+          <div class="hub-map-row">
+            <div>
+              <div class="lbl">coverage summary line / stat</div>
+              <div class="hub-stat"></div>
+            </div>
+            <div>
+              <div class="lbl">GBP button (exact text)</div>
+              <span class="btn btn--secondary btn--sm">Visit Our Google Business Profile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Coverage Map + GBP</p>
+      <div class="note"><span class="mk">LH4</span><p class="note__body"><b>Coverage map, summary stat, GBP button</b><span>
+        <b>Embedded Google Map</b> framed to show the <b>entire coverage area</b> (the whole metro / county set / service radius), not a tight pin on HQ. Real <code>title</code> ("Map of [Business] service areas across [region]"), lazy-loaded. Embed URL is a required input (<code>asset-list.md</code> §6).<br>
+        <b>Coverage summary line / stat</b> beside or below the map — a concrete reach signal: "We serve <b>[N] communities</b> across <b>[region]</b>, within a <b>[X]-mile radius</b> of [HQ city]."<br>
+        <b>"Visit Our Google Business Profile" button</b> — exact text, small / secondary style, links to the public GBP URL (Kind 2, new tab). Same asset as the footer / Contact page GBP button.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH5. THE AREA WE SERVE -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH5 · The Area We Serve</span>
+      <div class="band band--full" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">LH5</span>
+        <div class="loc-body">
+          <div class="lbl">~600–800 words · H2/H3 · geographic overview — region, radius, local knowledge. NOT a services pitch.</div>
+          <div class="loc-body__block">
+            <div class="loc-body__h"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w85"></div>
+          </div>
+          <div class="loc-body__block">
+            <div class="loc-body__h" style="width:50%;"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w70"></div>
+          </div>
+          <div class="loc-body__block">
+            <div class="loc-body__h" style="width:56%;"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w85"></div>
+          </div>
+          <div class="lbl">by-service cross-links — "see all [service] services" → /services/[service-slug] (lateral interlink)</div>
+          <div class="hub-services">
+            <span class="anchor-lit">[service] services</span>
+            <span class="anchor-lit">[service] services</span>
+            <span class="anchor-lit">[service] services</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — The Area We Serve</p>
+      <div class="note"><span class="mk">LH5</span><p class="note__body"><b>Geographic overview body</b><span>
+        The "body" pass from <code>skill-site-content-locations</code>: <b>~600–800 words</b>, H2/H3 structure, all about <b>the geographic area</b> — the metro / region, the counties or sub-metros it spans, the drive radius, and the local knowledge that makes a regional provider better than a distant one (traffic patterns, permitting by jurisdiction, terrain, housing stock). <b>Do not turn this into a services list</b> — that's what the individual Location and Service pages are for.<br>
+        <b>By-service cross-links</b> — a short row linking to the main <code>/services/[service-slug]</code> pages ("see all [service] services") so the hub interlinks <b>laterally</b>, not only down to city pages. Keyword anchor literals, unique on this page.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH6. SERVICE AREAS LIST -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH6 · Service Areas (all locations)</span>
+      <div class="band" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">LH6</span>
+        <div class="contained--wide">
+          <div class="lbl">EVERY service area listed here — each card's town name is an internal link to its /locations/[city-slug] page. (element: locations)</div>
+
+          <div class="hub-group">
+            <div class="hub-group__h"></div>   <!-- optional group heading: county / region / sub-metro -->
+            <div class="hub-cards">
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+            </div>
+          </div>
+
+          <div class="hub-group">
+            <div class="hub-group__h"></div>
+            <div class="hub-cards">
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+              <div class="hub-card"><div class="town"></div><div class="oneline"></div><div class="arrow">&rarr;</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Service Areas (all locations)</p>
+      <div class="note"><span class="mk">LH6</span><p class="note__body"><b>The full service-area list — every location, each linked</b><span>
+        This is where the <code>(element: locations)</code> placeholder resolves. <b>List every service area the business covers.</b><br>
+        <b>Card format:</b> town / city name (the <b>internal link</b> to that area's <code>/locations/[city-slug]</code> page), a one-line descriptor ("24/7 [service] in [city]"), optional tiny thumbnail. Grid, 3–4 across.<br>
+        <b>Anchor text:</b> keyword-optimized — <code>[primary service] in [city]</code>, or just the city name where a card context makes that read naturally. <b>Unique per link.</b> Any city page not built yet is written as plain text and recorded in the potential-internal-links table.<br>
+        <b>Grouping:</b> if the list is long (&gt; ~12), group into sections by county / region / sub-metro with a heading each.<br>
+        <b>Every linked page must actually exist and be worth linking to</b> — a hub of links to thin pages hurts more than it helps.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH7. NOT SEEING YOUR TOWN -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH7 · Not Seeing Your Town?</span>
+      <div class="band band--full" style="padding-top:34px;padding-bottom:34px;">
+        <span class="mk mk--abs">LH7</span>
+        <div class="hub-notlisted">
+          <div class="lbl">"not seeing your town? call us — if you're in our area, we'll come to you" + inline link to /contact or /estimate</div>
+          <div class="ph ph--text w85"></div>
+          <div class="ph ph--text w55"></div>
+          <div class="row-inline" style="margin-top:4px;">
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+            <span class="anchor-lit">get a free [service] estimate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Not Seeing Your Town?</p>
+      <div class="note"><span class="mk">LH7</span><p class="note__body"><b>Catch-all for towns not listed</b><span>
+        The "**Not seeing your town? Call us — if you're within our locations area, we'll come to you.**" line from <code>skill-site-content-locations</code>. A short reassurance sentence + an <b>inline click-to-call</b> and <b>one inline link to <code>/contact</code> or <code>/estimate</code></b> (keyword anchor literal — <em>get a free [service] estimate</em> — unique to this page). Captures demand from the edge of the coverage area without needing a page for every hamlet.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH8. FINAL CTA -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH8 · Final CTA</span>
+      <div class="band" style="padding-top:42px;padding-bottom:42px;">
+        <span class="mk mk--abs">LH8</span>
+        <div class="contained stack" style="text-align:center;">
+          <div class="lbl">restated headline — regional framing, specific to the visitor's outcome</div>
+          <div class="ph ph--head" style="width:56%;height:30px;margin:0 auto;"></div>
+          <div class="lbl" style="text-align:center;">one grey reassurance line</div>
+          <div class="ph ph--text" style="width:40%;margin:0 auto;"></div>
+          <div style="height:14px;"></div>
+          <div class="row-inline" style="justify-content:center;">
+            <span class="btn btn--primary">Primary CTA</span>
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+          <div class="lbl" style="text-align:center;">(inline click-to-call beside the button ONLY when the primary CTA is not itself a call — same rule as HP14 / A11 / C6 / L11)</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Final CTA</p>
+      <div class="note"><span class="mk">LH8</span><p class="note__body"><b>Final CTA band</b><span>
+        Mirrors the Home page's <code>final-cta</code>, framed regionally ("Wherever you are in [metro], we're close by"). Centered. A restated headline, one reassurance line, the <b>primary CTA button</b> (same wording as the Home hero's primary), and an inline click-to-call beside it only when the primary CTA isn't itself a call (same rule as HP14 / A11 / C6 / L11).
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= LH9. FOOTER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">LH9 · Footer</span>
+      <div class="band" style="background:var(--fill-1);">
+        <span class="mk mk--abs">LH9</span>
+        <div class="contained--wide" style="text-align:center;color:var(--line-strong);font-family:var(--mono);font-size:12px;padding:24px;">
+          same Footer component as the Home page (HP15) &mdash; identity + NAP citation, two menus, map + hours + GBP button, bottom bar
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Locations Hub Footer</p>
+      <div class="note"><span class="mk">LH9</span><p class="note__body"><b>Footer</b><span>
+        Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "Locations" menu link shows its active state.
       </span></p></div>
     </div>
   </div>

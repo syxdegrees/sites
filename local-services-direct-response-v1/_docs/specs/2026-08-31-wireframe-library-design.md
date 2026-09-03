@@ -103,13 +103,15 @@ maps the two together.
 Built as HTML (Figma blocked by the free-plan seat — see below), in
 `sites/local-services-direct-response-v1/`:
 
-- `_temp/local-services-direct-response-v1.html` — the wireframe. Four page types in one
+- `_temp/local-services-direct-response-v1.html` — the wireframe. Five page types in one
   scrollable file: **Home** (15 sections, tags `HP1–HP15`, structural only), **About**
-  (12 sections, tags `A1–A12`), **Contact** (7 sections, tags `C1–C7`), and **Location**
-  (12 sections, tags `L1–L12`) — the last three structural + content-intent. Section slugs
-  (`header … footer`, `about-header … about-footer`, `contact-header … contact-footer`,
-  `location-header … location-footer`) are unchanged — the `HP`/`A`/`C`/`L` tags are
-  display labels only. The About page's layout was set with the `frontend-design` skill
+  (12 sections, tags `A1–A12`), **Contact** (7 sections, tags `C1–C7`), **Location** (12
+  sections, tags `L1–L12`, one individual service area), and **Locations Hub** (9
+  sections, tags `LH1–LH9`, the `/service-areas` index) — the last four structural +
+  content-intent. Section slugs (`header … footer`, `about-header … about-footer`,
+  `contact-header … contact-footer`, `location-header … location-footer`,
+  `locations-header … locations-footer`) are unchanged — the `HP`/`A`/`C`/`L`/`LH` tags
+  are display labels only. The About page's layout was set with the `frontend-design` skill
   then reconciled with the Home page: type carries most sections, boxes used sparingly, and
   where a beat also exists on the Home page (A7 values, A9 proof) it **reuses the Home card
   treatment**. The A4 milestone timeline is the one structural device, used only where the
@@ -124,24 +126,31 @@ Built as HTML (Figma blocked by the free-plan seat — see below), in
   Description, ~800-word focus-keyword body with an inline CTA per paragraph) plus the
   Local SEO Campaign Framework rules (keyword/location density via variants, ≥60% unique
   copy, one focus keyword per page, 2–3 unique images, on-page FAQ, LocalBusiness/Service
-  schema). Wireframe-left / numbered-notes-right throughout.
+  schema). The Locations Hub page is the **`/service-areas` index** — built on the
+  *overview* contract in `skill-site-content-locations` (Leader with the `(call:)`
+  placeholder, ~150-word Intro with a bold H2, geographic-overview body): a coverage-area
+  map + GBP button + reach stat, a ~600–800-word regional overview, a card list of **every**
+  service area each linking to its individual Location page, a "not seeing your town?"
+  catch-all, and BreadcrumbList + ItemList/CollectionPage schema for the hub → spoke
+  structure. Wireframe-left / numbered-notes-right throughout.
 - `instructions.md` — per-section content instructions: what goes in each slot and how to
   write/choose it. Home = Hero's Journey framing supplemented from the "perfect homepage"
   Notion transcript. About = modified sales page for the brand, Hero's-Journey/StoryBrand
   arc with the Leader/Intro/Body spine from `skill-site-content-about`. Contact = short
   conversion page, Leader / snippet / body spine from `skill-site-content-contact`
   (~300–500-word body). Location = individual service-area landing page, individual-location
-  contract from `skill-site-content-locations` + the Local SEO Campaign Framework. Also
-  carries site-wide subsections: Buttons & CTAs, Phone numbers (CallRail DNI), Site setup /
-  `<head>`, Media naming & SEO, Internal linking & anchor text, Bios written as ads,
-  Location pages & local SEO.
+  contract from `skill-site-content-location` + the Local SEO Campaign Framework. Locations
+  Hub = the `/service-areas` index, overview contract from `skill-site-content-locations`
+  (plural). Also carries site-wide subsections: Buttons & CTAs, Phone numbers (CallRail
+  DNI), Site setup / `<head>`, Media naming & SEO, Internal linking & anchor text, Bios
+  written as ads, Location pages & local SEO.
 - `asset-list.md` — required-inputs checklist: typography roles, color tokens, logos,
   favicon set, author/team/Gravatar images, per-slot images/icons/embeds, content data
-  (Home + About + Contact + Location).
+  (Home + About + Contact + Location + Locations Hub).
 
 All files cross-reference by **section slug** — Home: `header … footer`; About:
 `about-header … about-footer`; Contact: `contact-header … contact-footer`; Location:
-`location-header … location-footer`.
+`location-header … location-footer`; Locations Hub: `locations-header … locations-footer`.
 
 The intended build flow: pick this template → external files (brand style guide, sitemap,
 content brief) reference `instructions.md` for what to produce and `asset-list.md` for
@@ -159,9 +168,9 @@ HTML in the repo instead. Revisit porting to Figma if the plan is upgraded.
 
 - [ ] Decide whether the wireframe stays in `_temp/` or moves to a permanent location in
       the folder.
-- [ ] Additional page-type wireframes (services, service detail, locations hub, team,
-      blog) — build per style as sitemaps require them. The About page's potential-links
-      table names the first candidates. (Home, About, Contact, and the individual Location
-      page are done.)
+- [ ] Additional page-type wireframes (services, service detail, team, blog) — build per
+      style as sitemaps require them. The About page's potential-links table names the
+      first candidates. (Home, About, Contact, the individual Location page, and the
+      Locations Hub are done.)
 - [ ] Gravatar headshot display size on the About page — sensible default specced
       (800×800 source, ~96–120px round); owner to confirm on mockup review.
