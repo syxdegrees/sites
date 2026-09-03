@@ -826,6 +826,86 @@
     .contact-band { grid-template-columns: 1fr; gap: 24px; }
   }
 
+  /* ==========================================================================
+     LOCATION PAGE (individual, not the hub) — layout vocabulary
+     Treated as a conversion landing page, optimized around ONE focus keyword
+     (a primary service) + ONE location. Local-SEO framework applies.
+     ========================================================================== */
+
+  /* L4 — description: two short paragraphs, ~150 words */
+  .loc-desc { max-width: 640px; }
+  .loc-desc > * + * { margin-top: 10px; }
+
+  /* L5 — area context: map on one side, place detail on the other */
+  .loc-area {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    max-width: 1040px;
+  }
+  .loc-area__map {
+    background: var(--fill-2);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    min-height: 240px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--line-strong);
+    font-family: var(--mono); font-size: 12px;
+  }
+  .loc-area__map::after { content: "\25a8 embedded map \2014 this location + service radius"; }
+  .loc-area__detail > * + * { margin-top: 12px; }
+  .loc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .loc-chip {
+    height: 20px;
+    padding: 0 10px;
+    background: var(--fill-1);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    display: inline-flex; align-items: center;
+  }
+  .loc-chip .t { display: block; width: 64px; height: 8px; background: var(--fill-3); border-radius: 2px; }
+  @media (max-width: 760px) { .loc-area { grid-template-columns: 1fr; gap: 20px; } }
+
+  /* nearby-locations internal-link row */
+  .loc-nearby { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .loc-nearby .anchor-lit { display: inline-block; }
+
+  /* L6 — the focus-keyword service body: dense copy + inline CTA per paragraph */
+  .loc-body { max-width: 760px; }
+  .loc-body > * + * { margin-top: 14px; }
+  .loc-body__block > * + * { margin-top: 7px; }
+  .loc-body__h { height: 15px; width: 60%; background: var(--fill-3); border: 1px solid var(--line); border-radius: 2px; }
+
+  /* L8 — local promotion band (offer valid only for this location) */
+  .loc-promo {
+    border: 1px dashed var(--line-strong);
+    border-radius: 2px;
+    padding: 18px 20px;
+    max-width: 760px;
+  }
+  .loc-promo > * + * { margin-top: 8px; }
+
+  /* L9 — gallery: 2–3 unique, location-matched images/videos */
+  .loc-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+  }
+  .loc-gallery .shot {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--fill-2);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--line-strong); font-family: var(--mono); font-size: 11px;
+  }
+  .loc-gallery .shot::after { content: "\25a8 unique local image / video"; }
+  .loc-gallery .cap { height: 9px; width: 80%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; margin-top: 7px; }
+  @media (max-width: 720px) { .loc-gallery { grid-template-columns: 1fr; } }
+
   /* potential-internal-links table */
   .links-table {
     width: 100%;
@@ -856,9 +936,9 @@
   <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL ONLY</p>
   <h1 class="doc__h1">local-services-direct-response-v1</h1>
   <p class="doc__meta">
-    This file contains <strong>three page types</strong>: <strong>Home</strong> (below), <strong>About</strong> (past the first double-rule divider), and <strong>Contact</strong> (past the second).<br>
+    This file contains <strong>four page types</strong>: <strong>Home</strong> (below), then <strong>About</strong>, <strong>Contact</strong>, and <strong>Location</strong> — each past a double-rule divider.<br>
     <br>
-    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About sections are tagged <strong>A1–A12</strong>; Contact sections are tagged <strong>C1–C7</strong>)<br>
+    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About <strong>A1–A12</strong>; Contact <strong>C1–C7</strong>; Location <strong>L1–L12</strong>)<br>
     Model: <strong>Direct-response landing-page hero</strong> + <strong>Hero's Journey</strong> arc, aligned to the <strong>Content Sequencing</strong> copy framework (intro connection → problem → opportunity → cost of DIY → proof → ease → speed → futurecast → credentials)<br>
     Contains layout &amp; composition only. No content intent, no copy, no colors, no type. Brand style guide + sitemap + content brief are supplied per project at build time.
   </p>
@@ -876,7 +956,8 @@
     <code>asset-list.md</code> — the required-inputs checklist: fonts, colors, logos, images (with dimensions), icons, embeds, content data.<br>
     Home (tags <code>HP1–HP15</code>) slugs: <code>header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof · speed-to-results · offer · faq · features · final-cta · footer</code><br>
     About (tags <code>A1–A12</code>) slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code><br>
-    Contact (tags <code>C1–C7</code>) slugs: <code>contact-header · contact-leader · contact-details · contact-map · contact-reputation · contact-cta · contact-footer</code>
+    Contact (tags <code>C1–C7</code>) slugs: <code>contact-header · contact-leader · contact-details · contact-map · contact-reputation · contact-cta · contact-footer</code><br>
+    Location (tags <code>L1–L12</code>) slugs: <code>location-header · location-leader · location-intro · location-description · location-area · location-services · location-proof · location-promo · location-gallery · location-faq · location-cta · location-footer</code>
   </div>
 
   <!-- ============================================================= HP1. HEADER / NAV -->
@@ -2531,6 +2612,404 @@
       <p class="notes__h">Notes — Contact Footer</p>
       <div class="note"><span class="mk">C7</span><p class="note__body"><b>Footer</b><span>
         Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "Contact" menu link shows its active state.
+      </span></p></div>
+    </div>
+  </div>
+
+
+  <!-- ################################################################################
+       LOCATION PAGE  (individual location — NOT the locations hub)
+       ################################################################################ -->
+
+  <div class="page-break">
+    <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL + CONTENT-INTENT</p>
+    <h1 class="doc__h1">local-services-direct-response-v1 &nbsp;/&nbsp; Location</h1>
+    <p class="doc__meta">
+      Page type: <strong>Location</strong> (one individual service-area page, e.g. <code>/locations/[city-slug]</code>) &nbsp;·&nbsp; Role: part of the <strong>Control</strong> template<br>
+      <strong>This is a single-location page, not the locations hub.</strong> It exists to rank for <strong>one focus keyword</strong> — a primary service + this location — and convert visitors from that area. Built on the individual-location contract in <code>skill-site-content-locations</code> ("Key Differences vs. Individual Location Pages"): 4 content passes — <strong>Leader</strong> (line 3 is a <em>written</em> CTA sentence, not the <code>(call: )</code> placeholder), <strong>Intro</strong> (≤20 words, one sentence, names the location), <strong>Description</strong> (two paragraphs, ~150 words), <strong>Body</strong> (~800 words, H2/H3, an inline CTA in every paragraph).<br>
+      Sections: <strong>12</strong> &nbsp;·&nbsp; Treated as a <strong>conversion landing page</strong>.<br>
+      <strong>Local-SEO framework (baked into the notes below):</strong> ~80% of copy on the focus keyword · every H1–H6 carries the focus keyword or a variant · ~20 focus-keyword + ~20 location mentions, via <em>variants</em>, no stuffing · ≥60% unique copy per location page (layout may repeat) · exactly one focus keyword per page · 2–3 unique/owned images matched to the location · an on-page FAQ (never a separate FAQ page). Page title + H1 should both match the focus keyword.<br>
+      Notes carry <strong>content intent</strong> as well as structure. Colors, type, and final copy still come from the brand style guide + content brief.
+    </p>
+
+    <div class="legend">
+      <b>Location-page conventions</b><br>
+      <span class="anchor-lit">anchor text literal</span> = the exact, keyword-optimized words a body link should use, matching its destination.<br>
+      <b>Focus keyword</b> = one primary service + this location (e.g. "water heater repair in Yorkville"), chosen from the competitive analysis in the Local SEO Campaign Framework. <b>One per page</b> — never target the same focus keyword on two pages (check Search Console).<br>
+      <b>Written CTA line</b> (Leader line 3) = a real sentence with a call-to-action, generated for this page — <em>not</em> the <code>(call: )</code> CMS placeholder the hub page uses.<br>
+      This page must be <b>good enough to link to</b> from other city pages in the MSA, from service pages, and from the blog — so the copy has to be genuinely useful, not boilerplate.
+    </p>
+
+    <div class="legend">
+      <b>Section slugs (Location)</b><br>
+      <code>location-header · location-leader · location-intro · location-description · location-area · location-services · location-proof · location-promo · location-gallery · location-faq · location-cta · location-footer</code>
+    </div>
+  </div>
+
+  <!-- ============================================================= L1. HEADER / NAV -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L1 · Header / Nav</span>
+      <div class="band" style="padding-top:26px;">
+        <span class="mk mk--abs">L1</span>
+        <div class="navbar">
+          <div class="ph dot dot--sq" style="width:120px;height:28px;border-radius:2px;"></div>
+          <div class="navlinks">
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+          </div>
+          <div class="row-inline">
+            <span class="ph ph--text" style="width:90px;"></span>
+            <span class="btn btn--primary">CTA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location Header / Nav</p>
+      <div class="note"><span class="mk">L1</span><p class="note__body"><b>Header / Nav</b><span>
+        Identical component to the Home <code>header</code> — same logo, nav (≤7), persistent primary CTA, optional click-to-call. Sticky, condenses on scroll. If the nav has a "Locations" / "Service Areas" item, it shows its active state. See <code>instructions.md</code> §<code>header</code>.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L2. LEADER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L2 · Leader</span>
+      <div class="band band--full" style="padding-top:44px;padding-bottom:44px;">
+        <span class="mk mk--abs">L2</span>
+        <div class="disp">
+          <div class="lbl">line 1 — H3 subline, small, ≤10 words (e.g. "Serving [neighborhood] and nearby [city]")</div>
+          <div class="ph ph--text" style="width:34%;"></div>
+          <div style="height:8px;"></div>
+          <div class="lbl">line 2 — H1 = the FOCUS KEYWORD, verbatim ([primary service] in [location]). LARGE. ≤10 words.</div>
+          <div class="disp__h" style="width:60%;"></div>
+          <div style="height:16px;"></div>
+          <div class="lbl">line 3 — a WRITTEN CTA sentence (not the (call:) placeholder) + primary CTA button</div>
+          <div class="ph ph--text" style="width:52%;"></div>
+          <div style="height:10px;"></div>
+          <div class="row-inline">
+            <span class="btn btn--primary">Primary CTA</span>
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location Leader</p>
+      <div class="note"><span class="mk">L2</span><p class="note__body"><b>Leader — the hook, keyword-anchored</b><span>
+        Full-bleed band, <b>left-aligned</b>, text-only (no hero image). Three lines (from <code>skill-site-content-locations</code>, individual-page variant):<br>
+        <b>1. H3 subline</b> — ≤10 words; names the neighborhood / sub-area and the city.<br>
+        <b>2. H1 page heading = the focus keyword, verbatim</b> — <code>[primary service] in [location]</code>. This is the single most important on-page signal; the page <code>&lt;title&gt;</code> should match it. ≤10 words, descriptive and simple.<br>
+        <b>3. A written CTA sentence</b> — a real call-to-action line generated for this page (the hub page uses the <code>(call: )</code> placeholder here; an individual page does not). Pair it with the <b>primary CTA button</b>. Inline click-to-call beside the button only when the primary CTA isn't itself a call (same rule as the Home <code>final-cta</code>).
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L3. INTRO -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L3 · Intro</span>
+      <div class="band" style="padding-top:30px;padding-bottom:30px;">
+        <span class="mk mk--abs">L3</span>
+        <div class="contained--wide">
+          <div class="lbl">intro — ONE sentence, ≤20 words, MUST reference the location name</div>
+          <div class="ph ph--text" style="width:70%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location Intro</p>
+      <div class="note"><span class="mk">L3</span><p class="note__body"><b>Intro — one line</b><span>
+        A single sentence, <b>≤20 words</b>, that <b>must reference the location name</b> (<code>skill-site-content-locations</code>, individual-page intro rule — this is much shorter than the hub page's ~150-word intro). It states what the business does in this specific place and sets up the description below. Carries one focus-keyword mention and one location mention.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L4. DESCRIPTION -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L4 · Description</span>
+      <div class="band" style="padding-top:34px;padding-bottom:34px;">
+        <span class="mk mk--abs">L4</span>
+        <div class="loc-desc">
+          <div class="lbl">description — exactly 2 paragraphs, ~150 words total</div>
+          <div class="ph ph--para">
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w85"></div>
+          </div>
+          <div class="ph ph--para">
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w70"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location Description</p>
+      <div class="note"><span class="mk">L4</span><p class="note__body"><b>Description — our presence in [location]</b><span>
+        <b>Two paragraphs, ~150 words total</b> (the "description" pass that individual location pages have and the hub page doesn't). Establishes that the business genuinely operates here: how long you've served this location, roughly how many local jobs / clients, where the crew is based relative to it, familiarity with local codes / permits / HOAs. Focus-keyword variant in at least one paragraph; the location name in both. No headings inside it. Leads into the area context.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L5. AREA CONTEXT + MAP -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L5 · Area Context + Map</span>
+      <div class="band" style="padding-top:38px;padding-bottom:38px;">
+        <span class="mk mk--abs">L5</span>
+        <div class="loc-area">
+          <div>
+            <div class="lbl">embedded map — this location + the service radius around it</div>
+            <div class="loc-area__map"></div>
+          </div>
+          <div class="loc-area__detail">
+            <div class="lbl">H2 — carries the focus keyword or a variant</div>
+            <div class="loc-body__h"></div>
+            <div class="lbl">landmarks · town lines / bordering towns · neighborhoods &amp; subdivisions served</div>
+            <div class="loc-chips">
+              <span class="loc-chip"><span class="t"></span></span><span class="loc-chip"><span class="t"></span></span>
+              <span class="loc-chip"><span class="t"></span></span><span class="loc-chip"><span class="t"></span></span>
+              <span class="loc-chip"><span class="t"></span></span><span class="loc-chip"><span class="t"></span></span>
+            </div>
+            <div class="lbl">drive-time / "how fast we reach you here" line</div>
+            <div class="ph ph--text" style="width:80%;"></div>
+            <div class="lbl">nearby locations we also serve — internal links to adjacent city pages (unique anchors)</div>
+            <div class="loc-nearby">
+              <span class="anchor-lit">[primary service] in [nearby city]</span>
+              <span class="anchor-lit">[primary service] in [nearby city]</span>
+              <span class="anchor-lit">[primary service] in [nearby city]</span>
+            </div>
+            <div class="lbl">GBP / directions CTA</div>
+            <span class="btn btn--secondary btn--sm">Get Directions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Area Context + Map</p>
+      <div class="note"><span class="mk">L5</span><p class="note__body"><b>Area context + embedded map</b><span>
+        Two columns (stack on mobile): an <b>embedded Google Map</b> showing <b>this location and the service radius around it</b> (real <code>title</code>, lazy-loaded), and a detail column with:<br>
+        <b>H2</b> carrying the focus keyword or a variant.<br>
+        <b>Local specificity</b> — name real <b>landmarks</b>, <b>town lines / bordering towns</b>, and <b>neighborhoods &amp; subdivisions</b> served. This is the copy that makes the page genuinely useful and link-worthy (framework instruction 1) and proves real local knowledge.<br>
+        <b>Drive-time line</b> — a concrete "crews based ~[X] min from [landmark]" / response-time line for this location (localized version of the Contact page's response-time promise).<br>
+        <b>Nearby-locations internal links</b> — a short "we also serve" row linking to <b>adjacent city pages in the MSA</b>. Keyword-optimized anchor literals, <b>unique per page</b> — record any not-yet-built pages in the potential-internal-links table. Satisfies the framework's siloing and instruction 1 (pages good enough to interlink).<br>
+        <b>GBP / directions CTA</b> — "Get Directions" (or "View our [city] Google Business Profile" if a location-specific GBP exists). Kind 2.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L6. [FOCUS SERVICE] IN [LOCATION] -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L6 · [Focus Service] in [Location]</span>
+      <div class="band band--full" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">L6</span>
+        <div class="loc-body">
+          <div class="lbl">~800 words · H2/H3 every heading carries the focus keyword or a variant · ONE inline CTA per paragraph</div>
+
+          <div class="loc-body__block">
+            <div class="loc-body__h"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w85"></div>
+            <div class="row-inline"><span class="inline-call">inline CTA — link or click-to-call</span></div>
+          </div>
+          <div class="loc-body__block">
+            <div class="loc-body__h" style="width:48%;"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w70"></div>
+            <div class="row-inline"><span class="inline-call">inline CTA</span></div>
+          </div>
+          <div class="loc-body__block">
+            <div class="loc-body__h" style="width:54%;"></div>
+            <div class="ph ph--text w100"></div>
+            <div class="ph ph--text w85"></div>
+            <div class="row-inline"><span class="inline-call">inline CTA</span></div>
+          </div>
+          <div class="lbl">location-specific promotion may sit here or at L8 — an offer valid ONLY for visitors in this location</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — [Focus Service] in [Location]</p>
+      <div class="note"><span class="mk">L6</span><p class="note__body"><b>The focus-keyword body — the reason this page exists</b><span>
+        The core content, <b>~800 words</b>, H2/H3 structure. This is the "body" pass from <code>skill-site-content-locations</code> (individual variant), with the Local SEO Campaign Framework applied:<br>
+        • <b>~80% of the copy is about the focus keyword</b> (the primary service), framed for this location.<br>
+        • <b>Every heading H2–H6 contains the focus keyword or a natural variant.</b><br>
+        • Aim for <b>~20 focus-keyword mentions and ~20 location mentions</b> across the whole page — achieved through <b>variants</b> ("water heater repair", "hot-water heater fix", "replace your water heater"; "Yorkville", "in the Yorkville area", "Yorkville, IL homeowners"). <b>No stuffing</b> — it must read naturally.<br>
+        • <b>An inline CTA in every paragraph</b> (<code>Promptlocationtext</code>) — a link or a click-to-call woven into the prose, not a button per paragraph.<br>
+        • <b>≥60% unique copy</b> vs. every other location page — the local details from L5 (landmarks, neighborhoods, codes) are what make it unique; the layout may repeat.<br>
+        • Cover: what the service involves here, common local triggers (hard water, older housing stock, storm exposure, permit quirks), what to expect, pricing transparency, why local matters.<br>
+        <b>Location-specific promotion</b> — a discount / offer <b>valid only for visitors in this location</b> — sits here or in its own band at L8.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L7. LOCAL PROOF -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L7 · Why [Location] Chooses Us</span>
+      <div class="band" style="padding-top:38px;padding-bottom:38px;">
+        <span class="mk mk--abs">L7</span>
+        <div class="contained--wide stack">
+          <div class="lbl">H2 — focus keyword variant + location</div>
+          <div class="loc-body__h"></div>
+          <div class="cols cols--3" style="margin-top:6px;">
+            <div class="card stack--tight">
+              <div class="dot"></div>
+              <div class="ph ph--text w85"></div>
+              <div class="ph ph--text w70"></div>
+              <div class="ph ph--text w40" style="margin-top:4px;"></div>
+            </div>
+            <div class="card stack--tight">
+              <div class="dot"></div>
+              <div class="ph ph--text w85"></div>
+              <div class="ph ph--text w70"></div>
+              <div class="ph ph--text w40" style="margin-top:4px;"></div>
+            </div>
+            <div class="card stack--tight">
+              <div class="dot"></div>
+              <div class="ph ph--text w85"></div>
+              <div class="ph ph--text w70"></div>
+              <div class="ph ph--text w40" style="margin-top:4px;"></div>
+            </div>
+          </div>
+          <div class="lbl">optional: one inline link — read [business] reviews from [city] homeowners</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Why [Location] Chooses Us</p>
+      <div class="note"><span class="mk">L7</span><p class="note__body"><b>Local proof</b><span>
+        Proof tied specifically to <b>this location</b> — not the site-wide proof. Up to 3 short items: a review from a customer in this city (name + neighborhood + 5-star graphic), a completed local project (address area + one line), or a local stat ("120+ [service] jobs in [city] since 20XX"). Reuses the Home card treatment. Keep it lighter than the Home <code>proof</code> section — this is a supporting beat. One optional inline link to the reviews page using a location-specific anchor.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L8. LOCAL PROMOTION -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L8 · Local Promotion</span>
+      <div class="band band--full" style="padding-top:34px;padding-bottom:34px;">
+        <span class="mk mk--abs">L8</span>
+        <div class="loc-promo">
+          <div class="lbl">promotion valid ONLY for visitors in this location — offer + eligibility line + CTA</div>
+          <div class="ph ph--head" style="width:60%;height:24px;"></div>
+          <div class="ph ph--text w85"></div>
+          <div class="ph ph--text w55"></div>
+          <div class="row-inline" style="margin-top:6px;">
+            <span class="btn btn--primary">Claim the [City] Offer</span>
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+          <div class="lbl">fine print — location eligibility, expiry, "new customers in [city] only" etc.</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Local Promotion</p>
+      <div class="note"><span class="mk">L8</span><p class="note__body"><b>Location-specific promotion</b><span>
+        An offer <b>only valid for visitors in this location</b> (Local SEO Framework instruction 3.4). A short headline naming the city + the offer, an eligibility line ("[city] homeowners", "within our [city] service radius", "new customers only"), a primary CTA, and fine print (expiry, limits). If a project has no per-location offer, this band is dropped and the promo folds into L6. Keeps the page working as a conversion landing page.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L9. GALLERY -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L9 · Local Work / Gallery</span>
+      <div class="band" style="padding-top:36px;padding-bottom:36px;">
+        <span class="mk mk--abs">L9</span>
+        <div class="contained--wide stack">
+          <div class="lbl">2–3 UNIQUE images/videos — owned or purchased, matched to this location</div>
+          <div class="loc-gallery">
+            <div><div class="shot"></div><div class="cap"></div></div>
+            <div><div class="shot"></div><div class="cap"></div></div>
+            <div><div class="shot"></div><div class="cap"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Local Work / Gallery</p>
+      <div class="note"><span class="mk">L9</span><p class="note__body"><b>2–3 unique, location-matched images or videos</b><span>
+        <b>2–3 media items, unique or purchased — never stock lifted from elsewhere</b> (Local SEO Framework instruction 8). Prefer real jobs / crew / recognizable local scenes <b>in this location</b>. Each gets a descriptive filename and real alt text that includes the location where it genuinely applies (per "Media naming &amp; SEO") — this is what surfaces the page in Google Images with a clickable link back. A short caption tying the shot to the neighborhood / job is a plus.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L10. LOCATION FAQ -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L10 · Location FAQ</span>
+      <div class="band" style="padding-top:36px;padding-bottom:36px;">
+        <span class="mk mk--abs">L10</span>
+        <div class="contained">
+          <div class="lbl">on-page FAQ — 5–6 rows. Do NOT create a separate FAQ page. Questions carry focus kw + location.</div>
+          <div class="faq-row"><span class="ph ph--text"></span><span class="chev">+</span></div>
+          <div class="faq-row"><span class="ph ph--text"></span><span class="chev">+</span></div>
+          <div class="faq-row"><span class="ph ph--text"></span><span class="chev">+</span></div>
+          <div class="faq-row"><span class="ph ph--text"></span><span class="chev">+</span></div>
+          <div class="faq-row"><span class="ph ph--text"></span><span class="chev">+</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location FAQ</p>
+      <div class="note"><span class="mk">L10</span><p class="note__body"><b>On-page FAQ (per location)</b><span>
+        <b>5–6 accordion rows, on this page</b> — the Local SEO Framework requires an FAQ on <b>each</b> location page and says <b>do not create a separate FAQ page</b>.<br>
+        Questions in the visitor's voice, each carrying the <b>focus keyword and/or the location</b> naturally ("How much does [service] cost in [city]?", "Do you need a permit for [service] in [city]?", "How fast can you get to [neighborhood]?"). Answers are plain and specific, and count toward the page's keyword/location density and its unique-content share.<br>
+        Emit <b>FAQPage structured data</b> for these rows (see the schema note in the instructions).<br>
+        Single column at all breakpoints.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L11. FINAL CTA -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L11 · Final CTA</span>
+      <div class="band band--full" style="padding-top:42px;padding-bottom:42px;">
+        <span class="mk mk--abs">L11</span>
+        <div class="contained stack" style="text-align:center;">
+          <div class="lbl">restated headline — focus keyword + location, specific to the visitor's outcome</div>
+          <div class="ph ph--head" style="width:58%;height:30px;margin:0 auto;"></div>
+          <div class="lbl" style="text-align:center;">one grey reassurance line</div>
+          <div class="ph ph--text" style="width:40%;margin:0 auto;"></div>
+          <div style="height:14px;"></div>
+          <div class="row-inline" style="justify-content:center;">
+            <span class="btn btn--primary">Primary CTA</span>
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+          <div class="lbl" style="text-align:center;">(inline click-to-call beside the button ONLY when the primary CTA is not itself a call — same rule as HP14 / A11 / C6)</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Final CTA</p>
+      <div class="note"><span class="mk">L11</span><p class="note__body"><b>Final CTA band</b><span>
+        Mirrors the Home page's <code>final-cta</code>, localized. Centered. A restated headline carrying the <b>focus keyword + location</b>, one reassurance line, the <b>primary CTA button</b> (same wording as the Home hero's primary), and an inline click-to-call beside it only when the primary CTA isn't itself a call (same rule as HP14 / A11 / C6). This is the last conversion shot — the page is a landing page, so the CTA is unmistakable.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= L12. FOOTER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">L12 · Footer</span>
+      <div class="band" style="background:var(--fill-1);">
+        <span class="mk mk--abs">L12</span>
+        <div class="contained--wide" style="text-align:center;color:var(--line-strong);font-family:var(--mono);font-size:12px;padding:24px;">
+          same Footer component as the Home page (HP15) &mdash; identity + NAP citation, two menus, map + hours + GBP button, bottom bar
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Location Footer</p>
+      <div class="note"><span class="mk">L12</span><p class="note__body"><b>Footer</b><span>
+        Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>.
       </span></p></div>
     </div>
   </div>

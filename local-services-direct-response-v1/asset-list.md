@@ -26,6 +26,11 @@ Contact-page slugs (prefixed `contact-`, wireframe tags `C1–C7`):
 `contact-header · contact-leader · contact-details · contact-map · contact-reputation ·
 contact-cta · contact-footer`.
 
+Location-page slugs (individual service-area page, prefixed `location-`, wireframe tags
+`L1–L12`): `location-header · location-leader · location-intro · location-description ·
+location-area · location-services · location-proof · location-promo · location-gallery ·
+location-faq · location-cta · location-footer`.
+
 All dimensions are 1x for a **max content width of ~1200px**. Export at 2x for retina.
 
 ---
@@ -203,6 +208,17 @@ The Contact page has **no photographic assets** — it is logos + map + form. It
 | `contact-reputation` | "Trusted by" / accreditation logos | 0–8 | fits within 140×40 box | — | Recognizable clients or partners, **or** accreditation / association marks (licensing body, BBB, manufacturer certifications, trade associations). Same grayscale treatment. Text fallback where no logo exists. |
 | `contact` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | Contact-page OG image — storefront / team / map-style shot with the business name + phone overlaid. Referenced from `<head>` per-page OG tags. |
 
+### Location page (individual) — **See:** `instructions.md` "Location page" + "Location pages & local SEO"
+
+**One set per location page.** Every image must be **unique or purchased — never stock
+lifted from a competitor or reused across locations** (Local SEO Framework instruction 8).
+
+| Slug | Asset | Count | Size (1x) | AR | Depicts |
+|---|---|---|---|---|---|
+| `location-gallery` | Local work images / videos | **2–3** | 640×480 (image) or 1280×720 (video, ≤20s, muted, poster required) | 4:3 / 16:9 | Real jobs, crew, or recognizable local scenes **in this location** — a completed install on a local street, the crew at a recognizable landmark, before/after at a local property. **Unique or owned.** Filename + alt text include the location where it genuinely applies — this is what surfaces the page in Google Images with a link back. |
+| `location-proof` | Local review / project photo *(optional)* | 0–2 | 56×56 (headshot) / 480×360 (project) | 1:1 / 4:3 | The local customer whose review is quoted, or a local project shot. With permission. |
+| `location` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | Location-page OG image — a local scene or map view with `[focus keyword] in [city]` overlaid. Per-page OG tags. |
+
 ---
 
 ## 5. Icons
@@ -237,6 +253,9 @@ action.
 | `contact-details` | what-happens-next step markers | 3 (or numbers 1–2–3) | One per step in the micro-list — or just numerals. If icons: an inbound-call/callback glyph, a clipboard/scope glyph, a document/quote glyph. |
 | `contact-details` | response-time promise glyph | 1 | A clock / stopwatch (or checkmark) beside the "we reply within [X] hours" line. |
 | `contact-cta` | social platform icons | = number of active profiles | Same set as the `footer` social icons — reuse, don't redraw. |
+| `location-area` | map-detail markers *(optional)* | 0–3 | Optional small glyphs beside the landmarks / town-lines / neighborhoods groups (a pin, a boundary line, a house cluster). Plain text is fine without them. |
+| `location-faq` | expand / collapse control | reuse `faq` | Same chevron / +− toggle as the Home FAQ accordion. |
+| `location-proof` | 5-star graphic | reuse `proof` + `hero` | The shared 5-star SVG, for the local review. |
 
 **Deliverable:** one icon set covering all groups above, **plus** a dedicated 5-star SVG,
 an accordion chevron, and a phone glyph.
@@ -253,7 +272,11 @@ an accordion chevron, and a phone glyph.
 | `contact-details` | Google Business Profile | Same public **GBP URL** as the footer — button text **"Visit Our Google Business Profile"**, placed directly under the citation elements, opens new tab. | `instructions.md` §`contact-details` |
 | `contact-details` | Contact form handler | Server-side form endpoint + destination (the marketing inbox), anti-spam token/honeypot, success-state copy. The `(element: contact-form)` placeholder from `skill-site-content-contact` resolves here. | `instructions.md` §`contact-details` |
 | `proof` | Review-site profiles *(optional)* | Public URLs for Google / Yelp / industry review profiles. | `instructions.md` §`proof` |
-| `header`, `hero`, `about-*`, `contact-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP and the Contact page's citation-block number. | `instructions.md` — "Phone numbers" |
+| `header`, `hero`, `about-*`, `contact-*`, `location-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP and the Contact page's citation-block number. | `instructions.md` — "Phone numbers" |
+| `location-area` | Embedded Google Map *(single-location view)* | Google Maps **embed URL** centered on **this location** with the service radius around it. Real `title` (e.g. "Map of [Business] [service] service area in [city]"), lazy-loaded. One per location page. | `instructions.md` §`location-area` |
+| `location-area` | Directions / GBP link | "Get Directions" URL to the service area, **or** a location-specific Google Business Profile URL if one exists. | `instructions.md` §`location-area` |
+| `location` (page) | **Focus-keyword competitive analysis** | The verified focus keyword for this page (a primary service + this location), chosen via the Local SEO Campaign Framework's competitive analysis. One per page; checked against Search Console for cannibalization. | `instructions.md` — "Location pages & local SEO" |
+| `location` (page) | **Structured data** | LocalBusiness (or subtype) + Service scoped to this city (`areaServed`, `geo`), BreadcrumbList (Home › Locations › [City]), and FAQPage for the L10 rows. | `instructions.md` — "Location pages & local SEO" |
 | `about-proof` | **Review-site profiles** | Public URL for each review site the business is on. Drives Row 1 (multi-site) or the single review block in Row 2 (single-site). | `instructions.md` §`about-proof` |
 | all pages | **CallRail swap script ID** | The per-project CallRail script snippet for the `<head>`. | `instructions.md` — "Site setup / `<head>`", "Phone numbers" |
 | `footer`, `contact-details` | **Real business phone number** | The genuine business line for the NAP citation block (footer) and the Contact page's citation elements, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — **excluded from CallRail DNI swapping** (citation consistency). | `instructions.md` §`footer`, §`contact-details` |
@@ -318,6 +341,25 @@ an accordion chevron, and a phone glyph.
 | `contact-cta` | **Social URLs** | Same active-platform list as the `footer` social URLs. |
 | Contact page | **Body word count** | Target ~300–500 words (contact pages are short), H2/H3 structure. The `(element: contact-form)` placeholder marks the C3 form. |
 
+### Location page content data — **See:** `instructions.md` "Location page" + "Location pages & local SEO"
+
+*One set per individual location page.*
+
+| Slug | Data | Notes |
+|---|---|---|
+| `location` (page) | **Focus keyword** | A primary service + this location (e.g. "water heater repair in Yorkville"), verified via the Local SEO Campaign Framework's competitive analysis. **One per page** — no two pages share a focus keyword (check Search Console). The page `<title>` and `<h1>` both match it. |
+| `location` (page) | **Location facts** | The city / town name (+ common variants), the neighborhoods & subdivisions served, bordering towns / town lines, notable landmarks, and any local triggers for the service (hard water, housing age, storm exposure, permit quirks). Drives L4, L5, L6, L10 and the ≥60%-unique-copy requirement. |
+| `location-leader` | **Leader — 3 lines** | H3 subline (≤10 words, names sub-area + city) · H1 = the focus keyword verbatim · a **written CTA sentence** (not the `(call: )` placeholder). |
+| `location-intro` | **Intro** | One sentence, **≤20 words**, must reference the location name. |
+| `location-description` | **Description** | **Two paragraphs, ~150 words** — how long you've served here, local job volume, where the crew is based, local codes/permits/HOA familiarity. |
+| `location-area` | **Area context** | Landmarks · town lines / bordering towns · neighborhoods & subdivisions · a drive-time / response line for this location · the nearby-city page links (anchor literal + destination, unique per page — add to the potential-links table). |
+| `location-services` | **Focus-keyword body** | ~800 words, H2/H3 (every heading carries the focus keyword or a variant), an inline CTA per paragraph, ~20 keyword + ~20 location mentions via variants, ≥60% unique vs. other location pages. |
+| `location-proof` | **Local proof** | A review from a customer in this city (name + neighborhood + rating), a completed local project (address area + one line), or a local stat ("N+ [service] jobs in [city] since 20XX"). |
+| `location-promo` | **Location-specific offer** | An offer **only valid for visitors in this location** — headline naming the city + the offer, eligibility line, CTA, fine print (expiry, limits). Omit the band if there's no per-location offer. |
+| `location-faq` | **FAQ Q&As** | 5–6 questions in the visitor's voice, each carrying the focus keyword and/or location; plain specific answers. On-page only — **no separate FAQ page.** Emitted as FAQPage structured data. |
+| `location-cta` | **Restated closing headline** | Carries the focus keyword + location; reuses the Home primary CTA string. |
+| `location` (page) | **Body word count** | ~800 words in `location-services` (per `skill-site-content-locations` individual-page target); plus the ~150-word description and the FAQ. |
+
 ---
 
 ## 8. Quick coverage checklist
@@ -363,3 +405,16 @@ an accordion chevron, and a phone glyph.
 - [ ] Reputation showcase: "featured in" logos (omit if none) + "trusted by / accreditation" logos, grayscale, named + alt-texted
 - [ ] Closing CTA headline + social URLs (same set as footer)
 - [ ] Body copy ~300–500 words, H2/H3
+
+**Location page** *(one per individual service area — not the hub)*
+
+- [ ] Focus keyword chosen from competitive analysis; one per page; title + H1 both match it; checked vs. Search Console
+- [ ] Leader (subline · H1 = focus kw · **written CTA line**) + Intro (≤20 words, names the location)
+- [ ] Description (2 paragraphs, ~150 words) + area context (landmarks · town lines · neighborhoods · drive-time)
+- [ ] Nearby-city page links (unique anchors, added to potential-links table)
+- [ ] Focus-keyword body ~800 words · every H2–H6 carries the keyword or a variant · inline CTA per paragraph · ~20+20 density via variants · ≥60% unique
+- [ ] Location-specific offer (valid only for this location) — or band dropped
+- [ ] 2–3 **unique/owned** images or videos matched to the location, named + alt-texted with the location
+- [ ] On-page FAQ 5–6 Q&As (focus kw + location in questions) — **no separate FAQ page** — with FAQPage schema
+- [ ] Single-location Google Map embed URL + directions/GBP link
+- [ ] LocalBusiness + Service + BreadcrumbList structured data scoped to this city

@@ -79,6 +79,31 @@ part of this document, after the About sections.
 | C6 | `contact-cta` | Closing CTA + Social |
 | C7 | `contact-footer` | Footer (reuses `footer`) |
 
+### Location page slugs
+
+The Location page is a **single individual service-area page** (e.g.
+`/locations/[city-slug]`) — **not the locations hub**. It is a **conversion landing page**
+optimized around **one focus keyword** (a primary service + this location). It follows the
+individual-location contract in `skill-site-content-locations` and the **Local SEO
+Campaign Framework** (see the cross-cutting section "Location pages & local SEO" below).
+Its slugs are prefixed `location-` (singular). Full detail is in the **Location page**
+part of this document.
+
+| Tag | Slug | Section |
+|---|---|---|
+| L1 | `location-header` | Header / Nav (reuses `header`) |
+| L2 | `location-leader` | Leader |
+| L3 | `location-intro` | Intro (one line) |
+| L4 | `location-description` | Description (2 paragraphs) |
+| L5 | `location-area` | Area Context + Map |
+| L6 | `location-services` | [Focus Service] in [Location] |
+| L7 | `location-proof` | Why [Location] Chooses Us |
+| L8 | `location-promo` | Local Promotion |
+| L9 | `location-gallery` | Local Work / Gallery |
+| L10 | `location-faq` | Location FAQ |
+| L11 | `location-cta` | Final CTA |
+| L12 | `location-footer` | Footer (reuses `footer`) |
+
 ## Governing principles (apply to every section)
 
 - **Client-centric, always.** Every section is about the visitor's story, desire,
@@ -290,6 +315,56 @@ logos, icons exported as files, hero video, PDFs). Local-SEO best practice.
 instead: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `icon-192.png`,
 `icon-512.png` (the names the `<head>` links and manifest expect — don't rename them).
 No `alt` (they're referenced by `<link>`, not `<img>`).
+
+## Location pages & local SEO
+
+Applies to every **individual location page** (`/locations/[city-slug]` — one page per
+service area, **not** the locations hub). These pages are the local-SEO workhorses; the
+rules below come from the **Local SEO Campaign Framework** and are non-negotiable for this
+page type. The per-section instructions in the **Location page** part of this document
+tell you *where* each of these lands.
+
+1. **Genuinely useful, link-worthy content.** Each location page must keep visitors
+   engaged with relevant, specific, locally-accurate content — good enough that other
+   pages (other city pages in the MSA, service pages, blog posts) will *want* to link to
+   it internally. Boilerplate with the city name swapped in fails this.
+2. **Focus keyword = a primary service + this location**, chosen from the **competitive
+   analysis** in the Local SEO Campaign Framework (verify it against real ranking
+   results — don't guess). One focus keyword per page.
+3. **Optimize around that focus keyword. Treat the page as a conversion landing page.**
+   - **~80% of the body copy is about the focus keyword** (the primary service), framed
+     for this location.
+   - **Page `<title>` and `<h1>` should both match the focus keyword** (domain match is a
+     bonus but not required; title + H1 matching is the floor).
+   - **A location-specific promotion** — an offer that is *only valid for visitors in
+     this location* — belongs on the page (section `location-promo`, or folded into
+     `location-services`).
+4. **Keyword & location density.** Aim for roughly **20 focus-keyword mentions and 20
+   location mentions** across the page (check with a keyword-density tool). **Every
+   heading H1–H6 must contain the focus keyword or a natural variant.**
+5. **No keyword stuffing.** Hit the density through **variants** — synonyms, word-order
+   changes, natural phrasings ("water heater repair" / "fix your water heater" /
+   "hot-water heater service"; "Yorkville" / "in the Yorkville area" / "Yorkville, IL").
+   It must read naturally to a human first.
+6. **No duplicate content. ≥60% of the copy on each location page must be unique** vs.
+   every other location page. The layout / section structure may repeat; the words may
+   not. The local specifics (landmarks, neighborhoods, codes, local triggers, local
+   proof) are what make each page unique.
+7. **No duplicate focus keywords. Max one focus keyword targeted per page** — never point
+   two pages at the same term (check Google Search Console for cannibalization).
+8. **2–3 images or videos per page, unique or purchased** — never stock lifted from
+   elsewhere or a competitor. Match the media to the location where applicable. This
+   optimizes the page for Google Images (images surface in search with a clickable link
+   back to the site). Naming + alt text per "Media naming & SEO" above, with the location
+   in the description where it genuinely applies.
+9. **An on-page FAQ on every location page. Do not create a separate FAQ page.** 5–6
+   Q&As in the visitor's voice, questions carrying the focus keyword and/or location,
+   emitted with FAQPage structured data.
+
+**Structured data for location pages:** emit **LocalBusiness** (or the relevant
+`LocalBusiness` subtype) and **Service** structured data scoped to this city
+(`areaServed`, `geo`), **BreadcrumbList** (Home › Locations › [City]), and **FAQPage** for
+the L10 rows. This is a strong local-pack signal and cheap to add at build time.
 
 ---
 
@@ -1184,3 +1259,207 @@ small so the page stays short.
 
 Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar. The
 footer's "Contact" menu link shows its active state.
+
+---
+---
+
+# Location page
+
+A **single individual service-area page** (`/locations/[city-slug]`) — **not the locations
+hub**. Its job is to **rank for one focus keyword** (a primary service + this location) and
+**convert** visitors from that area. It is a **conversion landing page**.
+
+**Framework:** the individual-location contract from `skill-site-content-locations` (its
+"Key Differences vs. Individual Location Pages" table) — **4 content passes**:
+
+- **Leader** — 3 lines, but line 3 is a **written CTA sentence** (the hub page uses the
+  `(call: )` CMS placeholder there; an individual page does not).
+- **Intro** — **≤20 words, one sentence, must reference the location name** (far shorter
+  than the hub page's ~150-word intro).
+- **Description** — **two paragraphs, ~150 words** (a pass individual pages have and the
+  hub page doesn't).
+- **Body** — **~800 words**, H2/H3, with **an inline CTA in every paragraph**
+  (`Promptlocationtext`).
+
+**All of "Location pages & local SEO" (above) applies** — focus keyword from competitive
+analysis, ~80% on the focus keyword, every heading carries it or a variant, ~20 + ~20
+keyword/location density via variants, no stuffing, ≥60% unique copy, one focus keyword
+per page, 2–3 unique images, an on-page FAQ, and the schema note.
+
+**Site-wide rules that apply here:** "Buttons & CTAs", "Phone numbers" (CallRail DNI on
+every phone link except the footer NAP), "Internal linking & anchor text" (the
+nearby-locations links use keyword anchor literals, unique per page, recorded in the
+potential-links table), "Media naming & SEO", "Site setup / `<head>`" (lazy-load the map,
+per-page title = the focus keyword).
+
+**CTA placement:** the Leader's written CTA + button, an inline CTA in every body
+paragraph (L6), the local-promotion band (L8), and the final CTA (L11). It's a landing
+page — the primary action is always in reach.
+
+---
+
+## L1. `location-header` — Header / Nav
+
+Identical component to Home `header` (§`header`). If the nav has a "Locations" /
+"Service Areas" item, it shows its active state.
+
+---
+
+## L2. `location-leader` — Leader
+
+**Beat:** the hook, keyword-anchored.
+**Layout:** full-bleed band, **left-aligned**, text-only (no hero image).
+
+**What to put here — three lines:**
+
+1. **H3 subline** — ≤10 words. Names the neighborhood / sub-area and the city
+   ("Serving [neighborhood] and nearby [city]").
+2. **H1 page heading = the focus keyword, verbatim** — `[primary service] in [location]`.
+   The single most important on-page signal; the page `<title>` should match it. ≤10
+   words, descriptive and simple. Render it large.
+3. **A written CTA sentence** — a real call-to-action line generated for this page (not
+   the `(call: )` placeholder). Pair it with the **primary CTA button**; inline
+   click-to-call beside the button only when the primary CTA isn't itself a call.
+
+---
+
+## L3. `location-intro` — Intro (one line)
+
+**Beat:** immediate orientation.
+**Layout:** contained-wide, one line.
+
+**What to put here:** a **single sentence, ≤20 words, that must reference the location
+name**. States what the business does in this specific place and sets up the description.
+One focus-keyword mention, one location mention.
+
+---
+
+## L4. `location-description` — Description
+
+**Beat:** establish that the business genuinely operates here.
+**Layout:** a narrow column (< 66ch). No headings inside it.
+
+**What to put here:** **exactly two paragraphs, ~150 words total.** How long you've served
+this location, roughly how many local jobs / clients, where the crew is based relative to
+it, familiarity with local codes / permits / HOAs. A focus-keyword variant in at least one
+paragraph; the location name in both. Leads into the area context.
+
+---
+
+## L5. `location-area` — Area Context + Map
+
+**Beat:** prove real local knowledge; make the page useful and link-worthy.
+**Layout:** two columns (stack on mobile) — an embedded map beside a detail column.
+
+**What to put here:**
+
+- **Embedded Google Map** showing **this location and the service radius around it**. Real
+  `title` ("Map of [Business] [service] service area in [city]"), lazy-loaded.
+- **H2** carrying the focus keyword or a variant.
+- **Local specificity — the heart of the page's uniqueness:** name real **landmarks**,
+  **town lines / bordering towns**, and **neighborhoods & subdivisions** served. This is
+  the content that makes the page genuinely useful (framework instruction 1) and gives it
+  ≥60% unique copy.
+- **Drive-time / response line** — a concrete "crews based ~[X] min from [landmark]" or
+  "same-day [service] across [city]" line (localized version of the Contact page's
+  response-time promise).
+- **Nearby-locations internal links** — a short "we also serve" row linking to **adjacent
+  city pages in the MSA**. Keyword-optimized anchor literals (`[primary service] in
+  [nearby city]`), **unique per page**; record not-yet-built pages in the
+  potential-internal-links table. Supports the framework's siloing and instruction 1.
+- **GBP / directions CTA** — "Get Directions" (or "View our [city] Google Business
+  Profile" if a location-specific GBP exists). Kind 2.
+
+---
+
+## L6. `location-services` — [Focus Service] in [Location]
+
+**Beat:** the reason the page exists — the focus-keyword deep dive.
+**Layout:** a readable column (~760px), H2/H3 structure.
+
+**What to put here — ~800 words, with the Local SEO Campaign Framework applied:**
+
+- **~80% of the copy is about the focus keyword** (the primary service), framed for this
+  location.
+- **Every heading H2–H6 contains the focus keyword or a natural variant.**
+- Work toward **~20 focus-keyword mentions and ~20 location mentions** across the whole
+  page, through **variants** — no stuffing, reads naturally.
+- **An inline CTA in every paragraph** — a link or a click-to-call woven into the prose
+  (not a button per paragraph).
+- **≥60% unique** vs. every other location page — lean on the L5 local details.
+- Cover: what the service involves here, common local triggers (hard water, older housing
+  stock, storm exposure, permit quirks), what to expect, pricing transparency, why local
+  matters.
+- The **location-specific promotion** may sit here or in its own band at L8.
+
+---
+
+## L7. `location-proof` — Why [Location] Chooses Us
+
+**Beat:** proof tied to *this* location.
+**Layout:** H2 + up to 3 cards (Home card treatment). Lighter than the Home `proof`
+section — a supporting beat.
+
+**What to put here:** proof specific to this city — a review from a local customer (name +
+neighborhood + 5-star graphic), a completed local project (address area + one line), or a
+local stat ("120+ [service] jobs in [city] since 20XX"). H2 carries a focus-keyword
+variant + the location. One optional inline link to the reviews page with a
+location-specific anchor.
+
+---
+
+## L8. `location-promo` — Local Promotion
+
+**Beat:** a location-gated offer — the landing-page conversion lever.
+**Layout:** a bordered band, contained width.
+
+**What to put here:** an offer **only valid for visitors in this location** (Local SEO
+Framework instruction 3.4). A short headline naming the city + the offer, an eligibility
+line ("[city] homeowners", "within our [city] service radius", "new customers only"), a
+primary CTA, and fine print (expiry, limits). If a project has no per-location offer, drop
+this band and fold the promo into L6.
+
+---
+
+## L9. `location-gallery` — Local Work / Gallery
+
+**Beat:** show real work here; feed Google Images.
+**Layout:** a 2–3-up media grid.
+
+**What to put here:** **2–3 images or videos, unique or purchased — never stock lifted
+from elsewhere** (framework instruction 8). Prefer real jobs / crew / recognizable local
+scenes in this location. Descriptive filename + real alt text including the location where
+it genuinely applies (per "Media naming & SEO") — this surfaces the page in Google Images
+with a link back. A short caption tying the shot to the neighborhood / job is a plus.
+
+---
+
+## L10. `location-faq` — Location FAQ
+
+**Beat:** answer local buying questions; add unique keyword-dense copy.
+**Layout:** 5–6 accordion rows, single column at all breakpoints. **On this page — do not
+create a separate FAQ page.**
+
+**What to put here:** 5–6 Q&As in the visitor's voice, each question carrying the **focus
+keyword and/or the location** naturally ("How much does [service] cost in [city]?", "Do
+you need a permit for [service] in [city]?", "How fast can you reach [neighborhood]?").
+Plain, specific answers. These count toward the page's keyword/location density and its
+unique-content share. **Emit FAQPage structured data** for the rows.
+
+---
+
+## L11. `location-cta` — Final CTA
+
+**Beat:** the last conversion shot.
+**Layout:** full-bleed band, centered — mirrors the Home `final-cta`, localized.
+
+**What to put here:** a restated headline carrying the **focus keyword + location**, one
+grey reassurance line, the **primary CTA button** (same wording as the Home hero's
+primary), and an inline click-to-call beside it only when the primary CTA isn't itself a
+call (same rule as HP14 / A11 / C6).
+
+---
+
+## L12. `location-footer` — Footer
+
+Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar.
