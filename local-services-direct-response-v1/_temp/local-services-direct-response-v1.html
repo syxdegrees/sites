@@ -725,6 +725,107 @@
   .project .desc > * + * { margin-top: 4px; }
   @media (max-width: 720px) { .projects { grid-template-columns: 1fr; } }
 
+  /* ==========================================================================
+     CONTACT PAGE — layout vocabulary
+     Short by design: Leader + snippet, a 2-col details/form band (details wider),
+     a service-area map, a reputation showcase, a compact closing CTA + social.
+     ========================================================================== */
+
+  /* C3 — details (left, wider) + form (right, narrower) */
+  .contact-band {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;   /* details ~60% / form ~40% */
+    gap: 44px;
+    align-items: start;
+    max-width: 1040px;
+  }
+  .contact-details > * + * { margin-top: 20px; }
+  .contact-form {
+    background: var(--fill-1);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px;
+  }
+  .contact-form > * + * { margin-top: 12px; }
+  .cf-field {
+    height: 34px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+  .cf-field--msg { height: 84px; }
+  .cf-label { height: 9px; width: 38%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; margin-bottom: 5px; }
+
+  /* citation block — name / address / phone, then marketing email, then hours */
+  .nap-block > * + * { margin-top: 7px; }
+  .nap-block .ln { height: 12px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+  .nap-block .ln.w70 { width: 70%; }
+  .nap-block .ln.w55 { width: 55%; }
+  .nap-block .ln.w45 { width: 45%; }
+  .nap-block .ln.w85 { width: 85%; }
+
+  /* what-happens-next micro-list — one short row, 3 tiny steps */
+  .next-steps {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .next-step { display: flex; align-items: center; gap: 8px; }
+  .next-step .n {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    font-family: var(--mono); font-size: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex: 0 0 auto;
+  }
+  .next-step .t { height: 10px; width: 90px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+
+  /* response-time promise — a single reassurance line, quietly emphasized */
+  .promise-line {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    border: 1px dashed var(--line-strong);
+    border-radius: 2px;
+  }
+  .promise-line .ico { width: 16px; height: 16px; background: var(--fill-3); border: 1px solid var(--line); border-radius: 3px; flex: 0 0 auto; }
+  .promise-line .ln { height: 11px; width: 78%; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+
+  /* GBP button sits directly under the citation block */
+  .gbp-row { margin-top: 12px; }
+
+  /* C4 — service-area map (full width, taller than the footer mini-map) */
+  .area-map {
+    background: var(--fill-2);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    min-height: 240px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--line-strong);
+    font-family: var(--mono); font-size: 12px;
+  }
+  .area-map::after { content: "\25a8 embedded Google Map \2014 service-area view"; }
+
+  /* C5 — reputation showcase: two labeled logo walls */
+  .rep-showcase > * + * { margin-top: 22px; }
+  .rep-group__lbl { height: 10px; width: 160px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; margin: 0 auto 12px; }
+  .rep-logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+  .rep-logos .logo { height: 38px; background: var(--fill-2); border: 1px solid var(--line); border-radius: 2px; }
+  @media (max-width: 820px) { .rep-logos { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .rep-logos { grid-template-columns: repeat(2, 1fr); } }
+
+  /* C6 — social row inside the closing CTA */
+  .social-row { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+  .social-row i { width: 24px; height: 24px; background: var(--fill-3); border: 1px solid var(--line); border-radius: 50%; }
+
+  @media (max-width: 760px) {
+    .contact-band { grid-template-columns: 1fr; gap: 24px; }
+  }
+
   /* potential-internal-links table */
   .links-table {
     width: 100%;
@@ -755,9 +856,9 @@
   <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL ONLY</p>
   <h1 class="doc__h1">local-services-direct-response-v1</h1>
   <p class="doc__meta">
-    This file contains <strong>two page types</strong>: <strong>Home</strong> (below) and <strong>About</strong> (scroll down past the double-rule divider).<br>
+    This file contains <strong>three page types</strong>: <strong>Home</strong> (below), <strong>About</strong> (past the first double-rule divider), and <strong>Contact</strong> (past the second).<br>
     <br>
-    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About sections are tagged <strong>A1–A12</strong>)<br>
+    <strong>Home</strong> &nbsp;·&nbsp; Role: <strong>Control</strong> (baseline for measurement) &nbsp;·&nbsp; Sections: <strong>15</strong> (tagged <strong>HP1–HP15</strong>; About sections are tagged <strong>A1–A12</strong>; Contact sections are tagged <strong>C1–C7</strong>)<br>
     Model: <strong>Direct-response landing-page hero</strong> + <strong>Hero's Journey</strong> arc, aligned to the <strong>Content Sequencing</strong> copy framework (intro connection → problem → opportunity → cost of DIY → proof → ease → speed → futurecast → credentials)<br>
     Contains layout &amp; composition only. No content intent, no copy, no colors, no type. Brand style guide + sitemap + content brief are supplied per project at build time.
   </p>
@@ -774,7 +875,8 @@
     <code>instructions.md</code> — what to put in each slot and how to write / choose it (per section slug).<br>
     <code>asset-list.md</code> — the required-inputs checklist: fonts, colors, logos, images (with dimensions), icons, embeds, content data.<br>
     Home (tags <code>HP1–HP15</code>) slugs: <code>header · hero · promise · problem · cost-of-diy · guide · plan · transformation · proof · speed-to-results · offer · faq · features · final-cta · footer</code><br>
-    About (tags <code>A1–A12</code>) slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code>
+    About (tags <code>A1–A12</code>) slugs: <code>about-header · about-leader · about-promise · about-origin · about-why-this-work · about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us · about-cta · about-footer</code><br>
+    Contact (tags <code>C1–C7</code>) slugs: <code>contact-header · contact-leader · contact-details · contact-map · contact-reputation · contact-cta · contact-footer</code>
   </div>
 
   <!-- ============================================================= HP1. HEADER / NAV -->
@@ -2146,6 +2248,289 @@
       <p class="notes__h">Notes — About Footer</p>
       <div class="note"><span class="mk">A12</span><p class="note__body"><b>Footer</b><span>
         Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "About" menu link shows its active state.
+      </span></p></div>
+    </div>
+  </div>
+
+
+  <!-- ################################################################################
+       CONTACT PAGE
+       ################################################################################ -->
+
+  <div class="page-break">
+    <p class="doc__title">WIREFRAME LIBRARY — STRUCTURAL + CONTENT-INTENT</p>
+    <h1 class="doc__h1">local-services-direct-response-v1 &nbsp;/&nbsp; Contact</h1>
+    <p class="doc__meta">
+      Page type: <strong>Contact</strong> &nbsp;·&nbsp; Role: part of the <strong>Control</strong> template<br>
+      Model: <strong>Short conversion page</strong> — a warm, low-friction way to reach the business that still sells. Built on the Leader / snippet / body spine from <code>skill-site-content-contact</code> (contact pages are deliberately short — ~300–500 words of body copy).<br>
+      Primary purpose: <strong>make it effortless to get in touch</strong> (call, or a lean form), set expectations for what happens next and how fast, and carry just enough proof (a reputation showcase) to close the visit.<br>
+      Sections: <strong>7</strong> &nbsp;·&nbsp; Keep it relatively short — no long-form storytelling here.<br>
+      <strong>Design direction:</strong> Leader is text-only and fast. The core is a two-column band with <strong>contact details on the left (wider, ~60%)</strong> and a <strong>lean form on the right (~40%)</strong> — the reassurance content (what-happens-next, response-time promise) gets the room, the form stays compact. Everything else is one screen each: a service-area map, a logo-based reputation showcase, a compact closing CTA with social links.<br>
+      Notes carry <strong>content intent</strong> as well as structure. Colors, type, and final copy still come from the brand style guide + content brief.
+    </p>
+
+    <div class="legend">
+      <b>Contact-page conventions</b><br>
+      <span class="inline-call">inline call</span> = a click-to-call phone link (CallRail DNI — see <code>instructions.md</code> "Phone numbers"). The Leader's line-3 <code>(call: )</code> placeholder from <code>skill-site-content-contact</code> renders as one of these.<br>
+      <span class="anchor-lit">anchor text literal</span> = the exact, keyword-optimized words a body link should use.<br>
+      <b>NAP exception:</b> the phone number shown with the citation block (name / address / phone) is the <strong>real business line</strong>, <code>tel:</code>-enabled but <strong>excluded from CallRail DNI</strong> — it must match the Google Business Profile character-for-character (citation consistency). Every <em>other</em> phone link on the page uses the tracking number.<br>
+      No link stuffing — each internal link on this page is unique and not reused from the Home or About pages.
+    </p>
+
+    <div class="legend">
+      <b>Section slugs (Contact)</b><br>
+      <code>contact-header · contact-leader · contact-details · contact-map · contact-reputation · contact-cta · contact-footer</code>
+    </div>
+  </div>
+
+  <!-- ============================================================= C1. HEADER / NAV -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C1 · Header / Nav</span>
+      <div class="band" style="padding-top:26px;">
+        <span class="mk mk--abs">C1</span>
+        <div class="navbar">
+          <div class="ph dot dot--sq" style="width:120px;height:28px;border-radius:2px;"></div>
+          <div class="navlinks">
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+            <span class="ph ph--text"></span><span class="ph ph--text"></span>
+          </div>
+          <div class="row-inline">
+            <span class="ph ph--text" style="width:90px;"></span>
+            <span class="btn btn--primary">CTA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Contact Header / Nav</p>
+      <div class="note"><span class="mk">C1</span><p class="note__body"><b>Header / Nav</b><span>
+        Identical component to the Home <code>header</code> — same logo, nav (≤7), persistent primary CTA, optional click-to-call. Sticky, condenses on scroll. The "Contact" nav item shows its active state. See <code>instructions.md</code> §<code>header</code>.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C2. LEADER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C2 · Leader</span>
+      <div class="band band--full" style="padding-top:44px;padding-bottom:44px;">
+        <span class="mk mk--abs">C2</span>
+        <div class="disp">
+          <div class="lbl">line 1 — H3 subline, small, ≤10 words (e.g. "We proudly serve [city] and nearby")</div>
+          <div class="ph ph--text" style="width:32%;"></div>
+          <div style="height:8px;"></div>
+          <div class="lbl">line 2 — H1 page heading, LARGE, descriptive + simple, ≤10 words (e.g. "Contact [Business]")</div>
+          <div class="disp__h" style="width:56%;"></div>
+          <div style="height:16px;"></div>
+          <div class="lbl">line 3 — (call:) placeholder → renders as a click-to-call using the TRACKING number</div>
+          <div class="row-inline">
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+          <div style="height:16px;"></div>
+          <div class="lbl">contact snippet — one punchy line, &lt; 200 characters, "get in touch" energy</div>
+          <div class="ph ph--text" style="width:70%;"></div>
+          <div class="ph ph--text" style="width:44%;margin-top:6px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Contact Leader</p>
+      <div class="note"><span class="mk">C2</span><p class="note__body"><b>Leader — the hook</b><span>
+        Full-bleed band, <b>left-aligned</b>, text-only and fast (no hero image). The Leader from <code>skill-site-content-contact</code>: <b>exactly three lines</b> — (1) H3 subline naming who/where this is for, ≤10 words; (2) H1 page heading, descriptive and simple, ≤10 words, keyword-bearing; (3) the <code>(call: )</code> placeholder, which renders as a <b>click-to-call link on the tracking number</b> (CallRail DNI).<br>
+        Directly beneath, the <b>contact snippet</b>: one short, punchy line <b>under 200 characters</b> encouraging the visitor to get in touch. Warm, plain language.<br>
+        No CTA button here — the call link + the form below carry the action.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C3. CONTACT DETAILS + FORM -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C3 · Contact Details + Form</span>
+      <div class="band" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">C3</span>
+        <div class="contact-band">
+
+          <!-- LEFT (wider): citation + email + hours + GBP button + next steps + promise -->
+          <div class="contact-details">
+            <div class="lbl">citation elements — Name · Address · Phone (real business line, matches GBP)</div>
+            <div class="nap-block">
+              <div class="ln w55"></div>            <!-- business name -->
+              <div class="ln w85"></div>            <!-- street address -->
+              <div class="ln w70"></div>            <!-- city, state, zip -->
+              <div class="ln w45"></div>            <!-- phone (tel: enabled, NOT DNI-swapped) -->
+            </div>
+
+            <div>
+              <div class="lbl">marketing email — grouped with the citation elements</div>
+              <div class="nap-block"><div class="ln w70"></div></div>
+            </div>
+
+            <div>
+              <div class="lbl">hours of operation</div>
+              <div class="nap-block">
+                <div class="ln w70"></div>
+                <div class="ln w55"></div>
+                <div class="ln w45"></div>
+              </div>
+            </div>
+
+            <div class="gbp-row">
+              <div class="lbl">Google Business Profile button — placed directly under the citation elements</div>
+              <span class="btn btn--secondary btn--sm">Visit Our Google Business Profile</span>
+            </div>
+
+            <div>
+              <div class="lbl">what happens next — one short row, 3 tiny steps</div>
+              <div class="next-steps">
+                <div class="next-step"><span class="n">1</span><span class="t"></span></div>
+                <div class="next-step"><span class="n">2</span><span class="t"></span></div>
+                <div class="next-step"><span class="n">3</span><span class="t"></span></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="lbl">response-time promise — "we reply within [X] hours during business hours"</div>
+              <div class="promise-line"><span class="ico"></span><span class="ln"></span></div>
+            </div>
+          </div>
+
+          <!-- RIGHT (narrower): lean contact form -->
+          <div class="contact-form">
+            <div class="lbl">contact form — lean: Name · Phone · Email · Message</div>
+            <div><div class="cf-label"></div><div class="cf-field"></div></div>
+            <div><div class="cf-label"></div><div class="cf-field"></div></div>
+            <div><div class="cf-label"></div><div class="cf-field"></div></div>
+            <div><div class="cf-label"></div><div class="cf-field cf-field--msg"></div></div>
+            <span class="btn btn--primary" style="width:100%;">Send My Request</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Contact Details + Form</p>
+      <div class="note"><span class="mk">C3</span><p class="note__body"><b>Two-column band — details left (wider), form right</b><span>
+        Contained (~1040px). <b>Left column ~60%, right column ~40%</b>; stacks to one column on mobile with the <b>details first, then the form</b>.<br>
+        <b>Left — contact details, in this order:</b><br>
+        1. <b>Citation elements</b> — business Name, Address (incl. suite), City/State/ZIP, and <b>Phone</b>. The phone is the <b>real business line</b> — <code>tel:</code>-enabled, and it must match the Google Business Profile <b>character-for-character</b>. <b>Do not apply CallRail DNI</b> to this number (local-SEO citation consistency).<br>
+        2. <b>Marketing email</b> — the public contact address, <b>grouped with the citation elements</b> (mailto: link).<br>
+        3. <b>Hours of operation</b> — per-day, in a consistent format.<br>
+        4. <b>"Visit Our Google Business Profile" button</b> — <b>placed directly under the citation elements</b>, small / secondary style, exact button text, links to the public GBP URL (Kind 2, opens new tab).<br>
+        5. <b>What happens next</b> — a single short row of <b>3 tiny numbered steps</b> (e.g. "We call you back → we scope the job → you get a written quote"). Sets expectations, removes friction; not a full section.<br>
+        6. <b>Response-time promise</b> — one quietly-emphasized line: "We reply to every message within [X] hours during business hours." From <code>skill-site-content-contact</code> — reduces form abandonment.<br>
+        <b>Right — the contact form:</b> lean, <b>4 fields</b> — Name, Phone, Email, Message — plus the submit button. Submit uses an <b>action label</b> ("Send My Request" / "Get My Callback"), never "Submit". Follow "Buttons &amp; CTAs". On success, show an inline confirmation that repeats the response-time promise. The <code>skill-site-content-contact</code> body's <code>(element: contact-form)</code> placeholder resolves to this form.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C4. SERVICE-AREA MAP -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C4 · Service-Area Map</span>
+      <div class="band" style="padding-top:34px;padding-bottom:34px;">
+        <span class="mk mk--abs">C4</span>
+        <div class="contained--wide">
+          <div class="lbl">embedded Google Map — framed on the SERVICE AREA, not just the office pin</div>
+          <div class="area-map"></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Service-Area Map</p>
+      <div class="note"><span class="mk">C4</span><p class="note__body"><b>Embedded Google Map — service-area view</b><span>
+        Full-bleed within the content width. A live embedded Google Map, <b>zoomed and centered to show the service area</b> (the towns / radius the business covers) rather than a tight pin on the office — this doubles as a "yes, we cover you" signal. If the business has a storefront customers visit, drop a marker on it as well.<br>
+        Lazy-load the iframe (it's below the fold). Give the <code>iframe</code> a real <code>title</code> ("Map of [Business] service area around [city]"). Map embed URL / place ID is a required input — see <code>asset-list.md</code> §6.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C5. REPUTATION SHOWCASE -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C5 · Reputation Showcase</span>
+      <div class="band band--full" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">C5</span>
+        <div class="contained--wide rep-showcase" style="text-align:center;">
+          <div class="lbl" style="text-align:center;">reputation showcase — logos wherever possible</div>
+
+          <div>
+            <div class="rep-group__lbl"></div>   <!-- "As featured in" -->
+            <div class="rep-logos">
+              <div class="logo"></div><div class="logo"></div><div class="logo"></div>
+              <div class="logo"></div><div class="logo"></div><div class="logo"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="rep-group__lbl"></div>   <!-- "Trusted by" / accreditations -->
+            <div class="rep-logos">
+              <div class="logo"></div><div class="logo"></div><div class="logo"></div>
+              <div class="logo"></div><div class="logo"></div><div class="logo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Reputation Showcase</p>
+      <div class="note"><span class="mk">C5</span><p class="note__body"><b>Reputation showcase — "featured in" / "trusted by"</b><span>
+        Centered. <b>Two labeled logo rows</b>, logos wherever possible:<br>
+        <b>Row 1 — "As featured in" / "As seen in":</b> publications, directories, or industry outlets that have genuinely covered the business. Mono / grayscale for consistency. <b>Omit the row entirely if there are none</b> — never fabricate.<br>
+        <b>Row 2 — "Trusted by" / accreditations:</b> recognizable clients / partners, or accreditation &amp; association marks (licensing body, BBB, manufacturer certifications, trade associations). Same grayscale treatment.<br>
+        Where a relationship has no usable logo, fall back to a plain text list — but logos are the goal. This is the page's only proof block (kept lean on purpose); the full testimonial cluster and case study live on the Home page (HP9) and the About page (A9). Each logo: descriptive filename + real alt text (the org's name) per "Media naming &amp; SEO".
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C6. CLOSING CTA + SOCIAL -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C6 · Closing CTA + Social</span>
+      <div class="band" style="padding-top:40px;padding-bottom:40px;">
+        <span class="mk mk--abs">C6</span>
+        <div class="contained stack" style="text-align:center;">
+          <div class="lbl" style="text-align:center;">restated headline — compact, specific ("Prefer to talk it through? Call us.")</div>
+          <div class="ph ph--head" style="width:52%;height:30px;margin:0 auto;"></div>
+          <div class="lbl" style="text-align:center;">one grey reassurance line</div>
+          <div class="ph ph--text" style="width:40%;margin:0 auto;"></div>
+          <div style="height:14px;"></div>
+          <div class="row-inline" style="justify-content:center;">
+            <span class="btn btn--primary">Primary CTA</span>
+            <span class="inline-call">Call or Text (555) 555-5555</span>
+          </div>
+          <div class="lbl" style="text-align:center;">(inline click-to-call beside the button ONLY when the primary CTA is not itself a call — same rule as the Home final-cta / About A11)</div>
+          <div class="lbl" style="text-align:center;">social media links — only platforms the business actively maintains</div>
+          <div class="social-row"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Closing CTA + Social</p>
+      <div class="note"><span class="mk">C6</span><p class="note__body"><b>Compact closing CTA + social links</b><span>
+        Contained, <b>centered</b>. A short version of the Home page's <code>final-cta</code> — kept small so the page stays short.<br>
+        <b>Slots:</b> a compact restated headline (an alternative path — e.g. "Prefer to talk it through?") · one grey reassurance line · <b>primary CTA button</b> (same wording as the Home hero's primary) · an <b>inline click-to-call beside the button — only when the primary CTA is not itself a call</b> (same rule as A11 / Home <code>final-cta</code>).<br>
+        <b>Social media links</b> beneath: a small row of icons, <b>only the platforms the business actively maintains</b>. These are the same profiles listed in the footer; the count drives the icon set in <code>asset-list.md</code> §5.
+      </span></p></div>
+    </div>
+  </div>
+
+  <!-- ============================================================= C7. FOOTER -->
+  <div class="row">
+    <div class="wire">
+      <span class="wire__tag">C7 · Footer</span>
+      <div class="band" style="background:var(--fill-1);">
+        <span class="mk mk--abs">C7</span>
+        <div class="contained--wide" style="text-align:center;color:var(--line-strong);font-family:var(--mono);font-size:12px;padding:24px;">
+          same Footer component as the Home page (HP15) &mdash; identity + NAP citation, two menus, map + hours + GBP button, bottom bar
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <p class="notes__h">Notes — Contact Footer</p>
+      <div class="note"><span class="mk">C7</span><p class="note__body"><b>Footer</b><span>
+        Identical component to the Home <code>footer</code> (HP15). Same 4-column body + bottom bar. See <code>instructions.md</code> §<code>footer</code>. The footer's "Contact" menu link shows its active state.
       </span></p></div>
     </div>
   </div>

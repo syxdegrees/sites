@@ -61,6 +61,24 @@ sections.
 | A11 | `about-cta` | Ready to Get Started? |
 | A12 | `about-footer` | Footer (reuses `footer`) |
 
+### Contact page slugs
+
+The Contact page is a **short conversion page** — a warm, low-friction way to reach the
+business that still sells. It is built on the Leader / snippet / body spine from the
+`skill-site-content-contact` skill (contact pages are deliberately short — ~300–500 words
+of body copy). Its slugs are prefixed `contact-`. Full detail is in the **Contact page**
+part of this document, after the About sections.
+
+| Tag | Slug | Section |
+|---|---|---|
+| C1 | `contact-header` | Header / Nav (reuses `header`) |
+| C2 | `contact-leader` | Leader + contact snippet |
+| C3 | `contact-details` | Contact Details + Form |
+| C4 | `contact-map` | Service-Area Map |
+| C5 | `contact-reputation` | Reputation Showcase |
+| C6 | `contact-cta` | Closing CTA + Social |
+| C7 | `contact-footer` | Footer (reuses `footer`) |
+
 ## Governing principles (apply to every section)
 
 - **Client-centric, always.** Every section is about the visitor's story, desire,
@@ -981,3 +999,188 @@ consultation, we're here…").
 
 Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar. The
 footer's "About" menu link shows its active state.
+
+---
+---
+
+# Contact page
+
+A **short conversion page.** Its whole job is to *make it effortless to get in touch*
+(call, or a lean form), *set expectations* for what happens next and how fast, and carry
+*just enough proof* — a reputation showcase — to close the visit. It still sells, but it
+does not tell the brand story: keep it relatively short.
+
+**Framework:** the Leader / snippet / body spine from `skill-site-content-contact` (Rank
+Expand Academy):
+
+- **Leader** — exactly three lines: an H3 subline (≤10 words), an H1 page heading
+  (descriptive and simple, ≤10 words), and the `(call: )` placeholder. Writing is short
+  and simple.
+- **Contact snippet** — one short, punchy line **under 200 characters** encouraging
+  visitors to get in touch.
+- **Body** — warm, action-oriented copy that briefly explains *what happens when they get
+  in touch*, *sets a response-time expectation*, and *encourages a call or a form submit*.
+  No fluff. Contact-page bodies are short — **~300–500 words**, H2/H3 structure. The
+  skill's `(element: contact-form)` placeholder marks where the form renders (our C3).
+
+**Site-wide rules that apply here:** "Buttons & CTAs" (submit label is an action, never
+"Submit"; inline click-to-call uses the tracking number), "Phone numbers" (CallRail DNI on
+every phone link **except** the citation-block number), "Internal linking & anchor text"
+(keyword anchors, no stuffing, links unique to this page — don't reuse the Home/About
+anchors), "Site setup / `<head>`" (lazy-load the map iframe, give it a real `title`),
+"Media naming & SEO" (logo filenames + alt text in the reputation showcase).
+
+**CTA placement on this page:** the Leader's click-to-call, the form (the main ask), and
+one compact closing CTA at C6. That's enough for a short page — don't scatter more.
+
+**Design direction.** The Leader is text-only and fast. The core is a two-column band
+(C3): **contact details on the left, wider (~60%)**; the **lean form on the right (~40%)**.
+The reassurance content (what-happens-next, the response-time promise) gets the room; the
+form stays compact. Everything after C3 is one screen each. On mobile the C3 columns stack
+**details first, then the form**.
+
+---
+
+## C1. `contact-header` — Header / Nav
+
+Identical component to Home `header` (§`header`). Same logo, ≤7 nav links, persistent
+primary CTA, optional click-to-call. Sticky, condenses on scroll. The "Contact" nav item
+shows its active state.
+
+---
+
+## C2. `contact-leader` — Leader + contact snippet
+
+**Beat:** the hook — orient the visitor and give them an instant way to act.
+**Layout:** full-bleed band, **left-aligned**, text-only (no hero image).
+
+**What to put here:**
+
+1. **H3 subline** — ≤10 words. Who / where this is for or the reassurance. E.g. "We
+   proudly serve [city] and the surrounding area."
+2. **H1 page heading** — descriptive and simple, ≤10 words, keyword-bearing. E.g. "Contact
+   [Business]" or "Contact [Business] — [service] in [city]." Render it large.
+3. **The `(call: )` line** — renders as a **click-to-call link on the tracking number**
+   (CallRail DNI). Text combines a CTA verb + the number, e.g. "Call or Text Us at
+   (555) 555-5555" (Kind 1).
+4. **Contact snippet** directly beneath — **one line, under 200 characters**, "get in
+   touch" energy. Warm, plain language. Count the characters before finalizing. Model:
+   *"Ready to solve your [primary offering] needs? [Business] is one call away — let's get
+   started."*
+
+No CTA button in the Leader; the call link and the form carry the action.
+
+---
+
+## C3. `contact-details` — Contact Details + Form
+
+**Beat:** the ask, made easy and reassuring.
+**Layout:** contained (~1040px). **Two columns — details left (wider, ~60%), form right
+(~40%)**. Stacks to one column on mobile, **details first, then the form**.
+
+### Left column — contact details, in this order
+
+1. **Citation elements — Name, Address, Phone.** The exact business Name, full Address
+   (incl. suite), City/State/ZIP, and the **real business phone line**. The phone is
+   `tel:`-enabled and must match the Google Business Profile **character-for-character**.
+   **Do not apply CallRail DNI to this number** — citation consistency for local SEO. (The
+   NAP data is a shared input with the footer — see §`footer`.)
+2. **Marketing email** — the public contact address, **grouped with the citation
+   elements**, as a `mailto:` link. Use the real monitored inbox (e.g.
+   `hello@`, `contact@`), not a personal address.
+3. **Hours of operation** — per-day hours in a consistent, scannable format. Note any
+   "emergency / after-hours" availability if it applies.
+4. **"Visit Our Google Business Profile" button** — **placed directly under the citation
+   elements.** Exact button text: **"Visit Our Google Business Profile."** Small /
+   secondary style (it's a trust link, not the primary action). Links to the public GBP
+   URL; opens in a new tab (Kind 2).
+5. **What happens next** — a single short row of **3 tiny numbered steps** describing the
+   path from "sent" to "sorted." E.g. *1. We call you back within [X] hours → 2. We learn
+   what you need and scope it → 3. You get a clear written quote.* Keep each step to a few
+   words. Not a full section.
+6. **Response-time promise** — one quietly-emphasized line: **"We reply to every message
+   within [X] hours during business hours."** Use an honest figure. This is the single
+   biggest lever against form abandonment (straight from `skill-site-content-contact`).
+
+### Right column — the contact form
+
+- **Lean: four fields — Name, Phone, Email, Message — plus the submit button.** No
+  optional extras; a short page wants a short form.
+- Mark which fields are required (at minimum Name + one of Phone/Email). Label each field
+  clearly; don't rely on placeholder-only labels.
+- **Submit button uses an action label** — "Send My Request," "Get My Callback,"
+  "Send Message" — **never "Submit."** Follow "Buttons & CTAs." Full-width in the column.
+- **On success**, show an inline confirmation that **repeats the response-time promise**
+  ("Thanks — we've got it. Expect a reply within [X] hours.") rather than a bare "thank
+  you."
+- Wire an anti-spam measure (honeypot / token), a real server-side handler, and an email
+  notification to the marketing inbox. The `skill-site-content-contact` body's
+  `(element: contact-form)` placeholder resolves to this form.
+
+---
+
+## C4. `contact-map` — Service-Area Map
+
+**Beat:** "yes, we cover you" + "here's where we are."
+**Layout:** full-bleed within the content width, ~240px+ tall.
+
+**What to put here:**
+
+- **A live embedded Google Map**, zoomed and centered to **show the service area** — the
+  towns / radius the business covers — not a tight pin on the office. This doubles as a
+  coverage-confirmation signal.
+- If the business has a **storefront customers visit**, drop a marker on it as well.
+- **Lazy-load** the iframe (below the fold). Give it a real `title` — e.g. "Map of
+  [Business] service area around [city]." Map embed URL / place ID is a required input
+  (`asset-list.md` §6).
+
+---
+
+## C5. `contact-reputation` — Reputation Showcase
+
+**Beat:** proof, kept lean — the only proof block on the page.
+**Layout:** centered, full-bleed. **Two labeled logo rows.** Logos wherever possible.
+
+**What to put here:**
+
+- **Row 1 — "As featured in" / "As seen in":** publications, directories, or industry
+  outlets that have **genuinely** covered or listed the business. Mono / grayscale for
+  consistency. **Omit the row entirely if there are none — never fabricate.**
+- **Row 2 — "Trusted by" / accreditations:** recognizable clients or partners, **or**
+  accreditation & association marks — licensing body, BBB, manufacturer certifications,
+  trade-association memberships. Same grayscale treatment.
+- Where a relationship has **no usable logo**, fall back to a plain text list — but logos
+  are the goal.
+- This is deliberately the page's *only* proof block. The full testimonial cluster and the
+  case study stay on the Home page (`proof`) and the About page (`about-proof`); don't
+  duplicate them here.
+- Each logo: descriptive hyphenated filename + real alt text (the org's name) per "Media
+  naming & SEO."
+
+---
+
+## C6. `contact-cta` — Closing CTA + Social
+
+**Beat:** the low-pressure alternative path + where else to find the business.
+**Layout:** contained, **centered**. A short version of the Home page's `final-cta` — kept
+small so the page stays short.
+
+**What to put here:**
+
+- **A compact restated headline** offering an alternative to the form — e.g. "Prefer to
+  talk it through? Call us."
+- **One grey reassurance line** echoing the low-risk framing.
+- **Primary CTA button** — same wording as the Home hero's primary.
+- **Inline click-to-call beside the button** — include it **only when the primary CTA is
+  *not* itself a call** (same rule as the Home `final-cta` and About `about-cta`). Uses
+  the tracking number.
+- **Social media links** beneath — a small row of icons, **only the platforms the business
+  actively maintains.** These are the same profiles as the footer; the count drives the
+  icon set in `asset-list.md` §5.
+
+---
+
+## C7. `contact-footer` — Footer
+
+Identical component to Home `footer` (§`footer`). Same 4-column body + bottom bar. The
+footer's "Contact" menu link shows its active state.

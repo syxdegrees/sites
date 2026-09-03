@@ -22,6 +22,10 @@ About-page slugs (prefixed `about-`, wireframe tags `A1–A12`):
 about-who-we-serve · about-how-we-work · about-team · about-proof · about-why-choose-us ·
 about-cta · about-footer`.
 
+Contact-page slugs (prefixed `contact-`, wireframe tags `C1–C7`):
+`contact-header · contact-leader · contact-details · contact-map · contact-reputation ·
+contact-cta · contact-footer`.
+
 All dimensions are 1x for a **max content width of ~1200px**. Export at 2x for retina.
 
 ---
@@ -189,6 +193,16 @@ in §3. Additional About-page images:
 | `about-team` | Team / founder headshots | 2–6 | see §3 (800×800 source) | 1:1 | One per bio. Consistent framing/lighting/background across all. Also register each to the person's email as a Gravatar (§3). |
 | `about` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | About-page OG image — founder or team shot with the business name/logo overlaid. Referenced from `<head>` per-page OG tags. |
 
+### Contact page — **See:** `instructions.md` "Contact page"
+
+The Contact page has **no photographic assets** — it is logos + map + form. Its image needs:
+
+| Slug | Asset | Count | Size (1x) | AR | Depicts |
+|---|---|---|---|---|---|
+| `contact-reputation` | "Featured in / As seen in" logos | 0–8 | fits within 140×40 box | — | Publications / directories / outlets that have **genuinely** covered or listed the business. Mono / grayscale. **Omit the row if there are none.** |
+| `contact-reputation` | "Trusted by" / accreditation logos | 0–8 | fits within 140×40 box | — | Recognizable clients or partners, **or** accreditation / association marks (licensing body, BBB, manufacturer certifications, trade associations). Same grayscale treatment. Text fallback where no logo exists. |
+| `contact` (head) | Open Graph / social share image | 1 | 1200×630 | 1.91:1 | Contact-page OG image — storefront / team / map-style shot with the business name + phone overlaid. Referenced from `<head>` per-page OG tags. |
+
 ---
 
 ## 5. Icons
@@ -220,6 +234,9 @@ action.
 | `about-proof` | headline-stat marker *(optional)* | 0–1 | Optional icon beside the About page's result stat. |
 | `about-proof` | review-block stars | 5 (one filled-star glyph, repeated) | The star row inside each review block. Reuse the shared 5-star SVG. |
 | `about-*` inline calls | phone / message glyph | 1 shared asset | Small phone (or chat) glyph that may precede an inline click-to-call link in prose. |
+| `contact-details` | what-happens-next step markers | 3 (or numbers 1–2–3) | One per step in the micro-list — or just numerals. If icons: an inbound-call/callback glyph, a clipboard/scope glyph, a document/quote glyph. |
+| `contact-details` | response-time promise glyph | 1 | A clock / stopwatch (or checkmark) beside the "we reply within [X] hours" line. |
+| `contact-cta` | social platform icons | = number of active profiles | Same set as the `footer` social icons — reuse, don't redraw. |
 
 **Deliverable:** one icon set covering all groups above, **plus** a dedicated 5-star SVG,
 an accordion chevron, and a phone glyph.
@@ -232,11 +249,14 @@ an accordion chevron, and a phone glyph.
 |---|---|---|---|
 | `footer` | Embedded Google Map | Google Maps **embed URL / place ID** for the business location. | `instructions.md` §`footer` |
 | `footer` | Google Business Profile | Public **GBP URL** for the "Visit Our Google Business Profile" button (exact button text, small style, sits below office hours). | `instructions.md` §`footer` |
+| `contact-map` | Embedded Google Map *(service-area view)* | Google Maps **embed URL** framed / zoomed on the **service area** (towns / radius covered), not a tight office pin. Add the storefront marker too if customers visit. Lazy-loaded, real `title` attribute. | `instructions.md` §`contact-map` |
+| `contact-details` | Google Business Profile | Same public **GBP URL** as the footer — button text **"Visit Our Google Business Profile"**, placed directly under the citation elements, opens new tab. | `instructions.md` §`contact-details` |
+| `contact-details` | Contact form handler | Server-side form endpoint + destination (the marketing inbox), anti-spam token/honeypot, success-state copy. The `(element: contact-form)` placeholder from `skill-site-content-contact` resolves here. | `instructions.md` §`contact-details` |
 | `proof` | Review-site profiles *(optional)* | Public URLs for Google / Yelp / industry review profiles. | `instructions.md` §`proof` |
-| `header`, `hero`, `about-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP. | `instructions.md` — "Phone numbers" |
+| `header`, `hero`, `about-*`, `contact-*` | **Tracking / call-tracking numbers (CallRail DNI)** | CallRail account/company script ID + a default tracking number for the markup. CallRail swaps in a per-channel number at load. Applies to every on-page phone link **except** the footer NAP and the Contact page's citation-block number. | `instructions.md` — "Phone numbers" |
 | `about-proof` | **Review-site profiles** | Public URL for each review site the business is on. Drives Row 1 (multi-site) or the single review block in Row 2 (single-site). | `instructions.md` §`about-proof` |
 | all pages | **CallRail swap script ID** | The per-project CallRail script snippet for the `<head>`. | `instructions.md` — "Site setup / `<head>`", "Phone numbers" |
-| `footer` | **Real business phone number** | The genuine business line for the NAP citation block, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — **excluded from CallRail DNI swapping** (citation consistency). | `instructions.md` §`footer` |
+| `footer`, `contact-details` | **Real business phone number** | The genuine business line for the NAP citation block (footer) and the Contact page's citation elements, `tel:` / `sms:` enabled. Must match the Google Business Profile exactly — **excluded from CallRail DNI swapping** (citation consistency). | `instructions.md` §`footer`, §`contact-details` |
 
 ---
 
@@ -279,6 +299,25 @@ an accordion chevron, and a phone glyph.
 | About page | **Potential internal links list** | The anchor-text-literal / destination / status table (mirrors the table at the top of the About wireframe). Drives which pages to build next. |
 | About page | **Body word count** | Target 800–1,200 words across A3–A10, H2/H3 structure. |
 
+### Contact page content data — **See:** `instructions.md` "Contact page"
+
+| Slug | Data | Notes |
+|---|---|---|
+| `contact-leader` | **Leader — 3 lines** | H3 subline (≤10 words) · H1 page heading (≤10 words, keyword-bearing) · the `(call: )` placeholder (renders as a click-to-call on the tracking number). |
+| `contact-leader` | **Contact snippet** | One punchy line, **< 200 characters**, "get in touch" energy. Count before finalizing. |
+| `contact-details` | **Citation elements** | Business Name · full Address (incl. suite) · City/State/ZIP · **real phone line** — must match the Google Business Profile character-for-character; **not** DNI-swapped. (Shared with the `footer` NAP block.) |
+| `contact-details` | **Marketing email** | The public, monitored inbox address (`hello@`, `contact@`…), `mailto:` — grouped with the citation elements. |
+| `contact-details` | **Hours of operation** | Per-day hours, consistent format; note emergency / after-hours availability if any. |
+| `contact-details` | **What-happens-next steps** | 3 short steps from "sent" to "sorted" (e.g. callback within [X] → scope the job → written quote). A few words each. |
+| `contact-details` | **Response-time promise** | Honest "we reply within [X] hours during business hours" figure. Also used in the form's success message. |
+| `contact-details` | **Form fields + submit label** | Name · Phone · Email · Message, required-field rules, and the action-style submit label ("Send My Request" / "Get My Callback"), plus success-state copy. |
+| `contact-details` | **GBP URL** | Same public Google Business Profile URL as the footer — for the "Visit Our Google Business Profile" button under the citation elements. |
+| `contact-reputation` | **Reputation showcase entries** | "Featured in / as seen in" list (publications / directories that genuinely covered the business — omit if none) + "Trusted by / accreditations" list (clients, partners, licensing bodies, BBB, certifications). Logo where available, else plain text. |
+| `contact-map` | **Service-area map embed** | Google Maps embed URL framed on the service area (towns / radius), plus the storefront marker if customers visit. |
+| `contact-cta` | **Restated closing headline** | A short "prefer to talk it through?" alternative-path headline + one reassurance line. Reuses the Home primary CTA + secondary CTA strings. |
+| `contact-cta` | **Social URLs** | Same active-platform list as the `footer` social URLs. |
+| Contact page | **Body word count** | Target ~300–500 words (contact pages are short), H2/H3 structure. The `(element: contact-form)` placeholder marks the C3 form. |
+
 ---
 
 ## 8. Quick coverage checklist
@@ -312,3 +351,15 @@ an accordion chevron, and a phone glyph.
 - [ ] About: result stat(s) + per-site review data (rating/count/URL) + one testimonial + up to 3 projects (address + description + media) · differentiators + guarantee · closing headline
 - [ ] Potential-internal-links table filled in (drives which pages to build next)
 - [ ] Body copy 800–1,200 words, H2/H3, backstory woven not front-loaded
+
+**Contact page**
+
+- [ ] Leader (3 lines: subline · heading · `(call:)`) + contact snippet (< 200 chars, verified)
+- [ ] Citation elements (Name · Address · real Phone, matches GBP, not DNI-swapped) + marketing email + hours of operation
+- [ ] "Visit Our Google Business Profile" button URL (under the citation elements)
+- [ ] Contact form: Name · Phone · Email · Message, action-style submit label, success copy, server handler + anti-spam
+- [ ] What-happens-next 3 steps + response-time promise figure
+- [ ] Service-area Google Map embed URL (service-area view, not office pin)
+- [ ] Reputation showcase: "featured in" logos (omit if none) + "trusted by / accreditation" logos, grayscale, named + alt-texted
+- [ ] Closing CTA headline + social URLs (same set as footer)
+- [ ] Body copy ~300–500 words, H2/H3

@@ -103,28 +103,36 @@ maps the two together.
 Built as HTML (Figma blocked by the free-plan seat — see below), in
 `sites/local-services-direct-response-v1/`:
 
-- `_temp/local-services-direct-response-v1.html` — the wireframe. Two page types in one
-  scrollable file: **Home** (15 sections, tags `HP1–HP15`, structural only) and **About**
-  (12 sections, tags `A1–A12`, structural + content-intent). Section slugs (`header …
-  footer`, `about-header … about-footer`) are unchanged — the `HP`/`A` tags are display
-  labels only. The About page's layout was set with the `frontend-design` skill then
-  reconciled with the Home page: type carries most sections (a large headline stating the
-  argument + short grey support copy), boxes used sparingly, and where a beat also exists
-  on the Home page (A7 values, A9 proof) it **reuses the Home card treatment** so the two
-  pages flow together. The A4 milestone timeline is the one structural device, used only
-  where the business has real dated milestones. Wireframe-left / numbered-notes-right.
+- `_temp/local-services-direct-response-v1.html` — the wireframe. Three page types in one
+  scrollable file: **Home** (15 sections, tags `HP1–HP15`, structural only), **About**
+  (12 sections, tags `A1–A12`, structural + content-intent), and **Contact** (7 sections,
+  tags `C1–C7`, structural + content-intent). Section slugs (`header … footer`,
+  `about-header … about-footer`, `contact-header … contact-footer`) are unchanged — the
+  `HP`/`A`/`C` tags are display labels only. The About page's layout was set with the
+  `frontend-design` skill then reconciled with the Home page: type carries most sections (a
+  large headline stating the argument + short grey support copy), boxes used sparingly, and
+  where a beat also exists on the Home page (A7 values, A9 proof) it **reuses the Home card
+  treatment** so the two pages flow together. The A4 milestone timeline is the one
+  structural device, used only where the business has real dated milestones. The Contact
+  page is a **short conversion page** built on the `skill-site-content-contact` Leader /
+  snippet / body spine: a text-only Leader, then a two-column band with contact details on
+  the left (wider, ~60%) and a lean 4-field form on the right (~40%), then a service-area
+  map, a logo-based reputation showcase, and a compact closing CTA with social links. It
+  stays deliberately short. Wireframe-left / numbered-notes-right throughout.
 - `instructions.md` — per-section content instructions: what goes in each slot and how to
   write/choose it. Home = Hero's Journey framing supplemented from the "perfect homepage"
   Notion transcript. About = modified sales page for the brand, Hero's-Journey/StoryBrand
-  arc with the Leader/Intro/Body spine from `skill-site-content-about`. Also carries
-  site-wide subsections: Buttons & CTAs, Phone numbers (CallRail DNI), Site setup /
-  `<head>`, Media naming & SEO, Internal linking & anchor text, Bios written as ads.
+  arc with the Leader/Intro/Body spine from `skill-site-content-about`. Contact = short
+  conversion page, Leader / snippet / body spine from `skill-site-content-contact`
+  (~300–500-word body). Also carries site-wide subsections: Buttons & CTAs, Phone numbers
+  (CallRail DNI), Site setup / `<head>`, Media naming & SEO, Internal linking & anchor
+  text, Bios written as ads.
 - `asset-list.md` — required-inputs checklist: typography roles, color tokens, logos,
   favicon set, author/team/Gravatar images, per-slot images/icons/embeds, content data
-  (Home + About).
+  (Home + About + Contact).
 
 All files cross-reference by **section slug** — Home: `header … footer`; About:
-`about-header … about-footer`.
+`about-header … about-footer`; Contact: `contact-header … contact-footer`.
 
 The intended build flow: pick this template → external files (brand style guide, sitemap,
 content brief) reference `instructions.md` for what to produce and `asset-list.md` for
@@ -142,8 +150,8 @@ HTML in the repo instead. Revisit porting to Figma if the plan is upgraded.
 
 - [ ] Decide whether the wireframe stays in `_temp/` or moves to a permanent location in
       the folder.
-- [ ] Additional page-type wireframes (services, service detail, locations, contact, team,
-      blog) — build per style as sitemaps require them. The About page's potential-links
-      table names the first candidates.
+- [ ] Additional page-type wireframes (services, service detail, locations, team, blog) —
+      build per style as sitemaps require them. The About page's potential-links table
+      names the first candidates. (Home, About, and Contact are done.)
 - [ ] Gravatar headshot display size on the About page — sensible default specced
       (800×800 source, ~96–120px round); owner to confirm on mockup review.
