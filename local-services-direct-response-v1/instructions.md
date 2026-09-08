@@ -255,6 +255,14 @@ bio elsewhere) are **benefit-led mini-sales-copy, not résumés.**
 - Written in the same friendly, plain first- or third-person voice as the rest of the
   site.
 - Every bio has a real, recent headshot (see `asset-list.md` §3 — Author / team images).
+- **Fallback avatar:** where a bio or byline genuinely has no personal headshot available,
+  use the **brand logo mark as the avatar** instead — supplied as a light-scheme and a
+  dark-scheme variant so it reads correctly on either background. A logo avatar is a
+  fallback, never the default; a real photo of the person always wins.
+- The **email registered to the Gravatar** for each person is the business's **citation
+  email** (the same address used in the footer NAP block / local citations), not a
+  personal or ad-hoc address — keeps the Gravatar tied to a consistent, business-managed
+  identity.
 
 ## Site setup / `<head>`
 

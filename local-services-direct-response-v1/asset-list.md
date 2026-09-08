@@ -117,7 +117,8 @@ ads".
 | Team / author headshot — **source** | WebP + JPG fallback | **800×800** square | One per person. Master file; all display sizes are downscales of this. |
 | — display: About / team bio | (from source) | rendered ~96–120px round | `about-team` and `guide` bio cards. CSS crops to a circle — keep the face centered with headroom so the circle mask doesn't clip it. |
 | — display: inline byline (future `/blog`, `/team`) | (from source) | rendered ~40–48px round | Small avatar beside an author name. |
-| Gravatar upload | JPG or PNG (Gravatar also takes GIF) | **≥ 512×512** square (upload the 800×800 source) | Register each author's headshot to their **email address** at gravatar.com so it resolves anywhere that pulls Gravatars (comment systems, some schema consumers, dev tools). Same image as the on-site headshot for consistency. |
+| Gravatar upload | JPG or PNG (Gravatar also takes GIF) | **≥ 512×512** square (upload the 800×800 source) | Register each author's headshot to the business's **citation email** (the footer NAP address, not a personal one) at gravatar.com so it resolves anywhere that pulls Gravatars (comment systems, some schema consumers, dev tools). Same image as the on-site headshot for consistency. |
+| Fallback avatar — brand logo | SVG + PNG | logo mark, rendered at the same sizes above | Used **only** where a person has no real headshot. Supply a **light-scheme** and a **dark-scheme** variant of the logo mark so it reads on either background. A real photo always wins; this is a fallback, never a default. |
 
 **Shoot / treatment:** consistent framing, lighting, and background across every person
 (same crop ratio, same eye-line, same backdrop). Recent — not a 10-year-old photo.
