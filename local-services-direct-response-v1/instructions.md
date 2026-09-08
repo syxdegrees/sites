@@ -199,6 +199,32 @@ today?", "Not sure which service you need?" — followed by the button. This is 
 question-variant option used for page titles and meta descriptions. The **button label
 stays a plain action** ("Get My Quote"); only the setup line becomes the question.
 
+### Sticky mobile banner bar
+
+A persistent conversion bar **fixed to the bottom of the viewport on mobile only** —
+hidden on desktop, where the sticky header CTA already covers it. Always present on every
+page (same always-on status as the persistent header CTA).
+
+**Contents:** two buttons side by side —
+- a **Kind 1 click-to-call button** — label = CTA + tracking number, `tel:` / `sms:`
+  enabled (e.g. `<a href="tel:8665562570">Call us at 866-556-2570</a>`), and
+- a **Kind 2 webform-link button** — links to the estimate / contact form.
+
+Both follow the "Buttons & CTAs" rules above (contrasting color so the bar stands out
+against page content; button text = the specific action). The bar's own label/headline
+copy, where it has any beyond the two buttons, is **ad-optimized**, carries the focus
+keyword, and defaults to the `[keyword] [location]` phrasing (e.g. "Web Design Santa
+Barbara") — with the same optional **question variant** ("Need web design in Santa
+Barbara?") and **bracket variant** ("Best Web Design [2026]") available, and optional
+end-of-copy inclusions (CTA, related-offer keywords like "5-Star Google", "24-Hour",
+"No Callout Fees") — identical to the title / meta-description / CTA-setup-line variant
+options.
+
+**Interaction with the cookie-consent banner** (also a bottom-docked mobile element):
+the **cookie-consent banner takes the bottom position first** on a visitor's first
+visit; the sticky banner bar sits above it, or activates once consent has been
+dismissed. The two must never overlap or obscure each other.
+
 ## Phone numbers
 
 - **Every displayed phone number is a link** — `<a href="tel:…">` (and `<a href="sms:…">`
