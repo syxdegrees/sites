@@ -192,6 +192,13 @@ all secondary CTAs)
   Consultation", "Get My Quote", "See How It Works". It should set the expectation for
   the page on the other side.
 
+**Question variant (for the line/headline that sits *above* a CTA, not the button label
+itself).** The framing copy leading into a CTA band or button can be phrased as a
+question the visitor is already asking — "Ready to get started?", "Need it handled
+today?", "Not sure which service you need?" — followed by the button. This is the same
+question-variant option used for page titles and meta descriptions. The **button label
+stays a plain action** ("Get My Quote"); only the setup line becomes the question.
+
 ## Phone numbers
 
 - **Every displayed phone number is a link** — `<a href="tel:…">` (and `<a href="sms:…">`
